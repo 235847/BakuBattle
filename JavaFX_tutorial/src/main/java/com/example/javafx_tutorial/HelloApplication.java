@@ -11,8 +11,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class HelloApplication extends Application implements EventHandler<ActionEvent> {
 
+    Button button;
 
     /**
      * @description Main method that launches our application.
@@ -30,17 +31,30 @@ public class HelloApplication extends Application {
      * @method layout.getChildren.add() - StackPane is one of many others layouts that basically sets object in certain way by using the following method.
      * @method stage.setScene() - decides what scene is used on the stage.
      * @method stage.show() - prints our stage.
-     * @method
+     * @method button.setOnAction() - sets an action on the object.
      */
     @Override
     public void start(Stage stage) throws IOException {
         stage.setTitle("Title");
-        Button button = new Button();
+        button = new Button();
         button.setText("Something");
+        button.setOnAction(this);
         StackPane layout = new StackPane();
         layout.getChildren().add(button);
         Scene scene = new Scene(layout,300,250);
         stage.setScene(scene);
         stage.show();
+    }
+
+    /**
+     * @description Whenever object of this class is called for action, this method responds and handle the action.
+     * @param actionEvent - action that has been passed.
+     * @method actionEvent.getSource() - gets source of the event.
+     */
+    @Override
+    public void handle(ActionEvent actionEvent) {
+        if(actionEvent.getSource() == button){
+            System.out.println("Success");
+        }
     }
 }
