@@ -50,11 +50,12 @@ public class HelloApplication extends Application implements EventHandler<Action
      * @description Whenever object of this class is called for action, this method responds and handle the action.
      * @param actionEvent - action that has been passed.
      * @method actionEvent.getSource() - gets source of the event.
+     * @method AlertBox.display() - launching AlertBox.
      */
     @Override
     public void handle(ActionEvent actionEvent) {
         if(actionEvent.getSource() == button){
-            System.out.println("Success");
+            AlertBox.display("test", "it works");
         }
     }
 }
