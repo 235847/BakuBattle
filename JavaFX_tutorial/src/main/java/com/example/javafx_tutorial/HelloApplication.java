@@ -36,6 +36,7 @@ public class HelloApplication extends Application implements EventHandler<Action
     @Override
     public void start(Stage stage) throws IOException {
         stage.setTitle("Title");
+        properClosing(stage);
         button = new Button();
         button.setText("Something");
         button.setOnAction(this);
@@ -59,5 +60,19 @@ public class HelloApplication extends Application implements EventHandler<Action
             System.out.println(ConfirmBox.display("test", "Does it work?"));
             AlertBox.display("test", "it works");
         }
+    }
+
+    /**
+     * @description That is a proper closing method.
+     * @param stage - window of the application.
+     * @method windowEvent.consume() - pretty much "Thanks Java, I will take it from here and handle that action".
+     */
+    private void properClosing(Stage stage){
+        stage.setOnCloseRequest(windowEvent -> {
+            windowEvent.consume();
+            if(ConfirmBox.display("title", "Sure you want to leave?")){
+                stage.close();
+            }
+        });
     }
 }
