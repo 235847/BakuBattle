@@ -36,7 +36,6 @@ public class SwitchScenes extends Application{
      * @method stage.setScene() - decides what scene is used on the stage.
      * @method stage.show() - prints our stage.
      * @method button.setOnAction() - sets an action on the object.
-     * @
      */
     @Override
     public void start(Stage stage) throws Exception {

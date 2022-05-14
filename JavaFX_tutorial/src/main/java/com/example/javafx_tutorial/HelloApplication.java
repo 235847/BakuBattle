@@ -51,10 +51,12 @@ public class HelloApplication extends Application implements EventHandler<Action
      * @param actionEvent - action that has been passed.
      * @method actionEvent.getSource() - gets source of the event.
      * @method AlertBox.display() - launching AlertBox.
+     * @method Confirmation.display() - launching ConfirmBox.
      */
     @Override
     public void handle(ActionEvent actionEvent) {
         if(actionEvent.getSource() == button){
+            System.out.println(ConfirmBox.display("test", "Does it work?"));
             AlertBox.display("test", "it works");
         }
     }
