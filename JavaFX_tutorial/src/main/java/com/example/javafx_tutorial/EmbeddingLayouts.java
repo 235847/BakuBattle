@@ -10,10 +10,26 @@ import javafx.stage.Stage;
 
 public class EmbeddingLayouts extends Application {
 
+    /**
+     * @description Main method that launches our application.
+     * @param args - specified input.
+     * @method launch() - launches the application
+     */
     public static void main(String[] args) {
         launch(args);
     }
 
+    /**
+     * @description Called by launch from Application supreme class.
+     * @param stage - window of the application.
+     * @throws Exception - exception.
+     * @method stage.setTitle() - sets tittle of the stage.
+     * @method windowEvent.consume() - pretty much "Thanks Java, I will take it from here and handle that event".
+     * @method top_menu.getChildren().addAll() - adding objects to the HBox.
+     * @method left_menu.getChildren().addAll() - adding objects to the VBox.
+     * @method borderPane.setTop() - setting "top" of the BorderPane.
+     * @method borderPane.setLeft() - setting "left" of the BorderPane.
+     */
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("Test");

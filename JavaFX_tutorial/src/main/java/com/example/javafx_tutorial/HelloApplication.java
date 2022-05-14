@@ -65,7 +65,7 @@ public class HelloApplication extends Application implements EventHandler<Action
     /**
      * @description That is a proper closing method.
      * @param stage - window of the application.
-     * @method windowEvent.consume() - pretty much "Thanks Java, I will take it from here and handle that action".
+     * @method windowEvent.consume() - pretty much "Thanks Java, I will take it from here and handle that event".
      */
     private void properClosing(Stage stage){
         stage.setOnCloseRequest(windowEvent -> {

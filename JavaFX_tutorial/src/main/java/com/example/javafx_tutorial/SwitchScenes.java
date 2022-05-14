@@ -31,8 +31,8 @@ public class SwitchScenes extends Application{
      * @param stage - window of the application.
      * @throws IOException - exception.
      * @method stage.setTitle() - sets tittle of the stage.
-     * @method button.setText() - sets String inside button.
-     * @method layout.getChildren.add() - StackPane is one of many others layouts that basically sets object in certain way by using the following method.
+     * @method layout2.getChildren.addAll() - StackPane is one of many others layouts that basically sets object in certain way by using the following method.
+     * @method layout1.getChildren.addAll() - this method adds numerous object to the Vbox in this case.
      * @method stage.setScene() - decides what scene is used on the stage.
      * @method stage.show() - prints our stage.
      * @method button.setOnAction() - sets an action on the object.
@@ -40,6 +40,8 @@ public class SwitchScenes extends Application{
     @Override
     public void start(Stage stage) throws Exception {
         window = stage;
+        window.setTitle("Test");
+
         Label label1 = new Label("First Scene");
         Button button1 = new Button("Go to scene2");
         button1.setOnAction(actionEvent -> window.setScene(scene2));
@@ -54,7 +56,6 @@ public class SwitchScenes extends Application{
         scene2 = new Scene(layout2, 300, 250);
 
         window.setScene(scene1);
-        window.setTitle("Test");
         window.show();
     }
 }
