@@ -21,6 +21,7 @@ public class PracticeChoiceBox extends Application {
      * @method box.getItems().add() - adding a string to our ChoiceBox<String>.
      * @method box.setValue() - setting default value.
      * @method box.getValue() - getting checked value that in our case is String from ChoiceBox<String>.
+     * @method box.getSelectionModel().selectedItemProperty().addListener((v,oldValue,newValue) -> System.out.println(newValue)) - generally that transforms our ChoiceBox by action to ChoiceBox by listening.
      */
     @Override
     public void start(Stage stage) throws Exception {
@@ -29,6 +30,7 @@ public class PracticeChoiceBox extends Application {
         box.getItems().add("Apples");
         box.getItems().addAll("Bacon", "Ham", "Bananas");
         box.setValue("Bananas");
+        box.getSelectionModel().selectedItemProperty().addListener((v,oldValue,newValue) -> System.out.println(newValue));
         Button button = new Button("Buy");
         button.setOnAction(actionEvent -> {
             System.out.println(box.getValue());
