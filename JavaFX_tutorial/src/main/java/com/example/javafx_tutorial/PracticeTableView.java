@@ -3,10 +3,14 @@ package com.example.javafx_tutorial;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -48,8 +52,42 @@ public class PracticeTableView extends Application {
         table.getColumns().add(price);
         table.getColumns().add(quantity);
 
+        TextField name_input = new TextField();
+        name_input.setPromptText("Name");
+        name_input.setMinWidth(100);
+
+        TextField price_input = new TextField();
+        price_input.setPromptText("Price");
+
+        TextField quantity_input = new TextField();
+        quantity_input.setPromptText("Quantity");
+
+        Button add = new Button("Add");
+        add.setOnAction(actionEvent -> {
+            Product product = new Product();
+            product.setName(name_input.getText());
+            product.setPrice(Double.parseDouble(price_input.getText()));
+            product.setQuantity(Integer.parseInt(quantity_input.getText()));
+            table.getItems().add(product);
+            name_input.clear();
+            price_input.clear();
+            quantity_input.clear();
+        });
+        Button delete = new Button("Delete");
+        delete.setOnAction(actionEvent -> {
+            ObservableList<Product> all_products, selected_product;
+            all_products = table.getItems();
+            selected_product = table.getSelectionModel().getSelectedItems();
+            selected_product.forEach(all_products::remove);
+        });
+
+        HBox hBox = new HBox();
+        hBox.setPadding(new Insets(10));
+        hBox.setSpacing(10);
+        hBox.getChildren().addAll(name_input,price_input,quantity_input,add,delete);
+
         VBox layout = new VBox();
-        layout.getChildren().add(table);
+        layout.getChildren().addAll(table, hBox);
         scene = new Scene(layout);
         window.setScene(scene);
         window.show();
