@@ -58,10 +58,15 @@ public class LogWindow extends Application {
 
         Button log = new Button("Log in");
         GridPane.setConstraints(log, 1 ,2);
+//        That also does not work
+//        log.setStyle("-fx-background-color: #383838");
+//        log.setStyle("-fx-border-radius: 4");
 
         grid.getChildren().addAll(username,login,password,pass,log);
 
         Scene scene = new Scene(grid,300,200);
+        //That should add css but it doesn't work beacuse of the location.
+        //scene.getStylesheets().add("D:\\studia\\2 rok\\Komunikacja człowiek-komputer\\BakuBattle\\BakuBattle\\JavaFX_tutorial\\src\\main\\java\\com\\example\\javafx_tutorial\\Viper.css");
         window.setScene(scene);
         window.show();
     }
