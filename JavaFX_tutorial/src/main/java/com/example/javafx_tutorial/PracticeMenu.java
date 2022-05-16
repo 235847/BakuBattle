@@ -23,6 +23,7 @@ public class PracticeMenu extends Application {
      * @method menuBar.getMenus().addAll() - setting defined Menu's into MenuBar.
      * @method paste.setDisable(true) - unable MenuItem.
      * @method editMenu.getItems().add(new SeparatorMenuItem()) - adds separator.
+     * @method easy.setToggleGroup(difficultyToggle) - add RadioMenuItem into ToggleGroup that allows you to switch your check.
      */
     @Override
     public void start(Stage stage) throws Exception {
@@ -56,8 +57,18 @@ public class PracticeMenu extends Application {
         feedback.setSelected(true);
         helpMenu.getItems().addAll(update,feedback);
 
+        Menu diff = new Menu("Difficulty");
+        ToggleGroup difficultyToggle = new ToggleGroup();
+        RadioMenuItem easy = new RadioMenuItem("easy");
+        RadioMenuItem medium = new RadioMenuItem("medium");
+        RadioMenuItem hard = new RadioMenuItem("hard");
+        easy.setToggleGroup(difficultyToggle);
+        medium.setToggleGroup(difficultyToggle);
+        hard.setToggleGroup(difficultyToggle);
+        diff.getItems().addAll(easy, medium, hard);
+
         MenuBar menuBar = new MenuBar();
-        menuBar.getMenus().addAll(fileMenu,editMenu,helpMenu);
+        menuBar.getMenus().addAll(fileMenu,editMenu,helpMenu,diff);
 
         layout = new BorderPane();
         layout.setTop(menuBar);
