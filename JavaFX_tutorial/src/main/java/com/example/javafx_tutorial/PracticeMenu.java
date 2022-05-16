@@ -2,10 +2,7 @@ package com.example.javafx_tutorial;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -45,8 +42,22 @@ public class PracticeMenu extends Application {
         paste.setDisable(true);
         editMenu.getItems().add(paste);
 
+        Menu helpMenu =  new Menu("Help");
+        CheckMenuItem update =  new CheckMenuItem("Check for updates...");
+        update.setOnAction(actionEvent -> {
+            if(update.isSelected()){
+                System.out.println("Checking...");
+            }
+            else{
+                System.out.println("Checked");
+            }
+        });
+        CheckMenuItem feedback =  new CheckMenuItem("Submit Feedback...");
+        feedback.setSelected(true);
+        helpMenu.getItems().addAll(update,feedback);
+
         MenuBar menuBar = new MenuBar();
-        menuBar.getMenus().addAll(fileMenu,editMenu);
+        menuBar.getMenus().addAll(fileMenu,editMenu,helpMenu);
 
         layout = new BorderPane();
         layout.setTop(menuBar);
