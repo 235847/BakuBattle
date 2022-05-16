@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -23,6 +24,8 @@ public class PracticeMenu extends Application {
      * @throws Exception - exception.
      * @method fileMenu.getItems().add(new MenuItem()) - this method adds MenuItem into dropdown Menu.
      * @method menuBar.getMenus().addAll() - setting defined Menu's into MenuBar.
+     * @method paste.setDisable(true) - unable MenuItem.
+     * @method editMenu.getItems().add(new SeparatorMenuItem()) - adds separator.
      */
     @Override
     public void start(Stage stage) throws Exception {
@@ -31,9 +34,19 @@ public class PracticeMenu extends Application {
 
         Menu fileMenu =  new Menu("File");
         fileMenu.getItems().add(new MenuItem("New"));
+        fileMenu.getItems().add(new SeparatorMenuItem());
         fileMenu.getItems().add(new MenuItem("Open"));
+
+        Menu editMenu =  new Menu("Edit");
+        editMenu.getItems().add(new MenuItem("Copy"));
+        editMenu.getItems().add(new SeparatorMenuItem());
+        MenuItem paste = new MenuItem("Paste");
+        paste.setOnAction(actionEvent -> System.out.println("Pasted"));
+        paste.setDisable(true);
+        editMenu.getItems().add(paste);
+
         MenuBar menuBar = new MenuBar();
-        menuBar.getMenus().addAll(fileMenu);
+        menuBar.getMenus().addAll(fileMenu,editMenu);
 
         layout = new BorderPane();
         layout.setTop(menuBar);
