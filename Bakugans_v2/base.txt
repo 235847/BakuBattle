@@ -1,0 +1,24 @@
+Aquos: 
+
+INSERT INTO `bakugany`(`bakuID`,`name`, `hp`, `xp`, `transferSingle`, `transferSingleName`, `transferArea`, `transferAreaName`, `attackSingle`, `attackSingleName`, `attackArea`, `attackAreaName`, `hpBoostv1`, `hpBoostv1Name`, `hpBoostv2`, `hpBoostv2Name`, `blockHealFriend`, `blockHealFriendName`, `blockHealTeam`, `blockHealTeamName`) 
+VALUES (6,'Gillator', 1400, 0.3, 300, 'Strumień Strachu', 200, 'Agenda Wiru', 700, 'Metalowy Gniew', 500, 'Mina Aquosa', 400, 'Cyklon Głębin', 700, 'Inpuls Nacisku', 200, 'Wodny Bunkier', 400, 'Osłona cyklonu').
+
+Darkus: 
+
+INSERT INTO `bakugany`(`bakuID`,`name`, `hp`, `xp`, `transferSingle`, `transferSingleName`, `transferArea`, `transferAreaName`, `attackSingle`, `attackSingleName`, `attackArea`, `attackAreaName`, `hpBoostv1`, `hpBoostv1Name`, `hpBoostv2`, `hpBoostv2Name`, `blockHealFriend`, `blockHealFriendName`, `blockHealTeam`, `blockHealTeamName`) 
+VALUES (7,'Dragonoid', 1800, 0.3, 400, 'Czarownik Mocy', 700, 'Ostatni Czarownik', 500, 'Młot Mgławicy', 300, 'Czarodziej Grawitonu', 600, 'Potęga Darkusa', 300, 'Anarchia Ciemności', 100, 'Zwątpienie', 100, 'Zasłona Mroku')
+
+INSERT INTO `bakugany`(`bakuID`,`name`, `hp`, `xp`, `transferSingle`, `transferSingleName`, `transferArea`, `transferAreaName`, `attackSingle`, `attackSingleName`, `attackArea`, `attackAreaName`, `hpBoostv1`, `hpBoostv1Name`, `hpBoostv2`, `hpBoostv2Name`, `blockHealFriend`, `blockHealFriendName`, `blockHealTeam`, `blockHealTeamName`) 
+VALUES (8,'Gillator', 1500, 0.28, 400, 'Strumień Strachu', 300, 'Agenda Wiru', 700, 'Metalowy Gniew', 500, 'Mina Darkusa', 400, 'Cyklon Głębin', 500, 'Inpuls Nacisku', 300, 'Mroczny Bunkier', 200, 'Osłona Ciemności')
+
+INSERT INTO `bakugany`(`bakuID`,`name`, `hp`, `xp`, `transferSingle`, `transferSingleName`, `transferArea`, `transferAreaName`, `attackSingle`, `attackSingleName`, `attackArea`, `attackAreaName`, `hpBoostv1`, `hpBoostv1Name`, `hpBoostv2`, `hpBoostv2Name`, `blockHealFriend`, `blockHealFriendName`, `blockHealTeam`, `blockHealTeamName`) 
+VALUES (9,'Howlkor', 1300, 0.24, 400, 'Krzyk Kwazaru', 200, 'Miotacz', 700, 'Kwazar Zniszczenia', 300, 'Działo Ragnaroka', -2, 'Farbas Nieskończoności', 200, 'Wielki Wojownik', 100, 'Miotacz 2.0', 300, 'Blok Ostrzału')
+
+INSERT INTO `bakugany`(`bakuID`,`name`, `hp`, `xp`, `transferSingle`, `transferSingleName`, `transferArea`, `transferAreaName`, `attackSingle`, `attackSingleName`, `attackArea`, `attackAreaName`, `hpBoostv1`, `hpBoostv1Name`, `hpBoostv2`, `hpBoostv2Name`, `blockHealFriend`, `blockHealFriendName`, `blockHealTeam`, `blockHealTeamName`) 
+VALUES (10,'Nillious', 1700, 0.21, 700, 'Zament Darkusa', 300, 'Poziom Zero', 300, 'Wyssanie Mocy', 400, 'Promień Mocy', 500, 'Cisza Grozy', 600, 'Burza Darkusa', 100, 'Cichy Mrok', 200, 'Tarcza Kosmosu')
+
+INSERT INTO `bakugany`(`bakuID`,`name`, `hp`, `xp`, `transferSingle`, `transferSingleName`, `transferArea`, `transferAreaName`, `attackSingle`, `attackSingleName`, `attackArea`, `attackAreaName`, `hpBoostv1`, `hpBoostv1Name`, `hpBoostv2`, `hpBoostv2Name`, `blockHealFriend`, `blockHealFriendName`, `blockHealTeam`, `blockHealTeamName`) 
+VALUES (11,'Sairus', 1400, 0.16, 600, 'Atak Światła Chaosu', 400, 'Trójząb Zniszczenia', 300, 'Siła Zniszczenia', -2, 'Trójząb Żaru', 400, 'Ekstremalny Błysk', 300, 'Trójząb Zagłady', 300, 'Koszmar Indygo', 100, 'Mroczna Blokada')
+
+INSERT INTO `bakugany`(`bakuID`,`name`, `hp`, `xp`, `transferSingle`, `transferSingleName`, `transferArea`, `transferAreaName`, `attackSingle`, `attackSingleName`, `attackArea`, `attackAreaName`, `hpBoostv1`, `hpBoostv1Name`, `hpBoostv2`, `hpBoostv2Name`, `blockHealFriend`, `blockHealFriendName`, `blockHealTeam`, `blockHealTeamName`) 
+VALUES (12,'Viloch', 1800, 0.32, 200, 'Fala Exodusu', 300, 'Podmuch Zła', 800, 'Szczytowa Fala', 600, 'Otchłań Ciemności', 800, 'Sonda Ognia', 400, 'Błysk Ciemności', 100, 'Osłona Ciemności', 100, 'Mroczny Jeździec')
