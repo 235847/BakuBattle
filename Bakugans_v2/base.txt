@@ -22,3 +22,39 @@ VALUES (11,'Sairus', 1400, 0.16, 600, 'Atak Światła Chaosu', 400, 'Trójząb Z
 
 INSERT INTO `bakugany`(`bakuID`,`name`, `hp`, `xp`, `transferSingle`, `transferSingleName`, `transferArea`, `transferAreaName`, `attackSingle`, `attackSingleName`, `attackArea`, `attackAreaName`, `hpBoostv1`, `hpBoostv1Name`, `hpBoostv2`, `hpBoostv2Name`, `blockHealFriend`, `blockHealFriendName`, `blockHealTeam`, `blockHealTeamName`) 
 VALUES (12,'Viloch', 1800, 0.32, 200, 'Fala Exodusu', 300, 'Podmuch Zła', 800, 'Szczytowa Fala', 600, 'Otchłań Ciemności', 800, 'Sonda Ognia', 400, 'Błysk Ciemności', 100, 'Osłona Ciemności', 100, 'Mroczny Jeździec')
+
+INSERT INTO `bakugany`(`bakuID`,`name`, `hp`, `xp`, `transferSingle`, `transferSingleName`, `transferArea`, `transferAreaName`, `attackSingle`, `attackSingleName`, `attackArea`, `attackAreaName`, `hpBoostv1`, `hpBoostv1Name`, `hpBoostv2`, `hpBoostv2Name`, `blockHealFriend`, `blockHealFriendName`, `blockHealTeam`, `blockHealTeamName`) 
+VALUES (13,'Hydranoid', 1300, 0.23, 300, 'Szaleństwo Mirażu', 200, 'Duo Komandos', 500, 'Dysza Mirażu', 200, 'Cios Aurory', 600, 'Złudzenie', 400, 'Aleja Pięści', 400, 'Pięść Valkyrii', 400, 'Światło Wsparcia')
+
+INSERT INTO `bakugany`(`bakuID`,`name`, `hp`, `xp`, `transferSingle`, `transferSingleName`, `transferArea`, `transferAreaName`, `attackSingle`, `attackSingleName`, `attackArea`, `attackAreaName`, `hpBoostv1`, `hpBoostv1Name`, `hpBoostv2`, `hpBoostv2Name`, `blockHealFriend`, `blockHealFriendName`, `blockHealTeam`, `blockHealTeamName`) 
+VALUES (14,'Mantonoid', 1200, 0.28, 500, 'Magiczny Maniatus', 400, 'Pierścienie Magii', 200, 'Klatka Duchów', -2, 'Kosa Haosu', 200, 'Bariera Moczarów', 400, 'Wymiar Aurory', 100, 'Ryk Mocy Haosu', 300, 'Łzy Haosu')
+
+INSERT INTO `bakugany`(`bakuID`,`name`, `hp`, `xp`, `transferSingle`, `transferSingleName`, `transferArea`, `transferAreaName`, `attackSingle`, `attackSingleName`, `attackArea`, `attackAreaName`, `hpBoostv1`, `hpBoostv1Name`, `hpBoostv2`, `hpBoostv2Name`, `blockHealFriend`, `blockHealFriendName`, `blockHealTeam`, `blockHealTeamName`) 
+VALUES (15,'Mutasect', 1500, 0.16, 500, 'Miecz Arkadii', 300, 'Kieł Mocy', 500, 'Spiralne Ostrze', 200, 'Złudzenie Ostrza', 200, 'Skowyt Wilka', 400, 'Kieł Skolla', 200, 'Wierzchołek Błysku', 100, 'Tarcza Garma')
+
+INSERT INTO `bakugany`(`bakuID`,`name`, `hp`, `xp`, `transferSingle`, `transferSingleName`, `transferArea`, `transferAreaName`, `attackSingle`, `attackSingleName`, `attackArea`, `attackAreaName`, `hpBoostv1`, `hpBoostv1Name`, `hpBoostv2`, `hpBoostv2Name`, `blockHealFriend`, `blockHealFriendName`, `blockHealTeam`, `blockHealTeamName`) 
+VALUES (16,'Nobilious', 1800, 0.25, 200, 'Spirala Hyentu', 200, 'Wichrowa Burza', 600, 'Niebiański Podmuch', 100, 'Fala Światłości', 700, 'Zew Wolności', 300, 'Światłość', 500, 'Cyklon Jasności', 400, 'Podniebna Tarcza')
+
+INSERT INTO `bakugany`(`bakuID`,`name`, `hp`, `xp`, `transferSingle`, `transferSingleName`, `transferArea`, `transferAreaName`, `attackSingle`, `attackSingleName`, `attackArea`, `attackAreaName`, `hpBoostv1`, `hpBoostv1Name`, `hpBoostv2`, `hpBoostv2Name`, `blockHealFriend`, `blockHealFriendName`, `blockHealTeam`, `blockHealTeamName`) 
+VALUES (17,'Phaedrus', 1500, 0.31, 300, 'Prędkość Kła', 200, 'Elektryczny Kieł', 500, 'Błysk Szabli', 400, 'Metalowy Kieł', 300, 'Tornado Światła', 400, 'Hiper Prędkość Kła', 400, 'Oblicze Haosu', 400, 'Tarcza Błyskawic')
+
+INSERT INTO `bakugany`(`bakuID`,`name`, `hp`, `xp`, `transferSingle`, `transferSingleName`, `transferArea`, `transferAreaName`, `attackSingle`, `attackSingleName`, `attackArea`, `attackAreaName`, `hpBoostv1`, `hpBoostv1Name`, `hpBoostv2`, `hpBoostv2Name`, `blockHealFriend`, `blockHealFriendName`, `blockHealTeam`, `blockHealTeamName`) 
+VALUES (18,'Sairus', 1600, 0.22, 400, 'Flanka Goliata', 200, 'Armata Urazy', 600, 'Flanka Fausta', 200, 'Zmiana Torsena', 600, 'Wzmocnienie Haosu', 500, 'Anarchia', 100, 'Tarcza Mocy', 100, 'Promienie Pomocy')
+
+INSERT INTO `bakugany`(`bakuID`,`name`, `hp`, `xp`, `transferSingle`, `transferSingleName`, `transferArea`, `transferAreaName`, `attackSingle`, `attackSingleName`, `attackArea`, `attackAreaName`, `hpBoostv1`, `hpBoostv1Name`, `hpBoostv2`, `hpBoostv2Name`, `blockHealFriend`, `blockHealFriendName`, `blockHealTeam`, `blockHealTeamName`) 
+VALUES (19,'Dragonoid', 1700, 0.32, 400, 'Czarownik Mocy', 700, 'Ostatni Czarownik', 200, 'Młot Mgławicy', 300, 'Czarodziej Grawitonu', 600, 'Potęga Pyrusa', 100, 'Anarchia Płomieni', 0, 'Zwątpienie', 100, 'Zasłona Ognia')
+
+INSERT INTO `bakugany`(`bakuID`,`name`, `hp`, `xp`, `transferSingle`, `transferSingleName`, `transferArea`, `transferAreaName`, `attackSingle`, `attackSingleName`, `attackArea`, `attackAreaName`, `hpBoostv1`, `hpBoostv1Name`, `hpBoostv2`, `hpBoostv2Name`, `blockHealFriend`, `blockHealFriendName`, `blockHealTeam`, `blockHealTeamName`) 
+VALUES (20,'Fangzor', 1400, 0.24, 500, 'Maksymalny Pyrus', 500, 'Neo Value', 200, 'Redukcja Saiam', 200, 'Siła Rozproszenia', -2, 'Duma Węża', 600, 'Eksplozja Nieskończoności', 500, 'Maksymalna Rewolucja', 100, 'Węża Skóra')
+
+Garganoid 21 insert lack
+
+INSERT INTO `bakugany`(`bakuID`,`name`, `hp`, `xp`, `transferSingle`, `transferSingleName`, `transferArea`, `transferAreaName`, `attackSingle`, `attackSingleName`, `attackArea`, `attackAreaName`, `hpBoostv1`, `hpBoostv1Name`, `hpBoostv2`, `hpBoostv2Name`, `blockHealFriend`, `blockHealFriendName`, `blockHealTeam`, `blockHealTeamName`) 
+VALUES (22,'Serpenteze', 1600, 0.23, 300, 'Kieł Korundu', 500, 'Inwazja ', 500, 'Pole Złudzenia', 500, 'Rubinowy Zabójca', 400, 'Szkarłatna Tafla', 600, 'Czerwona Głębina', 100, 'Smocza Jaskinia', 200, 'Szkarłatna Obrona')
+
+INSERT INTO `bakugany`(`bakuID`,`name`, `hp`, `xp`, `transferSingle`, `transferSingleName`, `transferArea`, `transferAreaName`, `attackSingle`, `attackSingleName`, `attackArea`, `attackAreaName`, `hpBoostv1`, `hpBoostv1Name`, `hpBoostv2`, `hpBoostv2Name`, `blockHealFriend`, `blockHealFriendName`, `blockHealTeam`, `blockHealTeamName`) 
+VALUES (23,'Viperagon', 1400, 0.3, 200, 'Pojedynczy Smok', 100, 'Podwójny Smok', 500, 'Rdzeń Elementu', 300, 'Skuteczny Podział', 400, 'Płomienna Otchłań', 200, 'Smocza Pycha', 500, 'Wsparcie Pyrusa', 500, 'Osłona Pożogi')
+
+INSERT INTO `bakugany`(`bakuID`,`name`, `hp`, `xp`, `transferSingle`, `transferSingleName`, `transferArea`, `transferAreaName`, `attackSingle`, `attackSingleName`, `attackArea`, `attackAreaName`, `hpBoostv1`, `hpBoostv1Name`, `hpBoostv2`, `hpBoostv2Name`, `blockHealFriend`, `blockHealFriendName`, `blockHealTeam`, `blockHealTeamName`) 
+VALUES (24,'Hydranoid', 1600, 0.28, 300, 'Szaleństwo Mirażu', 400, 'Duo Komandos', 500, 'Dysza Mirażu', 200, 'Żarzący Cios', 300, 'Złudzenie', 400, 'Aleja Pięści', 200, 'Pięść Valkyrii', 400, 'Znak Wsparcia')
+
