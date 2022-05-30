@@ -10,8 +10,8 @@ import java.util.Scanner;
 public class InsertsIntoDatabase {
 
     private final static String QUERY_CREATE_TABLE = "CREATE TABLE bakubattle (" +
-            "bakuID int NOT NULL," +
-            "name varchar(100) NOT NULL" +
+            "bakuID int NOT NULL AUTO_INCREMENT," +
+            "name varchar(100) NOT NULL," +
             "hp int NOT NULL," +
             "xp double NOT NULL," +
             "transferSingle int NOT NULL," +
@@ -32,8 +32,8 @@ public class InsertsIntoDatabase {
             "blockHealTeamName varchar(100) NOT NULL," +
             "PRIMARY KEY (bakuID))";
 
-    private final static String QUERY_INSERT = "INSERT INTO bakugany (bakuID, name, hp, xp, transferSingle, transferSingleName, transferArea, transferAreaName, attackSingle, attackSingleName, attackArea, attackAreaName, hpBoostv1, hpBoostv1Name, hpBoostv2, hpBoostv2Name, blockHealFriend, blockHealFriendName, blockHealTeam, blockHealTeamName)"
-            + " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private final static String QUERY_INSERT = "INSERT INTO bakubattle (name, hp, xp, transferSingle, transferSingleName, transferArea, transferAreaName, attackSingle, attackSingleName, attackArea, attackAreaName, hpBoostv1, hpBoostv1Name, hpBoostv2, hpBoostv2Name, blockHealFriend, blockHealFriendName, blockHealTeam, blockHealTeamName)"
+            + " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     private static int separator_index_after;
 
@@ -58,7 +58,7 @@ public class InsertsIntoDatabase {
     public static void main(String[] args) {
         try{
             /*CREATE CONNECTION*/
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/bakugan","root","");     //establishing connection with database
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bakugan","root","");     //establishing connection with database
 
             /*CREATE TABLE*/
             PreparedStatement prepareStatement_for_creating = connection.prepareStatement(QUERY_CREATE_TABLE);
@@ -73,8 +73,7 @@ public class InsertsIntoDatabase {
                 String data = scanner.nextLine();
 
                 separator_index_after = data.indexOf('|');
-                String bakuID = data.substring(0,separator_index_after);
-                String name = extract(data);
+                String name = data.substring(0,separator_index_after);
                 String hp = extract(data);
                 String xp = extract(data);
                 String value1 = extract(data);
@@ -95,24 +94,23 @@ public class InsertsIntoDatabase {
                 String value8_name = data.substring(separator_index_after+1);
 
                 System.out.println(data+"\n");
-                System.out.println(bakuID+" "+name+" "+xp+" "+value1+" "+value1_name+" "+value2+" "+value2_name+" "+value3+" "+value3_name+" "+value4+" "+value4_name+" "+value5+" "+value5_name+" "+value6+" "+value6_name+" "+value7+" "+value7_name+" "+value8+" "+value8_name+"\n");
-                preparedStmt.setInt(1, Integer.parseInt(bakuID));
-                preparedStmt.setString(2, name);
-                preparedStmt.setInt(3, Integer.parseInt(hp));
-                preparedStmt.setDouble(4, Double.parseDouble(xp));
-                preparedStmt.setInt(5, Integer.parseInt(value1));
-                preparedStmt.setString(6, value1_name);
-                preparedStmt.setInt(7, Integer.parseInt(value2));
-                preparedStmt.setString(8, value2_name);
-                preparedStmt.setInt(9, Integer.parseInt(value3));
-                preparedStmt.setString(10, value3_name);
-                preparedStmt.setInt(11, Integer.parseInt(value4));
-                preparedStmt.setString(12, value4_name);
-                preparedStmt.setInt(13, Integer.parseInt(value5));
-                preparedStmt.setString(14, value5_name);
-                preparedStmt.setInt(15, Integer.parseInt(value6));
-                preparedStmt.setString(16, value6_name);
-                preparedStmt.setInt(17, Integer.parseInt(value7));
+                System.out.println(name+" "+xp+" "+value1+" "+value1_name+" "+value2+" "+value2_name+" "+value3+" "+value3_name+" "+value4+" "+value4_name+" "+value5+" "+value5_name+" "+value6+" "+value6_name+" "+value7+" "+value7_name+" "+value8+" "+value8_name+"\n");
+                preparedStmt.setString(1, name);
+                preparedStmt.setInt(2, Integer.parseInt(hp));
+                preparedStmt.setDouble(3, Double.parseDouble(xp));
+                preparedStmt.setInt(4, Integer.parseInt(value1));
+                preparedStmt.setString(5, value1_name);
+                preparedStmt.setInt(6, Integer.parseInt(value2));
+                preparedStmt.setString(7, value2_name);
+                preparedStmt.setInt(8, Integer.parseInt(value3));
+                preparedStmt.setString(9, value3_name);
+                preparedStmt.setInt(10, Integer.parseInt(value4));
+                preparedStmt.setString(11, value4_name);
+                preparedStmt.setInt(12, Integer.parseInt(value5));
+                preparedStmt.setString(13, value5_name);
+                preparedStmt.setInt(14, Integer.parseInt(value6));
+                preparedStmt.setString(15, value6_name);
+                preparedStmt.setInt(16, Integer.parseInt(value7));
                 preparedStmt.setString(17, value7_name);
                 preparedStmt.setInt(18, Integer.parseInt(value8));
                 preparedStmt.setString(19, value8_name);
