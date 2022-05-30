@@ -13,49 +13,13 @@ import java.util.ResourceBundle;
 
 public class ArenaController implements Initializable {
 
-    @FXML
-    private Label manaPlayer1;
-    @FXML
-    private Label hpPlayer1;
-    @FXML
-    private Label hpPlayer2;
-    @FXML
-    private Label manaPlayer2;
-    @FXML
-    private ImageView baku1;
-    @FXML
-    private AnchorPane bakuAndBut;
-
-    @FXML
-    private Button invisibleBut;
-    @FXML
-    private VBox vbox1;
-
-
-    private Player player1;
-    private Player player2;
-    private Deck deck;
-
-
+    private final static int ROUND_DAMAGE = 100;
+    private static int rounds_counter = 0;
+    private Team teamA = new Team();
+    private Team teamB = new Team();
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //invisibleBut.setVisible(false);
 
-        deck = new Deck();
-        deck.shuffleDeck();
-        player1 = new Player(deck.drawCard());
-        player2 = new Player(deck.drawCard());
-
-        manaPlayer1.setText(Integer.toString(player1.getCurrent_mana()));
-        hpPlayer1.setText(Integer.toString(player1.getHp()));
-        manaPlayer2.setText(Integer.toString(player2.getCurrent_mana()));
-        hpPlayer2.setText(Integer.toString(player2.getHp()));
-    }
-    @FXML
-    private void attackHero(){
-        //player2.setHp(player2.getHp()- player2.getPlayer_deck().get(0).getAttack());
-        player2.setHp(player2.getHp()- 6);
-        hpPlayer2.setText(Integer.toString(player2.getHp()));
     }
 }
