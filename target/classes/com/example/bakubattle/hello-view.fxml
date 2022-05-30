@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="anchor" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.ArenaController">
+   <children>
+      <Label fx:id="manaPlayer1" layoutX="1645.0" layoutY="901.0" text="XX" textFill="WHITE">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Label fx:id="hpPlayer1" layoutX="1808.0" layoutY="915.0" text="XX" textFill="WHITE">
+         <font>
+            <Font size="66.0" />
+         </font>
+      </Label>
+      <Label fx:id="manaPlayer2" layoutX="268.0" layoutY="143.0" text="XX" textFill="WHITE">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Label fx:id="hpPlayer2" layoutX="45.0" layoutY="75.0" text="XX" textFill="WHITE">
+         <font>
+            <Font size="66.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="bakuAndBut" layoutX="782.0" layoutY="575.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="baku1" fitHeight="388.0" fitWidth="409.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Card_prev.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="invisibleBut" layoutX="246.0" layoutY="270.0" mnemonicParsing="false" onAction="#attackHero" opacity="0.0" prefHeight="13.0" prefWidth="15.0" text="Button" textFill="TRANSPARENT" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
