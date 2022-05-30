@@ -51,13 +51,6 @@ public class ArenaController implements Initializable {
         hpPlayer1.setText(Integer.toString(player1.getHp()));
         manaPlayer2.setText(Integer.toString(player2.getCurrent_mana()));
         hpPlayer2.setText(Integer.toString(player2.getHp()));
-
-//        invisibleBut.setVisible(false);
-//        invisibleBut.setLayoutX(baku1.getLayoutX() + 247);
-//        invisibleBut.setLayoutY(baku1.getLayoutY() + 269);
-//        invisibleBut.layoutYProperty().bindBidirectional(baku1.layoutYProperty());
-//        invisibleBut.layoutXProperty().bindBidirectional(baku1.layoutXProperty());
-//        invisibleBut.layoutXProperty().bind(baku1.layoutXProperty().add(247));
     }
     @FXML
     private void attackHero(){
