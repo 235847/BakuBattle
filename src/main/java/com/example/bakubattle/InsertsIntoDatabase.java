@@ -9,32 +9,33 @@ import java.util.Scanner;
 
 public class InsertsIntoDatabase {
 
-    private final static String QUERY_CREATE_TABLE = "CREATE TABLE bakugany(" +
-            "  `bakuID` int(11) NOT NULL,\n" +
-            "  `name` varchar(100) COLLATE utf8mb4_polish_ci DEFAULT NULL,\n" +
-            "  `hp` int(11) DEFAULT NULL,\n" +
-            "  `xp` double DEFAULT NULL,\n" +
-            "  `transferSingle` int(11) DEFAULT NULL,\n" +
-            "  `transferSingleName` varchar(100) COLLATE utf8mb4_polish_ci DEFAULT NULL,\n" +
-            "  `transferArea` int(11) DEFAULT NULL,\n" +
-            "  `transferAreaName` varchar(100) COLLATE utf8mb4_polish_ci DEFAULT NULL,\n" +
-            "  `attackSingle` int(11) DEFAULT NULL,\n" +
-            "  `attackSingleName` varchar(100) COLLATE utf8mb4_polish_ci DEFAULT NULL,\n" +
-            "  `attackArea` int(11) DEFAULT NULL,\n" +
-            "  `attackAreaName` varchar(100) COLLATE utf8mb4_polish_ci DEFAULT NULL,\n" +
-            "  `hpBoostv1` int(11) DEFAULT NULL,\n" +
-            "  `hpBoostv1Name` varchar(100) COLLATE utf8mb4_polish_ci DEFAULT NULL,\n" +
-            "  `hpBoostv2` int(11) DEFAULT NULL,\n" +
-            "  `hpBoostv2Name` varchar(100) COLLATE utf8mb4_polish_ci DEFAULT NULL,\n" +
-            "  `blockHealFriend` int(11) DEFAULT NULL,\n" +
-            "  `blockHealFriendName` varchar(100) COLLATE utf8mb4_polish_ci DEFAULT NULL,\n" +
-            "  `blockHealTeam` int(11) DEFAULT NULL,\n" +
-            "  `blockHealTeamName` varchar(100) COLLATE utf8mb4_polish_ci DEFAULT NULL\n" +
-            ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;";
+    private final static String QUERY_CREATE_TABLE = "CREATE TABLE bakubattle (" +
+            "bakuID int NOT NULL," +
+            "name varchar(100) NOT NULL" +
+            "hp int NOT NULL," +
+            "xp double NOT NULL," +
+            "transferSingle int NOT NULL," +
+            "transferSingleName varchar(100) NOT NULL," +
+            "transferArea int NOT NULL," +
+            "transferAreaName varchar(100) NOT NULL," +
+            "attackSingle int NOT NULL," +
+            "attackSingleName varchar(100) NOT NULL," +
+            "attackArea int NOT NULL," +
+            "attackAreaName varchar(100) NOT NULL," +
+            "hpBoostv1 int NOT NULL," +
+            "hpBoostv1Name varchar(100) NOT NULL," +
+            "hpBoostv2 int NOT NULL," +
+            "hpBoostv2Name varchar(100) NOT NULL," +
+            "blockHealFriend int NOT NULL," +
+            "blockHealFriendName varchar(100) NOT NULL," +
+            "blockHealTeam int NOT NULL," +
+            "blockHealTeamName varchar(100) NOT NULL," +
+            "PRIMARY KEY (bakuID))";
 
-    private final static String QUERY_INSERT = " insert into bacard (bakuID, name, attack, hp, mana)"
-            + " values (?, ?, ?, ?, ?)";
+    private final static String QUERY_INSERT = "INSERT INTO bakugany (bakuID, name, hp, xp, transferSingle, transferSingleName, transferArea, transferAreaName, attackSingle, attackSingleName, attackArea, attackAreaName, hpBoostv1, hpBoostv1Name, hpBoostv2, hpBoostv2Name, blockHealFriend, blockHealFriendName, blockHealTeam, blockHealTeamName)"
+            + " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
+    private static int separator_index_after;
 
     /**
      * @description
@@ -68,29 +69,54 @@ public class InsertsIntoDatabase {
             PreparedStatement preparedStmt = connection.prepareStatement(QUERY_INSERT);
             File fp = new File("inserts");
             Scanner scanner = new Scanner(fp);
-            int i = 1;
-            int separator_index_before, separator_index_after;
             while(scanner.hasNextLine()){
                 String data = scanner.nextLine();
+
                 separator_index_after = data.indexOf('|');
-                String name = data.substring(0,separator_index_after);
-                separator_index_before = separator_index_after + 1;
-                separator_index_after = data.indexOf('|',separator_index_before);
-                String attack = data.substring(separator_index_before,separator_index_after);
-                separator_index_before = separator_index_after + 1;
-                separator_index_after = data.indexOf('|',separator_index_before);
-                String hp = data.substring(separator_index_before,separator_index_after);
-                separator_index_before = separator_index_after + 1;
-                String mana = data.substring(separator_index_before);
-//                System.out.println(data+"\n");
-                System.out.println(name+" "+Integer.parseInt(attack)+" "+Integer.parseInt(hp)+" "+Integer.parseInt(mana)+"\n");
-                preparedStmt.setInt(1, i);
+                String bakuID = data.substring(0,separator_index_after);
+                String name = extract(data);
+                String hp = extract(data);
+                String xp = extract(data);
+                String value1 = extract(data);
+                String value1_name = extract(data);
+                String value2 = extract(data);
+                String value2_name = extract(data);
+                String value3 = extract(data);
+                String value3_name = extract(data);
+                String value4 = extract(data);
+                String value4_name = extract(data);
+                String value5 = extract(data);
+                String value5_name = extract(data);
+                String value6 = extract(data);
+                String value6_name = extract(data);
+                String value7 = extract(data);
+                String value7_name = extract(data);
+                String value8 = extract(data);
+                String value8_name = data.substring(separator_index_after+1);
+
+                System.out.println(data+"\n");
+                System.out.println(bakuID+" "+name+" "+xp+" "+value1+" "+value1_name+" "+value2+" "+value2_name+" "+value3+" "+value3_name+" "+value4+" "+value4_name+" "+value5+" "+value5_name+" "+value6+" "+value6_name+" "+value7+" "+value7_name+" "+value8+" "+value8_name+"\n");
+                preparedStmt.setInt(1, Integer.parseInt(bakuID));
                 preparedStmt.setString(2, name);
-                preparedStmt.setInt(3,Integer.parseInt(attack));
-                preparedStmt.setInt(4,Integer.parseInt(hp));
-                preparedStmt.setInt(5,Integer.parseInt(mana));
+                preparedStmt.setInt(3, Integer.parseInt(hp));
+                preparedStmt.setDouble(4, Double.parseDouble(xp));
+                preparedStmt.setInt(5, Integer.parseInt(value1));
+                preparedStmt.setString(6, value1_name);
+                preparedStmt.setInt(7, Integer.parseInt(value2));
+                preparedStmt.setString(8, value2_name);
+                preparedStmt.setInt(9, Integer.parseInt(value3));
+                preparedStmt.setString(10, value3_name);
+                preparedStmt.setInt(11, Integer.parseInt(value4));
+                preparedStmt.setString(12, value4_name);
+                preparedStmt.setInt(13, Integer.parseInt(value5));
+                preparedStmt.setString(14, value5_name);
+                preparedStmt.setInt(15, Integer.parseInt(value6));
+                preparedStmt.setString(16, value6_name);
+                preparedStmt.setInt(17, Integer.parseInt(value7));
+                preparedStmt.setString(17, value7_name);
+                preparedStmt.setInt(18, Integer.parseInt(value8));
+                preparedStmt.setString(19, value8_name);
                 preparedStmt.execute();
-                i++;
             }
             scanner.close();
             preparedStmt.close();
@@ -101,6 +127,13 @@ public class InsertsIntoDatabase {
             e.printStackTrace();
             System.out.println("Error: writing into database");
         }
+    }
+
+
+    private static String extract(String data){
+        int separator_index_before = separator_index_after+1;
+        separator_index_after = data.indexOf('|',separator_index_before);
+        return data.substring(separator_index_before,separator_index_after);
     }
 }
 

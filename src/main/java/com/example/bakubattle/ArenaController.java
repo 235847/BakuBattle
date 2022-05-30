@@ -31,8 +31,6 @@ public class ArenaController implements Initializable {
     @FXML
     private VBox vbox1;
 
-    DraggableMaker draggableMaker = new DraggableMaker();
-
 
     private Player player1;
     private Player player2;
@@ -43,8 +41,6 @@ public class ArenaController implements Initializable {
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //invisibleBut.setVisible(false);
-
-        draggableMaker.makeDraggable(bakuAndBut);
 
         deck = new Deck();
         deck.shuffleDeck();
