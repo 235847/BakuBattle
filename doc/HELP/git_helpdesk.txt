@@ -1,0 +1,22 @@
+git init - to polecenie zamienia aktualny katalog w repozytorium Gita.
+git clone <link> - robiąc lokalną kopię repozytorium zdalnego.
+git status - sprawdzenie w jakim stanie znajdują się pliki (widać, które zostały zmienione, które zostały dodane do stage’a, które zostały usunięte).
+git add <nazwaPliku> - dodanie do stage’a zmian w danym pliku.
+git add . - dodanie do stage’a wszystkich zmian w danym katalogu i katalogach poniżej.
+git rm <nazwaPliku> - dodanie do stage’a usunięcia pliku.
+git commit -m "<komentarz>" - wkomitownie zmian ze stage’a.
+git diff --staged - wyświetlenie różnic dodanych do stage’a w stosunku do aktualnego komita.
+git diff - wyświetlenie różnic nie dodanych do stage’a w stosunku do aktualnego komita.
+git push - wypchnięcie zmian do repozytorium zdalnego.
+git pull - pobranie zmian z repozytorium zdalnego.
+git branch <nazwaGałęzi> - tworzy gałąź o podanej nazwie.
+git checkout <nazwaGałęzi> - przełącza na gałąź/komit o podanej nazwie/hashu.
+git merge --no-ff <nazwaGałęzi> - scala zmiany z gałęzi nazwaGałęzi. Najczęściej wykorzystywane do scalenia gałęzi z gałęzią master. Wykonywane na gałęzi master.
+git rebase <nazwaGałęzi> - przenosi daną gałąź na szczyt gałęzi nazwaGałęzi. Najczęściej wykorzystywane do przeniesienie gałęzi na szczyt gałęzi master (git rebase master ). Wykonywane na gałęzi nazwaGałęzi.
+git log - pokazuje hash (ciąg liter i cyfr) danego komita, informację na jakiej gałęzi jest HEAD (HEAD –>master), autora, datę i jakie pliki zostały dodane.
+git lg: 
+"~/.gitconfig"
+[alias]
+lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+lg = !"git lg1"
