@@ -13,9 +13,9 @@ public class Arena extends Application {
     public void start(Stage stage) throws IOException {
         stage.setTitle("Arena");
 
-        FXMLLoader fxmlLoader = new FXMLLoader(Arena.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Arena.class.getResource("player_selection.fxml"));
 
-        Scene scene = new Scene(fxmlLoader.load(), 960, 540);
+        Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
         stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="1080" prefWidth="1920" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.ArenaController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="400.0" layoutX="760.0" layoutY="380.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@player_select/logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="1000.0" fitWidth="600.0" layoutX="1290.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@player_select/TeamB.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="1000.0" fitWidth="600.0" layoutX="30.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@player_select/TeamA.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="textfieldA" layoutX="105.0" layoutY="895.0" prefHeight="35.0" prefWidth="480.0" style="-fx-background-color: #FFFFFFFF;">
+      </TextField>
+      <TextField fx:id="textfieldB" layoutX="1370.0" layoutY="895.0" prefHeight="35.0" prefWidth="480.0" style="-fx-background-color: #FFFFFFFF;" />
+      <Button fx:id="send1" layoutX="39.0" layoutY="900.0" mnemonicParsing="false" onAction="#setSend1" opacity="0.0" text="Button" />
+      <Button fx:id="send2" layoutX="1301.0" layoutY="900.0" mnemonicParsing="false" onAction="#setSend2" opacity="0.0" text="Button" />
+      <Label fx:id="player1A" alignment="CENTER" layoutX="88.0" layoutY="410.0" opacity="0.0" prefHeight="131.0" prefWidth="458.0" text="Label" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Papyrus" size="45.0" />
+         </font></Label>
+      <Label fx:id="player1B" alignment="CENTER" layoutX="1350.0" layoutY="603.0" opacity="0.0" prefHeight="131.0" prefWidth="458.0" text="Label" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Papyrus" size="45.0" />
+         </font></Label>
+      <Label fx:id="player2B" alignment="CENTER" layoutX="1350.0" layoutY="410.0" opacity="0.0" prefHeight="131.0" prefWidth="458.0" text="Label" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Papyrus" size="45.0" />
+         </font></Label>
+      <Label fx:id="player2A" alignment="CENTER" layoutX="88.0" layoutY="603.0" opacity="0.0" prefHeight="131.0" prefWidth="458.0" text="Label" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Papyrus" size="45.0" />
+         </font></Label>
+      <Label fx:id="waiting" alignment="CENTER" layoutX="548.0" layoutY="33.0" prefHeight="154.0" prefWidth="814.0" text="Please enter the players to play 2vs2 game." textAlignment="CENTER" textFill="#b90707" wrapText="true">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <Label fx:id="ready" alignment="CENTER" layoutX="630.0" layoutY="856.0" opacity="0.0" prefHeight="154.0" prefWidth="656.0" text="We're ready!" textAlignment="CENTER" textFill="#3a7676" wrapText="true">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
