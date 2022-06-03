@@ -1,14 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.bakubattle.ArenaController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.ArenaController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="400.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <ImageView fitHeight="203.0" fitWidth="443.0" layoutX="79.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@bakugan_select/TeamA.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="203.0" fitWidth="443.0" layoutX="79.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@bakugan_select/TeamB.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="150.0" layoutY="100.0" prefHeight="17.0" prefWidth="91.0" text="XXXXX" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label alignment="CENTER" layoutX="150.0" layoutY="123.0" prefHeight="17.0" prefWidth="91.0" text="XXXXX" textAlignment="CENTER">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="358.0" layoutY="100.0" prefHeight="17.0" prefWidth="91.0" text="XXXXX" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="358.0" layoutY="123.0" prefHeight="17.0" prefWidth="91.0" text="XXXXX" textAlignment="CENTER">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="150.0" layoutY="274.0" prefHeight="17.0" prefWidth="91.0" text="XXXXX" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="150.0" layoutY="297.0" prefHeight="17.0" prefWidth="91.0" text="XXXXX" textAlignment="CENTER">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="358.0" layoutY="274.0" prefHeight="17.0" prefWidth="91.0" text="XXXXX" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="358.0" layoutY="297.0" prefHeight="17.0" prefWidth="91.0" text="XXXXX" textAlignment="CENTER">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>
