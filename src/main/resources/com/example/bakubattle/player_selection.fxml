@@ -28,8 +28,8 @@
       <TextField fx:id="textfieldA" layoutX="105.0" layoutY="895.0" prefHeight="35.0" prefWidth="480.0" style="-fx-background-color: #FFFFFFFF;">
       </TextField>
       <TextField fx:id="textfieldB" layoutX="1370.0" layoutY="895.0" prefHeight="35.0" prefWidth="480.0" style="-fx-background-color: #FFFFFFFF;" />
-      <Button fx:id="send1" layoutX="39.0" layoutY="900.0" mnemonicParsing="false" onAction="#setSend1" opacity="0.0" text="Button" />
-      <Button fx:id="send2" layoutX="1301.0" layoutY="900.0" mnemonicParsing="false" onAction="#setSend2" opacity="0.0" text="Button" />
+      <Button fx:id="send_teamA_button" layoutX="39.0" layoutY="900.0" mnemonicParsing="false" onAction="#actionSendA" opacity="0.0" text="Button" />
+      <Button fx:id="send_teamB_button" layoutX="1301.0" layoutY="900.0" mnemonicParsing="false" onAction="#actionSendB" opacity="0.0" text="Button" />
       <Label fx:id="player1A" alignment="CENTER" layoutX="88.0" layoutY="410.0" opacity="0.0" prefHeight="131.0" prefWidth="458.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Papyrus" size="45.0" />
@@ -56,5 +56,6 @@
             <Font size="42.0" />
          </font>
       </Label>
+      <Button fx:id="start_game_button" disable="true" layoutX="808.0" layoutY="462.0" mnemonicParsing="false" onAction="#startingGame" opacity="0.0" prefHeight="243.0" prefWidth="301.0" text="Button" />
    </children>
 </AnchorPane>
