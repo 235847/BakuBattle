@@ -1,62 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.ArenaController">
+<AnchorPane prefHeight="1080" prefWidth="1920" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.ArenaController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="400.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <ImageView fitHeight="203.0" fitWidth="443.0" layoutX="79.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="460.0" fitWidth="1600.0" layoutX="300.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@bakugan_select/TeamA.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="203.0" fitWidth="443.0" layoutX="79.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="460.0" fitWidth="1600.0" layoutX="308.0" layoutY="538.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@bakugan_select/TeamB.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="150.0" layoutY="100.0" prefHeight="17.0" prefWidth="91.0" text="XXXXX" textAlignment="CENTER">
+      <Label  alignment="CENTER" layoutX="585.0" layoutY="240.0" text="Rosok" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="14.0" />
-         </font></Label>
-      <Label alignment="CENTER" layoutX="150.0" layoutY="123.0" prefHeight="17.0" prefWidth="91.0" text="XXXXX" textAlignment="CENTER">
-         <font>
-            <Font size="10.0" />
+            <Font name="Papyrus" size="45.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="358.0" layoutY="100.0" prefHeight="17.0" prefWidth="91.0" text="XXXXX" textAlignment="CENTER">
+      <Label  alignment="CENTER" layoutX="500.0" layoutY="350.0" text="select your bakugan" textAlignment="CENTER" textFill="#ebf563">
          <font>
-            <Font size="14.0" />
+            <Font size="36.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="358.0" layoutY="123.0" prefHeight="17.0" prefWidth="91.0" text="XXXXX" textAlignment="CENTER">
+      <Label alignment="CENTER" layoutX="1220.0" layoutY="240.0" text="Rosok" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="10.0" />
+            <Font name="Papyrus" size="45.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="150.0" layoutY="274.0" prefHeight="17.0" prefWidth="91.0" text="XXXXX" textAlignment="CENTER">
+      <Label alignment="CENTER" layoutX="1140.0" layoutY="350.0" text="select your bakugan" textAlignment="CENTER" textFill="#ebf563">
          <font>
-            <Font size="14.0" />
+            <Font size="36.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="150.0" layoutY="297.0" prefHeight="17.0" prefWidth="91.0" text="XXXXX" textAlignment="CENTER">
+      <Label id="player1B_name" alignment="CENTER" layoutX="600.0" layoutY="730.0" text="Rosok" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="10.0" />
+            <Font name="Papyrus" size="45.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="358.0" layoutY="274.0" prefHeight="17.0" prefWidth="91.0" text="XXXXX" textAlignment="CENTER">
+      <Label id="player1B_select_button" alignment="CENTER" layoutX="505.0" layoutY="840.0" text="select your bakugan" textAlignment="CENTER" textFill="#ebf563">
          <font>
-            <Font size="14.0" />
+            <Font size="36.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="358.0" layoutY="297.0" prefHeight="17.0" prefWidth="91.0" text="XXXXX" textAlignment="CENTER">
+      <Label alignment="CENTER" layoutX="1220.0" layoutY="730.0" text="Rosok" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="10.0" />
+            <Font name="Papyrus" size="45.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="1150.0" layoutY="840.0" text="select your bakugan" textAlignment="CENTER" textFill="#ebf563">
+         <font>
+            <Font size="36.0" />
          </font>
       </Label>
    </children>
