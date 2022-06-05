@@ -8,7 +8,7 @@ public class Domain {
     };
 
     String name;
-    final static private String[] NAMES = {"Aquos", "Pyrus", "Darkus", "Haos", "Ventus", "Subterra"};
+    public static final String[] NAMES = {"Pyrus", "Ventus", "Aquos", "Darkus", "Haos", "Subterra"};
     activation status = activation.not_active;
 
     public Domain(String text){
@@ -16,13 +16,14 @@ public class Domain {
             validate(text);
             name = text;
         }catch(Exception e){
+            e.printStackTrace();
             System.out.println("Error: wrong name for domain");
         }
     }
 
     private void validate(String text) throws Exception{
-        for(int i = 0; i< NAMES.length;i++){
-            if(text.equals(NAMES[i])){
+        for (String s : NAMES) {
+            if (text.equals(s)) {
                 return;
             }
         }

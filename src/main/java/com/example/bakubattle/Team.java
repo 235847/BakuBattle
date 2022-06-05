@@ -19,4 +19,12 @@ public class Team {
     public int getSum_hp() {
         return sum_hp;
     }
+
+    public Player getPlayer1() {
+        return player1;
+    }
+
+    public Player getPlayer2() {
+        return player2;
+    }
 }

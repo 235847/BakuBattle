@@ -11,32 +11,32 @@
       <ImageView fitHeight="2000.0" fitWidth="2000.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@bakugan_select/Wybór_domena.png" />
       </ImageView>
-      <Button fx:id="pyrus_button" layoutX="176.0" layoutY="92.0" mnemonicParsing="false" opacity="0.0" prefHeight="291.0" prefWidth="268.0" onAction="#setDomain">
+      <Button fx:id="pyrus_button" layoutX="176.0" layoutY="92.0" mnemonicParsing="false" opacity="0.0" prefHeight="291.0" prefWidth="268.0" text="Button">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="darkus_button" layoutX="190.0" layoutY="612.0" mnemonicParsing="false" opacity="0.0" prefHeight="291.0" prefWidth="268.0" onAction="#setDomain">
+      <Button fx:id="darkus_button" layoutX="190.0" layoutY="612.0" mnemonicParsing="false" opacity="0.0" prefHeight="291.0" prefWidth="268.0" text="Button">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="ventus_button" layoutX="878.0" layoutY="92.0" mnemonicParsing="false" opacity="0.0" prefHeight="291.0" prefWidth="268.0" onAction="#setDomain">
+      <Button fx:id="ventus_button" layoutX="878.0" layoutY="92.0" mnemonicParsing="false" opacity="0.0" prefHeight="291.0" prefWidth="268.0" text="Button">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="aquos_button" layoutX="1558.0" layoutY="78.0" mnemonicParsing="false" opacity="0.0" prefHeight="291.0" prefWidth="268.0" onAction="#setDomain">
+      <Button fx:id="aquos_button" layoutX="1558.0" layoutY="78.0" mnemonicParsing="false" opacity="0.0" prefHeight="291.0" prefWidth="268.0" text="Button">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="haos_button" layoutX="864.0" layoutY="626.0" mnemonicParsing="false" opacity="0.0" prefHeight="291.0" prefWidth="268.0" onAction="#setDomain">
+      <Button fx:id="haos_button" layoutX="864.0" layoutY="626.0" mnemonicParsing="false" opacity="0.0" prefHeight="291.0" prefWidth="268.0" text="Button">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="subterra_button" layoutX="1572.0" layoutY="626.0" mnemonicParsing="false" opacity="0.0" prefHeight="291.0" prefWidth="268.0" onAction="#setDomain">
+      <Button fx:id="subterra_button" layoutX="1572.0" layoutY="626.0" mnemonicParsing="false" opacity="0.0" prefHeight="291.0" prefWidth="268.0" text="Button">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

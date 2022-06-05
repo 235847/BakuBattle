@@ -8,22 +8,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080" prefWidth="1920" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.ArenaController">
+<AnchorPane prefHeight="1080" prefWidth="1920" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.SetTeamsController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="400.0" layoutX="760.0" layoutY="380.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@player_select/logo.png" />
-         </image>
+      <ImageView fitHeight="400.0" fitWidth="400.0" layoutX="760.0" layoutY="380.0" pickOnBounds="true"
+                 preserveRatio="true">
+         <Image url="@player_select/logo.png"/>
       </ImageView>
-      <ImageView fitHeight="1000.0" fitWidth="600.0" layoutX="1290.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@player_select/TeamB.png" />
-         </image>
+      <ImageView fitHeight="1000.0" fitWidth="600.0" layoutX="1290.0" layoutY="170.0" pickOnBounds="true"
+                 preserveRatio="true">
+         <Image url="@player_select/TeamB.png"/>
       </ImageView>
-      <ImageView fitHeight="1000.0" fitWidth="600.0" layoutX="30.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@player_select/TeamA.png" />
-         </image>
+      <ImageView fitHeight="1000.0" fitWidth="600.0" layoutX="30.0" layoutY="170.0" pickOnBounds="true"
+                 preserveRatio="true">
+         <Image url="@player_select/TeamA.png"/>
       </ImageView>
       <TextField fx:id="textfieldA" layoutX="105.0" layoutY="895.0" prefHeight="35.0" prefWidth="480.0" style="-fx-background-color: #FFFFFFFF;">
       </TextField>

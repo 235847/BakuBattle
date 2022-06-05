@@ -13,7 +13,7 @@ public class Arena extends Application {
     public void start(Stage stage) throws IOException {
         stage.setTitle("Arena");
 
-        FXMLLoader fxmlLoader = new FXMLLoader(Arena.class.getResource("player_selection.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Arena.class.getResource("set_team.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
         stage.setFullScreen(true);
