@@ -23,7 +23,7 @@ public class Bakugan {
         try{
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bakugan","root","");        //connecting with local database
             Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM bakugany WHERE bakugany.bakuID = "+ record);     //passing our query through the statement
+            ResultSet rs = statement.executeQuery("SELECT * FROM bakubattle WHERE bakubattle.bakuID = "+ record);     //passing our query through the statement
             while (rs.next()){
                 name = rs.getString("name");
                 hp = rs.getInt("hp");

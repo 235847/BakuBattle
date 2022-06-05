@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Player {
 
     private String name;
-    Domain domain;
-    Bakugan bakugan = null;
+    private Domain domain;
+    private Bakugan bakugan = null;
 
     public Player(String text){
         name = text;

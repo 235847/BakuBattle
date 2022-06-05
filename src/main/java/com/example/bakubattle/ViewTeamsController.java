@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
 
@@ -19,6 +20,8 @@ import java.util.ResourceBundle;
 
 public class ViewTeamsController implements Initializable {
 
+    @FXML
+    private AnchorPane main;
     /* Player 1A attributes */
     @FXML
     private Label player1A_name;
@@ -26,6 +29,8 @@ public class ViewTeamsController implements Initializable {
     private ImageView player1A_blue_select_image;
     @FXML
     private Button player1A_select_button;
+    @FXML
+    private Label player1A_selected;
 
     /* Player 2A attributes */
     @FXML
@@ -34,6 +39,8 @@ public class ViewTeamsController implements Initializable {
     private ImageView player2A_blue_select_image;
     @FXML
     private Button player2A_select_button;
+    @FXML
+    private Label player2A_selected;
 
     /* Player 1B attributes */
     @FXML
@@ -42,6 +49,8 @@ public class ViewTeamsController implements Initializable {
     private ImageView player1B_red_select_image;
     @FXML
     private Button player1B_select_button;
+    @FXML
+    private Label player1B_selected;
 
     /* Player 2B attributes */
     @FXML
@@ -50,6 +59,8 @@ public class ViewTeamsController implements Initializable {
     private ImageView player2B_red_select_image;
     @FXML
     private Button player2B_select_button;
+    @FXML
+    private Label player2B_selected;
 
 
     @Override
@@ -58,7 +69,35 @@ public class ViewTeamsController implements Initializable {
         player2A_name.setText(PassingClass.getInstance().getTeamA().getPlayer2().getName());
         player1B_name.setText(PassingClass.getInstance().getTeamB().getPlayer1().getName());
         player2B_name.setText(PassingClass.getInstance().getTeamB().getPlayer2().getName());
-        if()
+        if(PassingClass.getInstance().getTeamA().getPlayer1().getBakugan() != null){
+            player1A_selected.setOpacity(1);
+            player1A_blue_select_image.setOpacity(0);
+            player1A_select_button.setOpacity(0);
+        }
+        if(PassingClass.getInstance().getTeamA().getPlayer2().getBakugan() != null){
+            player2A_selected.setOpacity(1);
+            player2A_blue_select_image.setOpacity(0);
+            player2A_select_button.setOpacity(0);
+        }
+        if(PassingClass.getInstance().getTeamB().getPlayer1().getBakugan() != null){
+            player1B_selected.setOpacity(1);
+            player1B_red_select_image.setOpacity(0);
+            player1B_select_button.setOpacity(0);
+        }
+        if(PassingClass.getInstance().getTeamB().getPlayer2().getBakugan() != null){
+            player2B_selected.setOpacity(1);
+            player2B_red_select_image.setOpacity(0);
+            player2B_select_button.setOpacity(0);
+        }
+        if(player1A_selected.getOpacity() == 1 && player2A_selected.getOpacity() == 1 && player1B_selected.getOpacity() == 1 && player2B_selected.getOpacity() == 1){
+            try{
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Arena.fxml")));
+                Stage window = (Stage) main.getScene().getWindow();
+                window.setScene(new Scene(root,1920, 1080));
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 
     public void showDomains(@NotNull ActionEvent event) throws Exception{

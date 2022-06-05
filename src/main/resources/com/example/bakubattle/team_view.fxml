@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080" prefWidth="1920" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.ViewTeamsController">
+<AnchorPane fx:id="main" prefHeight="1080" prefWidth="1920" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.ViewTeamsController">
    <children>
       <ImageView fitHeight="460.0" fitWidth="1600.0" layoutX="300.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@bakugan_select/TeamA.png" />
@@ -47,9 +47,29 @@
       <ImageView fx:id="player2B_red_select_image" fitHeight="90.0" fitWidth="200.0" layoutX="1218.0" layoutY="825.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@team_view/red_select.png" />
       </ImageView>
+      <Label fx:id="player1A_selected" layoutX="600.0" layoutY="350.0" opacity="0.0" prefHeight="66.0" prefWidth="114.0" text="selected" textFill="#00f255">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="player2A_selected" layoutX="1245.0" layoutY="350.0" opacity="0.0" prefHeight="66.0" prefWidth="114.0" text="selected" textFill="#00f255">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="player1B_selected" layoutX="605.0" layoutY="840.0" opacity="0.0" prefHeight="66.0" prefWidth="114.0" text="selected" textFill="#00f255">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="player2B_selected" layoutX="1245.0" layoutY="840.0" opacity="0.0" prefHeight="66.0" prefWidth="114.0" text="selected" textFill="#00f255">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Button fx:id="player1B_select_button" layoutX="608.0" layoutY="841.0" mnemonicParsing="false" onAction="#showDomains" opacity="0.0" prefHeight="61.0" prefWidth="136.0" text="Button" />
       <Button fx:id="player1A_select_button" layoutX="590.0" layoutY="353.0" mnemonicParsing="false" onAction="#showDomains" opacity="0.0" prefHeight="61.0" prefWidth="136.0" text="Button" />
       <Button fx:id="player2A_select_button" layoutX="1234.0" layoutY="353.0" mnemonicParsing="false" onAction="#showDomains" opacity="0.0" prefHeight="61.0" prefWidth="136.0" text="Button" />
       <Button fx:id="player2B_select_button" layoutX="1234.0" layoutY="835.0" mnemonicParsing="false" onAction="#showDomains" opacity="0.0" prefHeight="61.0" prefWidth="136.0" text="Button" />
-      <Button fx:id="player1B_select_button" layoutX="608.0" layoutY="841.0" mnemonicParsing="false" onAction="#showDomains" opacity="0.0" prefHeight="61.0" prefWidth="136.0" text="Button" />
    </children>
 </AnchorPane>

@@ -1,7 +1,5 @@
 package com.example.bakubattle;
 
-import javafx.scene.control.Button;
-
 public class PassingClass {
 
     private Team teamA;
