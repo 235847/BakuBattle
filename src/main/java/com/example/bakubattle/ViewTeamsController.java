@@ -20,8 +20,10 @@ import java.util.ResourceBundle;
 
 public class ViewTeamsController implements Initializable {
 
+
     @FXML
-    private AnchorPane main;
+    private Button arena_start;
+
     /* Player 1A attributes */
     @FXML
     private Label player1A_name;
@@ -90,13 +92,7 @@ public class ViewTeamsController implements Initializable {
             player2B_select_button.setOpacity(0);
         }
         if(player1A_selected.getOpacity() == 1 && player2A_selected.getOpacity() == 1 && player1B_selected.getOpacity() == 1 && player2B_selected.getOpacity() == 1){
-            try{
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Arena.fxml")));
-                Stage window = (Stage) main.getScene().getWindow();
-                window.setScene(new Scene(root,1920, 1080));
-            }catch (Exception e){
-                e.printStackTrace();
-            }
+            arena_start.setOpacity(1);
         }
     }
 
@@ -113,8 +109,13 @@ public class ViewTeamsController implements Initializable {
         else{
             PassingClass.getInstance().setWho_select("player2B");
         }
-
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("domain_select.fxml")));
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.setScene(new Scene(root,1920, 1080));
+    }
+
+    public void switchScene(ActionEvent event) throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Arena.fxml")));
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(new Scene(root,1920, 1080));
     }

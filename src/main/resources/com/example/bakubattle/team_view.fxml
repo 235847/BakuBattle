@@ -67,9 +67,10 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <Button fx:id="player1B_select_button" layoutX="608.0" layoutY="841.0" mnemonicParsing="false" onAction="#showDomains" opacity="0.0" prefHeight="61.0" prefWidth="136.0" text="Button" />
-      <Button fx:id="player1A_select_button" layoutX="590.0" layoutY="353.0" mnemonicParsing="false" onAction="#showDomains" opacity="0.0" prefHeight="61.0" prefWidth="136.0" text="Button" />
-      <Button fx:id="player2A_select_button" layoutX="1234.0" layoutY="353.0" mnemonicParsing="false" onAction="#showDomains" opacity="0.0" prefHeight="61.0" prefWidth="136.0" text="Button" />
-      <Button fx:id="player2B_select_button" layoutX="1234.0" layoutY="835.0" mnemonicParsing="false" onAction="#showDomains" opacity="0.0" prefHeight="61.0" prefWidth="136.0" text="Button" />
+      <Button fx:id="player1A_select_button" layoutX="590.0" layoutY="353.0" mnemonicParsing="false" onAction="#showDomains" opacity="0" prefHeight="61.0" prefWidth="136.0" text="Button" />
+      <Button fx:id="player2A_select_button" layoutX="1236.0" layoutY="354.0" mnemonicParsing="false" onAction="#showDomains" opacity="0" prefHeight="61.0" prefWidth="136.0" text="Button" />
+      <Button fx:id="player2B_select_button" layoutX="1245.0" layoutY="840.0" mnemonicParsing="false" onAction="#showDomains" opacity="0" prefHeight="61.0" prefWidth="136.0" text="Button" />
+      <Button fx:id="player1B_select_button" layoutX="608.0" layoutY="841.0" mnemonicParsing="false" onAction="#showDomains" opacity="0" prefHeight="61.0" prefWidth="136.0" text="Button" />
+      <Button fx:id="arena_start" layoutX="130.0" layoutY="531.0" mnemonicParsing="false" onAction="#switchScene" opacity="0" prefHeight="87.0" prefWidth="194.0" text="Button" />
    </children>
 </AnchorPane>
