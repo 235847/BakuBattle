@@ -54,7 +54,7 @@
                    pickOnBounds="true" preserveRatio="true">
             <Image url="@strategy/dom_card.png"/>
         </ImageView>
-      <Button fx:id="first_card_button" layoutX="616.0" layoutY="296.0" mnemonicParsing="false" onAction="#selectAbility" opacity="0.0" prefHeight="263.0" prefWidth="170.0" text="Button" />
+      <Button fx:id="first_card_button" layoutX="616.0" layoutY="296.0" mnemonicParsing="false" onAction="#selectAbility" opacity="0" prefHeight="263.0" prefWidth="170.0" text="Button" />
       <Button fx:id="second_card_button" layoutX="913.0" layoutY="295.0" mnemonicParsing="false" onAction="#selectAbility" opacity="0.0" prefHeight="263.0" prefWidth="170.0" text="Button" />
       <Button fx:id="third_card_button" layoutX="1215.0" layoutY="287.0" mnemonicParsing="false" onAction="#selectAbility" opacity="0.0" prefHeight="263.0" prefWidth="170.0" text="Button" />
       <Label fx:id="enter_label" alignment="CENTER" layoutX="570.0" layoutY="162.0" prefHeight="67.0" prefWidth="803.0" textAlignment="CENTER" textFill="WHITE">

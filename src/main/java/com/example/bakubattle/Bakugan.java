@@ -132,4 +132,12 @@ public class Bakugan {
     public void setBlock(boolean is_block) {
         this.is_block = is_block;
     }
+
+    public void addHp(int x) {
+        hp += x;
+    }
+
+    public void subtractHp(int x){
+        hp -= x;
+    }
 }

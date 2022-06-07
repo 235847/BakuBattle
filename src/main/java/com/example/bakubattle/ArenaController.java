@@ -8,8 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-import java.lang.runtime.SwitchBootstraps;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -132,9 +130,26 @@ public class ArenaController implements Initializable {
             else{
                 PassingClass.getInstance().getTeamB().getPlayer2().getDomain().activate();
             }
+            PassingClass.getInstance().getTeamA().getPlayer1().initializeDeck();
+            PassingClass.getInstance().getTeamA().getPlayer2().initializeDeck();
+            PassingClass.getInstance().getTeamB().getPlayer1().initializeDeck();
+            PassingClass.getInstance().getTeamB().getPlayer2().initializeDeck();
+            URL card_setImage = getClass().getResource("arena/card/card.png");
+            first_card_imageview.setImage(new Image(String.valueOf(card_setImage)));
+            second_card_imageview.setImage(new Image(String.valueOf(card_setImage)));
+            third_card_imageview.setImage(new Image(String.valueOf(card_setImage)));
         }
         else if(enter_label.getText().equals("Let's move "+PassingClass.getInstance().getTeamA().getPlayer1().getName()+":")){
-
+            enter_label.setText("Let's move "+PassingClass.getInstance().getTeamA().getPlayer2().getName()+":");
+            if(event.getSource() == first_card_button){
+                PassingClass.getInstance().getTeamB().getPlayer2().getForbidden_card().activate();
+            }
+            else if(event.getSource() == second_card_button){
+                PassingClass.getInstance().getTeamB().getPlayer2().getOpen_card().activate();
+            }
+            else{
+                PassingClass.getInstance().getTeamB().getPlayer2().getDomain().activate();
+            }
         }
     }
 }
