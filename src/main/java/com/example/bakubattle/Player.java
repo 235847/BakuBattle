@@ -7,6 +7,9 @@ public class Player {
     private String name;
     private Domain domain;
     private Bakugan bakugan = null;
+    private Deck deck;
+    private ForbiddenCard forbidden_card = new ForbiddenCard();
+    private OpenCard open_card = new OpenCard();
 
     public Player(String text){
         name = text;
@@ -34,5 +37,17 @@ public class Player {
 
     public void setBakugan(Bakugan bakugan) {
         this.bakugan = bakugan;
+    }
+
+    public ForbiddenCard getForbidden_card() {
+        return forbidden_card;
+    }
+
+    public OpenCard getOpen_card() {
+        return open_card;
+    }
+
+    public void initializeDeck(){
+        deck = new Deck(this,domain.isActive(),forbidden_card.isActive(),open_card.isActive());
     }
 }

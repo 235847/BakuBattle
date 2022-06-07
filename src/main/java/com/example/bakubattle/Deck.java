@@ -1,34 +1,39 @@
 package com.example.bakubattle;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Map;
 
 public class Deck {
 
     private ArrayList<Card> deck;
 
-    public Deck() {
-        try{
-            deck = new ArrayList<>();
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bakugan","root","");        //connecting with local database
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM bacard");     //passing our query through the statement
-            while (rs.next()){
-                String name = rs.getString("name");
-                int attack = rs.getInt("attack");
-                int hp = rs.getInt("hp");
-                int mana = rs.getInt("mana");
-                deck.add(new Card(name,attack,hp,mana));
+    public Deck(Player player, boolean domain_activation, boolean forbidden_card_activation, boolean open_card_activation) {
+        deck = new ArrayList<>();
+        int i = 0;
+        if(domain_activation){
+            if(player.getDomain().getName().equals(Domain.NAMES[0])){
+                pyrusBuff(player.getBakugan());
             }
-            statement.close();          //closing the conversation with database.
-            connection.close();             //optional
-        }catch (Exception e){
-            System.out.println("Error: loading from database\n");
-            e.printStackTrace();
+            else if(player.getDomain().getName().equals(Domain.NAMES[1])){
+                ventusBuff(player.getBakugan());
+            }
+            else if(player.getDomain().getName().equals(Domain.NAMES[2])){
+                aquosBuff(player.getBakugan());
+            }
+            else if(player.getDomain().getName().equals(Domain.NAMES[3])){
+                darkusBuff(player.getBakugan());
+            }
+            else if(player.getDomain().getName().equals(Domain.NAMES[4])){
+                haosBuff(player.getBakugan());
+            }
+            else if(player.getDomain().getName().equals(Domain.NAMES[5])){
+                subterraBuff(player.getBakugan());
+            }
+        }
+        for(Map.Entry<String, Integer> entry: player.getBakugan().getSkill_values().entrySet()){
+            deck.add(new Card(player.getBakugan().getSkill_names().get(i),entry.getKey(), entry.getValue()));
+            i++;
         }
     };
 
@@ -45,10 +50,39 @@ public class Deck {
     }
 
     public void testDiplayDeck() {
-        System.out.println("I want to see my first card:");
-        System.out.println("Name:"+deck.get(0).getName());
-        System.out.println("Attack:"+deck.get(0).getAttack());
-        System.out.println("Hp:"+deck.get(0).getHp());
-        System.out.println("Mana:"+deck.get(0).getMana_cost());
+    }
+
+    private void aquosBuff(Bakugan bakugan){
+        bakugan.setHp(bakugan.getHp()+300);
+        bakugan.setXP_MULTIPLIER(0.35);
+    }
+
+    private void pyrusBuff(Bakugan bakugan){
+        bakugan.setHp(bakugan.getHp()+300);
+        for(Map.Entry<String, Integer> entry: bakugan.getSkill_values().entrySet()){
+            entry.setValue(entry.getValue()+100);
+        }
+    }
+
+    private void subterraBuff(Bakugan bakugan){
+        bakugan.setHp(bakugan.getHp()+200);
+        bakugan.setXP_MULTIPLIER(0.38);
+    }
+
+    private void darkusBuff(Bakugan bakugan){
+        bakugan.setXp(1);
+        for(Map.Entry<String, Integer> entry: bakugan.getSkill_values().entrySet()){
+            entry.setValue(entry.getValue()+100);
+        }
+    }
+
+    private void haosBuff(Bakugan bakugan){
+        bakugan.setXp(1);
+        bakugan.setXP_MULTIPLIER(0.35);
+    }
+
+    private void ventusBuff(Bakugan bakugan){
+        bakugan.setHp(bakugan.getHp()+300);
+        bakugan.setBlock(true);
     }
 }

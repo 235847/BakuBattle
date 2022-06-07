@@ -5,55 +5,54 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="gamescenebg" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="gamescenebg" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.ArenaController">
     <children>
-        <ProgressBar fx:id="player3EnergyBar" layoutX="1423.0" layoutY="142.0" prefHeight="57.0" prefWidth="191.0" progress="0.8" rotate="180.0" styleClass="energybar" stylesheets="@gamescene/style.css" />
-        <ProgressBar fx:id="player4EnergyBar" layoutX="1425.0" layoutY="642.0" prefHeight="57.0" prefWidth="191.0" progress="0.5" rotate="180.0" styleClass="energybar" stylesheets="@gamescene/style.css" />
-        <ProgressBar fx:id="player2EnergyBar" layoutX="305.0" layoutY="642.0" prefHeight="57.0" prefWidth="191.0" progress="0.9" styleClass="energybar" stylesheets="@gamescene/style.css" />
-        <ProgressBar fx:id="player1EnergyBar1" layoutX="306.0" layoutY="142.0" prefHeight="57.0" prefWidth="191.0" progress="0.7" styleClass="energybar" stylesheets="@gamescene/style.css" />
-        <ProgressBar fx:id="player1HpBar" layoutX="288.0" layoutY="104.0" prefHeight="57.0" prefWidth="288.0" progress="0.9" styleClass="hpbar" stylesheets="@gamescene/style.css" />
-        <ProgressBar fx:id="player4HpBar" layoutX="1336.0" layoutY="604.0" prefHeight="57.0" prefWidth="468.0" progress="0.8" rotate="180.0" styleClass="hpbar" stylesheets="@gamescene/style.css" />
-        <ProgressBar fx:id="player3HpBar" layoutX="1336.0" layoutY="104.0" prefHeight="57.0" prefWidth="468.0" progress="0.5" rotate="180.0" styleClass="hpbar" stylesheets="@gamescene/style.css" />
-        <ProgressBar fx:id="player2HpBar" layoutX="288.0" layoutY="604.0" prefHeight="57.0" prefWidth="288.0" progress="0.6" styleClass="hpbar" stylesheets="@gamescene/style.css" />
-        <ImageView fitHeight="438.0" fitWidth="531.0" layoutX="1403.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@gamescene/darkus.png" />
-            </image>
+        <ProgressBar fx:id="player1B_xp_bar" layoutX="1423.0" layoutY="142.0" prefHeight="57.0" prefWidth="191.0" progress="0.8" rotate="180.0" styleClass="energybar" stylesheets="@gamescene/style.css" />
+        <ProgressBar fx:id="player2B_xp_bar" layoutX="1425.0" layoutY="642.0" prefHeight="57.0" prefWidth="191.0" progress="0.5" rotate="180.0" styleClass="energybar" stylesheets="@gamescene/style.css" />
+        <ProgressBar fx:id="player2A_xp_bar" layoutX="305.0" layoutY="642.0" prefHeight="57.0" prefWidth="191.0" progress="0.9" styleClass="energybar" stylesheets="@gamescene/style.css" />
+        <ProgressBar fx:id="player1A_xp_bar" layoutX="306.0" layoutY="142.0" prefHeight="57.0" prefWidth="191.0" progress="0.7" styleClass="energybar" stylesheets="@gamescene/style.css" />
+        <ProgressBar fx:id="player1A_hp_bar" layoutX="288.0" layoutY="104.0" prefHeight="57.0" prefWidth="288.0" progress="0.9" styleClass="hpbar" stylesheets="@gamescene/style.css" />
+        <ProgressBar fx:id="player2B_hp_bar" layoutX="1336.0" layoutY="604.0" prefHeight="57.0" prefWidth="468.0" progress="0.8" rotate="180.0" styleClass="hpbar" stylesheets="@gamescene/style.css" />
+        <ProgressBar fx:id="player1B_hp_bar" layoutX="1336.0" layoutY="104.0" prefHeight="57.0" prefWidth="468.0" progress="0.5" rotate="180.0" styleClass="hpbar" stylesheets="@gamescene/style.css" />
+        <ProgressBar fx:id="player2A_hp_bar" layoutX="288.0" layoutY="604.0" prefHeight="57.0" prefWidth="288.0" progress="0.6" styleClass="hpbar" stylesheets="@gamescene/style.css" />
+        <ImageView fx:id="player2B_deck" fitHeight="438.0" fitWidth="531.0" layoutX="1399.0" layoutY="595.0" pickOnBounds="true" preserveRatio="true">
+<!--            <Image fx:id="player2B_deck_image" url="@gamescene/darkus.png" />-->
         </ImageView>
-        <ImageView fitHeight="558.0" fitWidth="638.0" layoutX="1349.0" layoutY="533.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@gamescene/ventus.png" />
-            </image>
+        <ImageView fx:id="player1B_deck" fitHeight="558.0" fitWidth="638.0" layoutX="1345.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+<!--            <Image fx:id="player1B_deck_image" url="@gamescene/ventus.png" />-->
         </ImageView>
-        <ImageView fitHeight="200.0" fitWidth="288.0" layoutX="116.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@gamescene/pyrusCards.png" />
-            </image>
+        <ImageView fx:id="player1A_deck" fitHeight="200.0" fitWidth="288.0" layoutX="116.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+<!--            <Image fx:id="player1A_deck_image" url="@gamescene/pyrusCards.png" />-->
         </ImageView>
-        <ImageView fitHeight="538.0" fitWidth="630.0" layoutX="-55.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@gamescene/aquos.png" />
-            </image>
+        <ImageView fx:id="player2A_deck" fitHeight="538.0" fitWidth="630.0" layoutX="-55.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+<!--            <Image fx:id="player2A_deck_image" url="@gamescene/aquos.png" />-->
         </ImageView>
-        <ImageView fitHeight="370.0" fitWidth="370.0" layoutX="14.0" layoutY="-30.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@gamescene/pyrusHydranoid.png" />
-            </image>
+        <ImageView fx:id="player1A_imageview" fitHeight="370.0" fitWidth="370.0" layoutX="14.0" layoutY="-30.0" pickOnBounds="true" preserveRatio="true">
+<!--            <Image fx:id="player1A_image" url="@gamescene/pyrusHydranoid.png" />-->
         </ImageView>
-        <ImageView fitHeight="370.0" fitWidth="370.0" layoutX="14.0" layoutY="469.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@gamescene/aquosApophix.png" />
-            </image>
+        <ImageView fx:id="player2A_imageview" fitHeight="370.0" fitWidth="370.0" layoutX="14.0" layoutY="469.0" pickOnBounds="true" preserveRatio="true">
+<!--            <Image fx:id="player2A_image" url="@gamescene/aquosApophix.png" />-->
         </ImageView>
-        <ImageView fitHeight="370.0" fitWidth="370.0" layoutX="1536.0" layoutY="-30.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@gamescene/VentusAuxillataur.png" />
-            </image>
+        <ImageView fx:id="player1B_imageview" fitHeight="370.0" fitWidth="370.0" layoutX="1536.0" layoutY="-30.0" pickOnBounds="true" preserveRatio="true">
+<!--            <Image fx:id="player1B_image" url="@gamescene/VentusAuxillataur.png" />-->
         </ImageView>
-        <ImageView fitHeight="370.0" fitWidth="370.0" layoutX="1536.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@gamescene/darkDragonoid.png" />
-            </image>
+        <ImageView fx:id="player2B_imageview" fitHeight="398.0" fitWidth="370.0" layoutX="1536.0" layoutY="469.0" pickOnBounds="true" preserveRatio="true">
+<!--            <Image fx:id="player2B_image" url="@gamescene/darkDragonoid.png" />-->
         </ImageView>
+      <ImageView fitHeight="500.0" fitWidth="400.0" layoutX="500.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@strategy/for_card.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="500.0" fitWidth="400.0" layoutX="800.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@strategy/op_card.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="500.0" fitWidth="400.0" layoutX="1100.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@strategy/dom_card.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

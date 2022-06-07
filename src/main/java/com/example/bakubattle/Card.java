@@ -2,59 +2,47 @@ package com.example.bakubattle;
 
 public class Card {
 
-    private final static int OVERHEALTH = 5000;
-    private final String name;
-    private final int attack;
-    private int hp;
-    private final int mana_cost;
+    private String name;
+    private String type;
+    private String description;
+    private int value;
 
-    //constructor
-    public Card(String n, int a, int h, int m)
-    {
-        name =n;
-        attack = a;
-        hp = h;
-        mana_cost = m;
+    public Card(String n, String t, int val){
+        name = n;
+        type = t;
+        value = val;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getAttack() {
-        return attack;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getHp() {
-        return hp;
+    public String getType() {
+        return type;
     }
 
-    public int getMana_cost() {
-        return mana_cost;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    //returns true if bakugan died as a result else returns false
-    public boolean damage(int amount)
-    {
-        if(hp - amount >= OVERHEALTH)  return true;
-        if(hp - amount <= 0)
-        {
-            hp = 0;
-            return true;
-        }
-        return false;
+    public String getDescription() {
+        return description;
     }
 
-    //returns true if bakugan healed as a result else returns false
-    public boolean heal(int amount)
-    {
-        if(hp + amount >= OVERHEALTH)  return true;
-        if(hp + amount <= 0)
-        {
-            hp = 0;
-            return true;
-        }
-        return false;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
     }
 }
 

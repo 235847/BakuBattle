@@ -1,15 +1,9 @@
 package com.example.bakubattle;
 
-public class Domain {
+public class Domain extends Strategy{
 
-    enum activation{
-        active,
-        not_active
-    };
-
-    String name;
+    private String name;
     public static final String[] NAMES = {"Pyrus", "Ventus", "Aquos", "Darkus", "Haos", "Subterra"};
-    activation status = activation.not_active;
 
     public Domain(String text){
         try{
@@ -28,5 +22,9 @@ public class Domain {
             }
         }
         throw new Exception();
+    }
+
+    public String getName() {
+        return name;
     }
 }
