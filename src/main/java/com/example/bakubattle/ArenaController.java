@@ -1,68 +1,155 @@
 package com.example.bakubattle;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ArenaController implements Initializable {
 
+    /* Player 1A attributes */
     @FXML
-    private Label manaPlayer1;
+    private ImageView player1A_imageview;
     @FXML
-    private Label hpPlayer1;
+    private  ProgressBar player1A_hp_bar;
     @FXML
-    private Label hpPlayer2;
+    private ProgressBar player1A_xp_bar;
     @FXML
-    private Label manaPlayer2;
-    @FXML
-    private ImageView baku1;
-    @FXML
-    private AnchorPane bakuAndBut;
+    private ImageView player1A_deck;
 
+    /* Player 2A attributes */
     @FXML
-    private Button invisibleBut;
+    private ImageView player2A_imageview;
     @FXML
-    private VBox vbox1;
-
-
-    private Player player1;
-    private Player player2;
-    private Deck deck;
-
-
-
+    private  ProgressBar player2A_hp_bar;
     @FXML
+    private ProgressBar player2A_xp_bar;
+    @FXML
+    private ImageView player2A_deck;
+
+    /* Player 1B attributes */
+    @FXML
+    private ImageView player1B_imageview;
+    @FXML
+    private  ProgressBar player1B_hp_bar;
+    @FXML
+    private ProgressBar player1B_xp_bar;
+    @FXML
+    private ImageView player1B_deck;
+
+    /* Player 2A attributes */
+    @FXML
+    private ImageView player2B_imageview;
+    @FXML
+    private  ProgressBar player2B_hp_bar;
+    @FXML
+    private ProgressBar player2B_xp_bar;
+    @FXML
+    private ImageView player2B_deck;
+
+    /* Stategy attributes */
+    @FXML
+    private Label enter_label;
+    @FXML
+    private Button first_card_button;
+    @FXML
+    private Button second_card_button;
+    @FXML
+    private Button third_card_button;
+    @FXML
+    private ImageView first_card_imageview;
+    @FXML
+    private ImageView second_card_imageview;
+    @FXML
+    private ImageView third_card_imageview;
+
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //invisibleBut.setVisible(false);
-
-        deck = new Deck();
-        deck.shuffleDeck();
-        player1 = new Player(deck.drawCard());
-        player2 = new Player(deck.drawCard());
-
-        manaPlayer1.setText(Integer.toString(player1.getCurrent_mana()));
-        hpPlayer1.setText(Integer.toString(player1.getHp()));
-        manaPlayer2.setText(Integer.toString(player2.getCurrent_mana()));
-        hpPlayer2.setText(Integer.toString(player2.getHp()));
-
-//        invisibleBut.setVisible(false);
-//        invisibleBut.setLayoutX(baku1.getLayoutX() + 247);
-//        invisibleBut.setLayoutY(baku1.getLayoutY() + 269);
-//        invisibleBut.layoutYProperty().bindBidirectional(baku1.layoutYProperty());
-//        invisibleBut.layoutXProperty().bindBidirectional(baku1.layoutXProperty());
-//        invisibleBut.layoutXProperty().bind(baku1.layoutXProperty().add(247));
+        URL player1A_setImage = getClass().getResource("arena/bakugan/"+PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamA().getPlayer1().getDomain().getName()+".png");
+        URL player2A_setImage = getClass().getResource("arena/bakugan/"+PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamA().getPlayer2().getDomain().getName()+".png");
+        URL player1B_setImage = getClass().getResource("arena/bakugan/"+PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamB().getPlayer1().getDomain().getName()+".png");
+        URL player2B_setImage = getClass().getResource("arena/bakugan/"+PassingClass.getInstance().getTeamB().getPlayer2().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamB().getPlayer2().getDomain().getName()+".png");
+        player1A_imageview.setImage(new Image(String.valueOf(player1A_setImage)));
+        player2A_imageview.setImage(new Image(String.valueOf(player2A_setImage)));
+        player1B_imageview.setImage(new Image(String.valueOf(player1B_setImage)));
+        player2B_imageview.setImage(new Image(String.valueOf(player2B_setImage)));
+        enter_label.setText("Let's choose strategy for this game ("+PassingClass.getInstance().getTeamA().getPlayer1().getName()+"):");
     }
-    @FXML
-    private void attackHero(){
-        //player2.setHp(player2.getHp()- player2.getPlayer_deck().get(0).getAttack());
-        player2.setHp(player2.getHp()- 6);
-        hpPlayer2.setText(Integer.toString(player2.getHp()));
+
+    public void selectAbility(ActionEvent event){
+        if(enter_label.getText().equals("Let's choose strategy for this game ("+PassingClass.getInstance().getTeamA().getPlayer1().getName()+"):")){
+            enter_label.setText("Let's choose strategy for this game ("+PassingClass.getInstance().getTeamA().getPlayer2().getName()+"):");
+            if(event.getSource() == first_card_button){
+                PassingClass.getInstance().getTeamA().getPlayer1().getForbidden_card().activate();
+            }
+            else if(event.getSource() == second_card_button){
+                PassingClass.getInstance().getTeamA().getPlayer1().getOpen_card().activate();
+            }
+            else{
+                PassingClass.getInstance().getTeamA().getPlayer1().getDomain().activate();
+            }
+        }
+        else if(enter_label.getText().equals("Let's choose strategy for this game ("+PassingClass.getInstance().getTeamA().getPlayer2().getName()+"):")){
+            enter_label.setText("Let's choose strategy for this game ("+PassingClass.getInstance().getTeamB().getPlayer1().getName()+"):");
+            if(event.getSource() == first_card_button){
+                PassingClass.getInstance().getTeamA().getPlayer2().getForbidden_card().activate();
+            }
+            else if(event.getSource() == second_card_button){
+                PassingClass.getInstance().getTeamA().getPlayer2().getOpen_card().activate();
+            }
+            else{
+                PassingClass.getInstance().getTeamA().getPlayer2().getDomain().activate();
+            }
+        }
+        else if(enter_label.getText().equals("Let's choose strategy for this game ("+PassingClass.getInstance().getTeamB().getPlayer1().getName()+"):")){
+            enter_label.setText("Let's choose strategy for this game ("+PassingClass.getInstance().getTeamB().getPlayer2().getName()+"):");
+            if(event.getSource() == first_card_button){
+                PassingClass.getInstance().getTeamB().getPlayer1().getForbidden_card().activate();
+            }
+            else if(event.getSource() == second_card_button){
+                PassingClass.getInstance().getTeamB().getPlayer1().getOpen_card().activate();
+            }
+            else{
+                PassingClass.getInstance().getTeamB().getPlayer1().getDomain().activate();
+            }
+        }
+        else if(enter_label.getText().equals("Let's choose strategy for this game ("+PassingClass.getInstance().getTeamB().getPlayer2().getName()+"):")){
+            enter_label.setText("Let's move "+PassingClass.getInstance().getTeamA().getPlayer1().getName()+":");
+            if(event.getSource() == first_card_button){
+                PassingClass.getInstance().getTeamB().getPlayer2().getForbidden_card().activate();
+            }
+            else if(event.getSource() == second_card_button){
+                PassingClass.getInstance().getTeamB().getPlayer2().getOpen_card().activate();
+            }
+            else{
+                PassingClass.getInstance().getTeamB().getPlayer2().getDomain().activate();
+            }
+            PassingClass.getInstance().getTeamA().getPlayer1().initializeDeck();
+            PassingClass.getInstance().getTeamA().getPlayer2().initializeDeck();
+            PassingClass.getInstance().getTeamB().getPlayer1().initializeDeck();
+            PassingClass.getInstance().getTeamB().getPlayer2().initializeDeck();
+            URL card_setImage = getClass().getResource("arena/card/card.png");
+            first_card_imageview.setImage(new Image(String.valueOf(card_setImage)));
+            second_card_imageview.setImage(new Image(String.valueOf(card_setImage)));
+            third_card_imageview.setImage(new Image(String.valueOf(card_setImage)));
+        }
+        else if(enter_label.getText().equals("Let's move "+PassingClass.getInstance().getTeamA().getPlayer1().getName()+":")){
+            enter_label.setText("Let's move "+PassingClass.getInstance().getTeamA().getPlayer2().getName()+":");
+            if(event.getSource() == first_card_button){
+                PassingClass.getInstance().getTeamB().getPlayer2().getForbidden_card().activate();
+            }
+            else if(event.getSource() == second_card_button){
+                PassingClass.getInstance().getTeamB().getPlayer2().getOpen_card().activate();
+            }
+            else{
+                PassingClass.getInstance().getTeamB().getPlayer2().getDomain().activate();
+            }
+        }
     }
 }

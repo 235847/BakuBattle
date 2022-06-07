@@ -18,12 +18,13 @@ public class Bakugan {
     private final static double XP_THRESHOLD = 1;
     private HashMap<String,Integer> skill_values;
     private ArrayList<String> skill_names;
+    private boolean is_block = false;
 
     public Bakugan(int record){
         try{
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bakugan","root","");        //connecting with local database
             Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM bakugany WHERE bakugany.bakuID = "+ record);     //passing our query through the statement
+            ResultSet rs = statement.executeQuery("SELECT * FROM bakubattle WHERE bakubattle.bakuID = "+ record);     //passing our query through the statement
             while (rs.next()){
                 name = rs.getString("name");
                 hp = rs.getInt("hp");
@@ -74,5 +75,69 @@ public class Bakugan {
             System.out.println(skill_names.get(i)+" -> "+set.getValue()+" ( type: "+set.getKey()+" )");
             i++;
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public double getXp() {
+        return xp;
+    }
+
+    public void setXp(double xp) {
+        this.xp = xp;
+    }
+
+    public double getXP_MULTIPLIER() {
+        return XP_MULTIPLIER;
+    }
+
+    public void setXP_MULTIPLIER(double XP_MULTIPLIER) {
+        this.XP_MULTIPLIER = XP_MULTIPLIER;
+    }
+
+    public HashMap<String, Integer> getSkill_values() {
+        return skill_values;
+    }
+
+    public void setSkill_values(HashMap<String, Integer> skill_values) {
+        this.skill_values = skill_values;
+    }
+
+    public ArrayList<String> getSkill_names() {
+        return skill_names;
+    }
+
+    public void setSkill_names(ArrayList<String> skill_names) {
+        this.skill_names = skill_names;
+    }
+
+    public boolean isBlock() {
+        return is_block;
+    }
+
+    public void setBlock(boolean is_block) {
+        this.is_block = is_block;
+    }
+
+    public void addHp(int x) {
+        hp += x;
+    }
+
+    public void subtractHp(int x){
+        hp -= x;
     }
 }

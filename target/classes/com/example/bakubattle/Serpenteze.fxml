@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="1080" prefWidth="1920" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.BakuController">
+   <children>
+       <ImageView fitHeight="1120.0" fitWidth="1968.0" layoutX="-6.0" layoutY="3.0" pickOnBounds="true"
+                  preserveRatio="true">
+           <Image url="@bakugan_select/Serpenteze.png"/>
+       </ImageView>
+      <Button fx:id="serpenteze_button" layoutX="723.0" layoutY="854.0" mnemonicParsing="false" onAction="#setBakugan" opacity="0.0" prefHeight="143.0" prefWidth="520.0" text="Button" />
+   </children>
+</AnchorPane>

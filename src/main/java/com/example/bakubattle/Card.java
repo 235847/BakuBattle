@@ -2,59 +2,67 @@ package com.example.bakubattle;
 
 public class Card {
 
-    private final static int OVERHEALTH = 5000;
-    private final String name;
-    private final int attack;
-    private int hp;
-    private final int mana_cost;
+    private String name;
+    private String type;
+    private String description;
+    private int value;
+    private boolean sets_block;
 
-    //constructor
-    public Card(String n, int a, int h, int m)
-    {
-        name =n;
-        attack = a;
-        hp = h;
-        mana_cost = m;
+    public Card(String n, String t, int val, boolean block){
+        name = n;
+        type = t;
+        value = val;
+        sets_block = block;
+        switch (type) {
+            case "transferSingle" -> description = "This ability transfers " + value + "g from your opponent to you.";
+            case "transferArea" -> description = "This ability transfers " + value + "g from your opponents to you.";
+            case "attackSingle" -> description = "This ability attacks your opponent and deals him " + value + "g.";
+            case "attackArea" -> description = "This ability attacks your opponents and deals them " + value + "g.";
+            case "hpBoostv1" -> description = "This ability gives you " + value + "g.";
+            case "hpBoostv2" -> description = "This ability gives you " + value + "g.";
+            case "blockHealFriend" -> description = "This ability gives your partner " + value + "g and sets block.";
+            case "blockHealTeam" -> description = "This ability gives you and your partner " + value + "g and sets block.";
+        }
     }
 
     public String getName() {
         return name;
     }
 
-    public int getAttack() {
-        return attack;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getHp() {
-        return hp;
+    public String getType() {
+        return type;
     }
 
-    public int getMana_cost() {
-        return mana_cost;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    //returns true if bakugan died as a result else returns false
-    public boolean damage(int amount)
-    {
-        if(hp - amount >= OVERHEALTH)  return true;
-        if(hp - amount <= 0)
-        {
-            hp = 0;
-            return true;
-        }
-        return false;
+    public String getDescription() {
+        return description;
     }
 
-    //returns true if bakugan healed as a result else returns false
-    public boolean heal(int amount)
-    {
-        if(hp + amount >= OVERHEALTH)  return true;
-        if(hp + amount <= 0)
-        {
-            hp = 0;
-            return true;
-        }
-        return false;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    public boolean isSets_block() {
+        return sets_block;
+    }
+
+    public void setSets_block(boolean sets_block) {
+        this.sets_block = sets_block;
     }
 }
 

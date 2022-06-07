@@ -4,40 +4,68 @@ import java.util.ArrayList;
 
 public class Player {
 
-    enum choice{
-        attack,
-        card_manage
+    private String name;
+    private Domain domain;
+    private Bakugan bakugan = null;
+    private Deck deck = null;
+    private ForbiddenCard forbidden_card = new ForbiddenCard();
+    private OpenCard open_card = new OpenCard();
+
+    public Player(String name) {
+        this.name = name;
     }
 
-    private int current_mana;
-    private int starting_mana;
-    private int hp;
-    private final static int STARTING_HP = 30;
-    choice status;
-    private ArrayList<Card> player_deck;
-
-    public Player(Card first) {
-        hp = STARTING_HP;
-        starting_mana = 1;
-        current_mana = starting_mana;
-        status = choice.card_manage;
-        player_deck = new ArrayList<>(3);
-        player_deck.add(first);
+    public String getName() {
+        return name;
     }
 
-    public int getHp() {
-        return hp;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public ArrayList<Card> getPlayer_deck() {
-        return player_deck;
+    public Domain getDomain() {
+        return domain;
     }
 
-    public void setHp(int hp) {
-        this.hp = hp;
+    public void setDomain(Domain domain) {
+        this.domain = domain;
     }
 
-    public int getCurrent_mana() {
-        return current_mana;
+    public Bakugan getBakugan() {
+        return bakugan;
+    }
+
+    public void setBakugan(Bakugan bakugan) {
+        this.bakugan = bakugan;
+    }
+
+    public Deck getDeck() {
+        return deck;
+    }
+
+    public void setDeck(Deck deck) {
+        this.deck = deck;
+    }
+
+    public ForbiddenCard getForbidden_card() {
+        return forbidden_card;
+    }
+
+    public void setForbidden_card(ForbiddenCard forbidden_card) {
+        this.forbidden_card = forbidden_card;
+    }
+
+    public OpenCard getOpen_card() {
+        return open_card;
+    }
+
+    public void setOpen_card(OpenCard open_card) {
+        this.open_card = open_card;
+    }
+
+    public void initializeDeck(){
+        if(deck != null){
+            deck = new Deck(this,domain.isActive(),forbidden_card.isActive(),open_card.isActive());
+        }
     }
 }

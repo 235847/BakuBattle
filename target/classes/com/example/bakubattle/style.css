@@ -1,3 +1,10 @@
-.anchor {
-    -fx-background-image:url('arena.png');
+.gamescenebg{
+    -fx-background-image: url("arena/arena.jpg");
+    -fx-background-size: 100% 100%;
+}
+.hpbar{
+    -fx-accent:green;
+}
+.energybar{
+    -fx-accent:blue;
 }
