@@ -1,5 +1,6 @@
 package com.example.bakubattle;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,6 +12,8 @@ import javafx.scene.image.ImageView;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
+
+import static javafx.application.Platform.exit;
 
 public class ArenaController implements Initializable {
 
@@ -95,9 +98,29 @@ public class ArenaController implements Initializable {
     private Label desc_card_third;
 
 
+    /* TMP */
+    @FXML
+    private Label player1A_hp;
+    @FXML
+    private Label player2A_hp;
+    @FXML
+    private Label player1B_hp;
+    @FXML
+    private Label player2B_hp;
+
+    public void showHp(){
+        player1A_hp.setText(String.valueOf(PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().getHp()));
+        player2A_hp.setText(String.valueOf(PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().getHp()));
+        player1B_hp.setText(String.valueOf(PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().getHp()));
+        player2B_hp.setText(String.valueOf(PassingClass.getInstance().getTeamB().getPlayer2().getBakugan().getHp()));
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try{
+            /*Show health points*/
+            showHp();
+
             /* Getting URL path to the images. */
             URL player1A_setImage = getClass().getResource("arena/bakugan/"+PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamA().getPlayer1().getDomain().getName()+".png");
             URL player2A_setImage = getClass().getResource("arena/bakugan/"+PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamA().getPlayer2().getDomain().getName()+".png");
@@ -133,6 +156,7 @@ public class ArenaController implements Initializable {
                 enter_label.setText("Let's choose strategy for this game ("+PassingClass.getInstance().getTeamB().getPlayer2().getName()+"):");
             }
             else if(enter_label.getText().equals("Let's choose strategy for this game ("+PassingClass.getInstance().getTeamB().getPlayer2().getName()+"):")){
+                showHp();
                 settingStrategy(event,PassingClass.getInstance().getTeamB().getPlayer2());
                 enter_label.setText("Let's move "+PassingClass.getInstance().getTeamA().getPlayer1().getName()+":");            //inviting text
                 try{
@@ -146,6 +170,58 @@ public class ArenaController implements Initializable {
                     System.out.println(Error.INITIALIZE_DECK);
                 }
                 displayCards(PassingClass.getInstance().getTeamA().getPlayer1());
+            }
+            else if(enter_label.getText().equals("Let's move "+PassingClass.getInstance().getTeamA().getPlayer1().getName()+":")){
+                showHp();
+                controlDeath();
+                useAbility(PassingClass.getInstance().getTeamB(),PassingClass.getInstance().getTeamA(),PassingClass.getInstance().getTeamA().getPlayer1(), event);
+                if(!PassingClass.getInstance().getTeamB().getPlayer1().isDead()){
+                    enter_label.setText("Let's move "+PassingClass.getInstance().getTeamB().getPlayer1().getName()+":");
+                    displayCards(PassingClass.getInstance().getTeamB().getPlayer1());
+                }
+                else{
+                    enter_label.setText("Let's move "+PassingClass.getInstance().getTeamB().getPlayer2().getName()+":");
+                    displayCards(PassingClass.getInstance().getTeamB().getPlayer2());
+                }
+            }
+            else if(enter_label.getText().equals("Let's move "+PassingClass.getInstance().getTeamB().getPlayer1().getName()+":")){
+                showHp();
+                controlDeath();
+                useAbility(PassingClass.getInstance().getTeamA(),PassingClass.getInstance().getTeamB(),PassingClass.getInstance().getTeamB().getPlayer1(), event);
+                if(!PassingClass.getInstance().getTeamA().getPlayer2().isDead()){
+                    enter_label.setText("Let's move "+PassingClass.getInstance().getTeamA().getPlayer2().getName()+":");
+                    displayCards(PassingClass.getInstance().getTeamA().getPlayer2());
+                }
+                else{
+                    enter_label.setText("Let's move "+PassingClass.getInstance().getTeamA().getPlayer1().getName()+":");
+                    displayCards(PassingClass.getInstance().getTeamA().getPlayer1());
+                }
+            }
+            else if(enter_label.getText().equals("Let's move "+PassingClass.getInstance().getTeamA().getPlayer2().getName()+":")){
+                showHp();
+                controlDeath();
+                useAbility(PassingClass.getInstance().getTeamB(),PassingClass.getInstance().getTeamA(),PassingClass.getInstance().getTeamA().getPlayer2(), event);
+                if(!PassingClass.getInstance().getTeamB().getPlayer2().isDead()){
+                    enter_label.setText("Let's move "+PassingClass.getInstance().getTeamB().getPlayer2().getName()+":");
+                    displayCards(PassingClass.getInstance().getTeamB().getPlayer2());
+                }
+                else{
+                    enter_label.setText("Let's move "+PassingClass.getInstance().getTeamB().getPlayer1().getName()+":");
+                    displayCards(PassingClass.getInstance().getTeamB().getPlayer1());
+                }
+            }
+            else if(enter_label.getText().equals("Let's move "+PassingClass.getInstance().getTeamB().getPlayer2().getName()+":")){
+                showHp();
+                controlDeath();
+                useAbility(PassingClass.getInstance().getTeamA(),PassingClass.getInstance().getTeamB(),PassingClass.getInstance().getTeamB().getPlayer2(), event);
+                if(!PassingClass.getInstance().getTeamA().getPlayer1().isDead()){
+                    enter_label.setText("Let's move "+PassingClass.getInstance().getTeamA().getPlayer1().getName()+":");
+                    displayCards(PassingClass.getInstance().getTeamA().getPlayer1());
+                }
+                else{
+                    enter_label.setText("Let's move "+PassingClass.getInstance().getTeamA().getPlayer2().getName()+":");
+                    displayCards(PassingClass.getInstance().getTeamA().getPlayer2());
+                }
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -167,7 +243,8 @@ public class ArenaController implements Initializable {
 
     private void displayCards(Player player){
         try{
-            for(int i = 0; i<4;i++){
+            Random generator = new Random();
+            for(int i = 0; i<generator.nextInt(10);i++){
                 player.getDeck().shuffleDeck();
             }
 
@@ -217,6 +294,67 @@ public class ArenaController implements Initializable {
         }catch (Exception e){
             e.printStackTrace();
             System.out.println(Error.LOADING_CARDS);
+        }
+    }
+    
+    private void controlDeath(){
+        try{
+            if(PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().isDead()){
+                PassingClass.getInstance().getTeamA().getPlayer1().kill();
+                player1A_imageview.setVisible(false);
+                player1A_hp_bar.setVisible(false);
+                player1A_xp_bar.setVisible(false);
+                player1A_deck.setVisible(false);
+            }
+            if(PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().isDead()){
+                PassingClass.getInstance().getTeamA().getPlayer2().kill();
+                player2A_imageview.setVisible(false);
+                player2A_hp_bar.setVisible(false);
+                player2A_xp_bar.setVisible(false);
+                player2A_deck.setVisible(false);
+            }
+            if(PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().isDead()){
+                PassingClass.getInstance().getTeamB().getPlayer1().kill();
+                player1B_imageview.setVisible(false);
+                player1B_hp_bar.setVisible(false);
+                player1B_xp_bar.setVisible(false);
+                player1B_deck.setVisible(false);
+            }
+            if(PassingClass.getInstance().getTeamB().getPlayer2().getBakugan().isDead()){
+                PassingClass.getInstance().getTeamB().getPlayer2().kill();
+                player2B_imageview.setVisible(false);
+                player2B_hp_bar.setVisible(false);
+                player2B_xp_bar.setVisible(false);
+                player2B_deck.setVisible(false);
+            }
+
+            if(PassingClass.getInstance().getTeamA().getPlayer1().isDead() && PassingClass.getInstance().getTeamA().getPlayer2().isDead()){
+                Platform.exit();
+            }
+            else if(PassingClass.getInstance().getTeamB().getPlayer1().isDead() && PassingClass.getInstance().getTeamB().getPlayer2().isDead()){
+                Platform.exit();
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println(Error.SETTING_DEATH);
+        }
+    }
+
+    private void useAbility(Team team_to_attack, Team team_to_support,Player player, ActionEvent event){
+        try{
+            if(event.getSource() == first_card_button){
+                player.useCard(team_to_attack, team_to_support,player.getDeck().drawCard(0), player.getName());
+            }
+            else if(event.getSource() == second_card_button){
+                player.useCard(team_to_attack, team_to_support,player.getDeck().drawCard(1), player.getName());
+            }
+            else{
+                player.useCard(team_to_attack, team_to_support,player.getDeck().drawCard(2), player.getName());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println(Error.ABILITY_USE);
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.example.bakubattle;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Player {
 
@@ -10,8 +11,10 @@ public class Player {
     private Deck deck = null;
     private ForbiddenCard forbidden_card = new ForbiddenCard();
     private OpenCard open_card = new OpenCard();
+    private boolean is_dead;
 
     public Player(String name) {
+        is_dead = false;
         this.name = name;
     }
 
@@ -66,6 +69,294 @@ public class Player {
     public void initializeDeck(){
         if(deck == null){
             deck = new Deck(this,domain.isActive(),forbidden_card.isActive(),open_card.isActive());
+        }
+    }
+
+    public void kill() {
+        is_dead = true;
+    }
+
+    public boolean isDead(){
+        return is_dead;
+    }
+
+    public void useCard(Team team_to_attack, Team team_to_support, Card card, String my_name) {
+        Random generator = new Random();
+        int x = generator.nextInt(2);
+        switch(card.getType()){
+            case "transfer-single" -> handleTransferSingle(team_to_attack,team_to_support,card,my_name, x);
+            case "transfer-area" -> handleTransferArea(team_to_attack,team_to_support,card,my_name);
+            case "attack-single" -> handleAttackSingle(team_to_attack,team_to_support,my_name, card, x);
+            case "attack-area" -> handleAttackArea(team_to_attack,team_to_support,my_name, card);
+            case "hp-boost" -> handleHpBoost(team_to_support, card, my_name);
+            case "block-heal friend" -> handleBlockHealFriend(team_to_support, card, my_name);
+            case "block-heal team" -> handleBlockHealTeam(team_to_support, card, my_name);
+        }
+    }
+
+    private void handleBlockHealTeam(Team team_to_support, Card card, String my_name) {
+        if(team_to_support.getPlayer1().getName().equals(my_name)){
+            if(card.getValue() == -2){
+                team_to_support.getPlayer2().getBakugan().doubleHp_positive();
+                team_to_support.getPlayer1().getBakugan().doubleHp_positive();
+            }
+            else{
+                team_to_support.getPlayer2().getBakugan().addHp(card.getValue());
+                team_to_support.getPlayer1().getBakugan().addHp(card.getValue());
+            }
+            team_to_support.getPlayer1().getBakugan().setBlock(true);
+            team_to_support.getPlayer1().getBakugan().addXp(team_to_support.getPlayer1().getBakugan().getXP_MULTIPLIER()-0.01);
+        }
+        else{
+            if(card.getValue() == -2){
+                team_to_support.getPlayer1().getBakugan().doubleHp_positive();
+                team_to_support.getPlayer2().getBakugan().doubleHp_positive();
+            }
+            else{
+                team_to_support.getPlayer1().getBakugan().addHp(card.getValue());
+                team_to_support.getPlayer2().getBakugan().addHp(card.getValue());
+            }
+            team_to_support.getPlayer2().getBakugan().setBlock(true);
+            team_to_support.getPlayer2().getBakugan().addXp(team_to_support.getPlayer2().getBakugan().getXP_MULTIPLIER()-0.01);
+        }
+    }
+
+    private void handleBlockHealFriend(Team team_to_support, Card card, String my_name) {
+        if(team_to_support.getPlayer1().getName().equals(my_name)){
+            if(card.getValue() == -2){
+                team_to_support.getPlayer2().getBakugan().doubleHp_positive();
+            }
+            else{
+                team_to_support.getPlayer2().getBakugan().addHp(card.getValue());
+            }
+            team_to_support.getPlayer1().getBakugan().setBlock(true);
+            team_to_support.getPlayer1().getBakugan().addXp(team_to_support.getPlayer1().getBakugan().getXP_MULTIPLIER()-0.02);
+        }
+        else{
+            if(card.getValue() == -2){
+                team_to_support.getPlayer1().getBakugan().doubleHp_positive();
+            }
+            else{
+                team_to_support.getPlayer1().getBakugan().addHp(card.getValue());
+            }
+            team_to_support.getPlayer2().getBakugan().setBlock(true);
+            team_to_support.getPlayer2().getBakugan().addXp(team_to_support.getPlayer2().getBakugan().getXP_MULTIPLIER()-0.02);
+        }
+    }
+
+    private void handleHpBoost(Team team_to_support, Card card, String my_name) {
+        if(team_to_support.getPlayer1().getName().equals(my_name)){
+            if(card.getValue() == -2){
+                team_to_support.getPlayer1().getBakugan().doubleHp_positive();
+            }
+            else{
+                team_to_support.getPlayer1().getBakugan().addHp(card.getValue());
+            }
+            team_to_support.getPlayer1().getBakugan().addXp(team_to_support.getPlayer1().getBakugan().getXP_MULTIPLIER()-0.03);
+        }
+        else{
+            if(card.getValue() == -2){
+                team_to_support.getPlayer2().getBakugan().doubleHp_positive();
+            }
+            else{
+                team_to_support.getPlayer2().getBakugan().addHp(card.getValue());
+            }
+            team_to_support.getPlayer2().getBakugan().addXp(team_to_support.getPlayer2().getBakugan().getXP_MULTIPLIER()-0.03);
+        }
+    }
+
+    private void handleAttackArea(Team team_to_attack,Team team_to_support, String my_name, Card card) {
+        if(card.getValue() == -2){
+            if(!team_to_attack.getPlayer1().getBakugan().isBlock()){
+                team_to_attack.getPlayer1().getBakugan().doubleHp_negative();
+            }
+            if(!team_to_attack.getPlayer2().getBakugan().isBlock()){
+                team_to_attack.getPlayer2().getBakugan().doubleHp_negative();
+            }
+        }
+        else{
+            if(!team_to_attack.getPlayer1().getBakugan().isBlock()){
+                team_to_attack.getPlayer1().getBakugan().subtractHp(card.getValue());
+            }
+            if(!team_to_attack.getPlayer2().getBakugan().isBlock()){
+                team_to_attack.getPlayer2().getBakugan().subtractHp(card.getValue());
+            }
+        }
+
+        if(team_to_support.getPlayer1().getName().equals(my_name)){
+            team_to_support.getPlayer1().getBakugan().addXp(team_to_support.getPlayer1().getBakugan().getXP_MULTIPLIER()-0.05);
+        }
+        else{
+            team_to_support.getPlayer2().getBakugan().addXp(team_to_support.getPlayer2().getBakugan().getXP_MULTIPLIER()-0.05);
+        }
+    }
+
+    private void handleAttackSingle(Team team_to_attack, Team team_to_support, String my_name, Card card, int n) {
+        if(n == 0){
+            if(card.getValue() == -2){
+                if(!team_to_attack.getPlayer1().getBakugan().isBlock()){
+                    team_to_attack.getPlayer1().getBakugan().doubleHp_negative();
+                }
+            }
+            else{
+                if(!team_to_attack.getPlayer1().getBakugan().isBlock()){
+                    team_to_attack.getPlayer1().getBakugan().subtractHp(card.getValue());
+                }
+            }
+        }
+        else {
+            if(card.getValue() == -2){
+                if(!team_to_attack.getPlayer2().getBakugan().isBlock()){
+                    team_to_attack.getPlayer2().getBakugan().doubleHp_negative();
+                }
+            }
+            else{
+                if(!team_to_attack.getPlayer2().getBakugan().isBlock()){
+                    team_to_attack.getPlayer2().getBakugan().subtractHp(card.getValue());
+                }
+            }
+        }
+
+        if(team_to_support.getPlayer1().getName().equals(my_name)){
+            team_to_support.getPlayer1().getBakugan().addXp(team_to_support.getPlayer1().getBakugan().getXP_MULTIPLIER()-0.04);
+        }
+        else{
+            team_to_support.getPlayer2().getBakugan().addXp(team_to_support.getPlayer2().getBakugan().getXP_MULTIPLIER()-0.04);
+        }
+    }
+
+    private void handleTransferArea(Team team_to_attack, Team team_to_support, Card card, String my_name) {
+        int success_attack = 0;
+        if(card.getValue() == -2){
+            if(!team_to_attack.getPlayer1().getBakugan().isBlock()){
+                team_to_attack.getPlayer1().getBakugan().doubleHp_negative();
+                success_attack++;
+            }
+            if(!team_to_attack.getPlayer2().getBakugan().isBlock()){
+                team_to_attack.getPlayer2().getBakugan().doubleHp_negative();
+                success_attack++;
+            }
+            if(team_to_support.getPlayer1().getName().equals(my_name)){
+                if(success_attack == 2){
+                    team_to_support.getPlayer1().getBakugan().doubleHp_positive();
+                }
+                team_to_support.getPlayer1().getBakugan().addXp(team_to_support.getPlayer1().getBakugan().getXP_MULTIPLIER()-0.07);
+            }
+            else{
+                if(success_attack == 2){
+                    team_to_support.getPlayer2().getBakugan().doubleHp_positive();
+                }
+                team_to_support.getPlayer2().getBakugan().addXp(team_to_support.getPlayer2().getBakugan().getXP_MULTIPLIER()-0.07);
+            }
+        }
+        else{
+            if(!team_to_attack.getPlayer1().getBakugan().isBlock()){
+                team_to_attack.getPlayer1().getBakugan().subtractHp(card.getValue());
+                success_attack++;
+            }
+            if(!team_to_attack.getPlayer2().getBakugan().isBlock()){
+                team_to_attack.getPlayer2().getBakugan().subtractHp(card.getValue());
+                success_attack++;
+            }
+
+            if(team_to_support.getPlayer1().getName().equals(my_name)){
+                if(success_attack == 2){
+                    team_to_support.getPlayer1().getBakugan().addHp(card.getValue()*2);
+                }
+                else if(success_attack == 1){
+                    team_to_support.getPlayer1().getBakugan().addHp(card.getValue());
+                }
+                team_to_support.getPlayer1().getBakugan().addXp(team_to_support.getPlayer1().getBakugan().getXP_MULTIPLIER()-0.07);
+            }
+            else{
+                if(success_attack == 2){
+                    team_to_support.getPlayer2().getBakugan().addHp(card.getValue()*2);
+                }
+                else if(success_attack == 1){
+                    team_to_support.getPlayer2().getBakugan().addHp(card.getValue());
+                }
+                team_to_support.getPlayer2().getBakugan().addXp(team_to_support.getPlayer2().getBakugan().getXP_MULTIPLIER()-0.07);
+            }
+        }
+    }
+
+    private void handleTransferSingle(Team team_to_attack, Team team_to_support, Card card, String my_name,int n){
+        int success_attack = 0;
+        if(n == 0){
+            if(card.getValue() == -2){
+                if(!team_to_attack.getPlayer1().getBakugan().isBlock()){
+                    team_to_attack.getPlayer1().getBakugan().doubleHp_negative();
+                    success_attack++;
+                }
+                if(team_to_support.getPlayer1().getName().equals(my_name)){
+                    if(success_attack == 1){
+                        team_to_support.getPlayer1().getBakugan().doubleHp_positive();
+                    }
+                    team_to_support.getPlayer1().getBakugan().addXp(team_to_support.getPlayer1().getBakugan().getXP_MULTIPLIER()-0.06);
+                }
+                else{
+                    if(success_attack == 1){
+                        team_to_support.getPlayer2().getBakugan().doubleHp_positive();
+                    }
+                    team_to_support.getPlayer2().getBakugan().addXp(team_to_support.getPlayer2().getBakugan().getXP_MULTIPLIER()-0.06);
+                }
+            }
+            else{
+                if(!team_to_attack.getPlayer1().getBakugan().isBlock()){
+                    team_to_attack.getPlayer1().getBakugan().subtractHp(card.getValue());
+                    success_attack++;
+                }
+                if(team_to_support.getPlayer1().getName().equals(my_name)){
+                    if(success_attack == 1){
+                        team_to_support.getPlayer1().getBakugan().addHp(card.getValue());
+                    }
+                    team_to_support.getPlayer1().getBakugan().addXp(team_to_support.getPlayer1().getBakugan().getXP_MULTIPLIER()-0.06);
+                }
+                else{
+                    if(success_attack == 1){
+                        team_to_support.getPlayer2().getBakugan().addHp(card.getValue());
+                    }
+                    team_to_support.getPlayer2().getBakugan().addXp(team_to_support.getPlayer2().getBakugan().getXP_MULTIPLIER()-0.06);
+                }
+            }
+        }
+        else {
+            if(card.getValue() == -2){
+                if(!team_to_attack.getPlayer2().getBakugan().isBlock()){
+                    team_to_attack.getPlayer2().getBakugan().doubleHp_negative();
+                    success_attack++;
+                }
+                if(team_to_support.getPlayer1().getName().equals(my_name)){
+                    if(success_attack == 1){
+                        team_to_support.getPlayer1().getBakugan().doubleHp_positive();
+                    }
+                    team_to_support.getPlayer1().getBakugan().addXp(team_to_support.getPlayer1().getBakugan().getXP_MULTIPLIER()-0.06);
+                }
+                else{
+                    if(success_attack == 1){
+                        team_to_support.getPlayer2().getBakugan().doubleHp_positive();
+                    }
+                    team_to_support.getPlayer2().getBakugan().addXp(team_to_support.getPlayer2().getBakugan().getXP_MULTIPLIER()-0.06);
+                }
+            }
+            else{
+                if(!team_to_attack.getPlayer2().getBakugan().isBlock()){
+                    team_to_attack.getPlayer2().getBakugan().subtractHp(card.getValue());
+                    success_attack++;
+                }
+                if(team_to_support.getPlayer1().getName().equals(my_name)){
+                    if(success_attack == 1){
+                        team_to_support.getPlayer1().getBakugan().addHp(card.getValue());
+                    }
+                    team_to_support.getPlayer1().getBakugan().addXp(team_to_support.getPlayer1().getBakugan().getXP_MULTIPLIER()-0.06);
+                }
+                else{
+                    if(success_attack == 1){
+                        team_to_support.getPlayer2().getBakugan().addHp(card.getValue());
+                    }
+                    team_to_support.getPlayer2().getBakugan().addXp(team_to_support.getPlayer2().getBakugan().getXP_MULTIPLIER()-0.06);
+                }
+            }
         }
     }
 }
