@@ -165,4 +165,8 @@ public class Bakugan {
             xp -= XP_THRESHOLD;
         }
     }
+
+    public void unloadXp() {
+        xp_loaded = false;
+    }
 }

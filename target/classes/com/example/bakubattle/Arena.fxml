@@ -117,24 +117,44 @@
             <Font size="10.0" />
          </font>
       </Label>
-      <Label fx:id="player1A_hp" layoutX="370.0" layoutY="278.0" prefHeight="73.0" prefWidth="132.0" text="HP" textFill="WHITE" wrapText="true">
+      <Label fx:id="player1A_hp" layoutX="431.0" layoutY="94.0" prefHeight="73.0" prefWidth="132.0" text="HP" textFill="RED" wrapText="true">
          <font>
-            <Font size="50.0" />
+            <Font size="36.0" />
          </font>
       </Label>
-      <Label fx:id="player2A_hp" layoutX="370.0" layoutY="765.0" prefHeight="73.0" prefWidth="134.0" text="HP" textFill="WHITE" wrapText="true">
+      <Label fx:id="player2A_hp" layoutX="431.0" layoutY="597.0" prefHeight="73.0" prefWidth="134.0" text="HP" textFill="RED" wrapText="true">
          <font>
-            <Font size="50.0" />
+            <Font size="36.0" />
          </font>
       </Label>
-      <Label fx:id="player1B_hp" layoutX="1470.0" layoutY="278.0" prefHeight="73.0" prefWidth="162.0" text="HP" textFill="WHITE" wrapText="true">
+      <Label fx:id="player1B_hp" layoutX="1363.0" layoutY="94.0" prefHeight="73.0" prefWidth="162.0" text="HP" textFill="RED" wrapText="true">
          <font>
-            <Font size="50.0" />
+            <Font size="36.0" />
          </font>
       </Label>
-      <Label fx:id="player2B_hp" layoutX="1470.0" layoutY="765.0" prefHeight="73.0" prefWidth="144.0" text="HP" textFill="WHITE" wrapText="true">
+      <Label fx:id="player2B_hp" layoutX="1363.0" layoutY="595.0" prefHeight="73.0" prefWidth="144.0" text="HP" textFill="RED" wrapText="true">
          <font>
-            <Font size="50.0" />
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="player2A_xp" alignment="CENTER" layoutX="406.0" layoutY="660.0" prefHeight="38.0" prefWidth="81.0" text="Xp" textAlignment="CENTER" textFill="#ff000f">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label fx:id="player2B_xp" alignment="CENTER" layoutX="1428.0" layoutY="660.0" prefHeight="38.0" prefWidth="88.0" text="Xp" textAlignment="CENTER" textFill="#ff000f">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label fx:id="player1A_xp" alignment="CENTER" layoutX="402.0" layoutY="159.0" prefHeight="38.0" prefWidth="85.0" text="Xp" textAlignment="CENTER" textFill="#ff000f">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label fx:id="player1B_xp" alignment="CENTER" layoutX="1428.0" layoutY="159.0" prefHeight="38.0" prefWidth="96.0" text="Xp" textAlignment="CENTER" textFill="#ff000f">
+         <font>
+            <Font size="26.0" />
          </font>
       </Label>
     </children>

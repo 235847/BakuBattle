@@ -4,7 +4,6 @@ public class Team {
 
     private Player player1;
     private Player player2;
-    public int sum_hp = 0;
 
     public Player getPlayer1() {
         return player1;
@@ -23,10 +22,14 @@ public class Team {
     }
 
     public int getSumHp() {
-        return sum_hp;
-    }
-
-    public void setSumHp(int sum_hp) {
-        this.sum_hp = sum_hp;
+        if(player1.isDead()){
+            return player2.getBakugan().getHp();
+        }
+        else if(player2.isDead()){
+            return player1.getBakugan().getHp();
+        }
+        else{
+            return player1.getBakugan().getHp()+player2.getBakugan().getHp();
+        }
     }
 }

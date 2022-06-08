@@ -74,6 +74,7 @@ public class Player {
 
     public void kill() {
         is_dead = true;
+        //bakugan.setBlock(true);
     }
 
     public boolean isDead(){
@@ -170,16 +171,28 @@ public class Player {
             if(!team_to_attack.getPlayer1().getBakugan().isBlock()){
                 team_to_attack.getPlayer1().getBakugan().doubleHp_negative();
             }
+            else{
+                team_to_attack.getPlayer1().getBakugan().setBlock(false);
+            }
             if(!team_to_attack.getPlayer2().getBakugan().isBlock()){
                 team_to_attack.getPlayer2().getBakugan().doubleHp_negative();
+            }
+            else{
+                team_to_attack.getPlayer2().getBakugan().setBlock(false);
             }
         }
         else{
             if(!team_to_attack.getPlayer1().getBakugan().isBlock()){
                 team_to_attack.getPlayer1().getBakugan().subtractHp(card.getValue());
             }
+            else{
+                team_to_attack.getPlayer1().getBakugan().setBlock(false);
+            }
             if(!team_to_attack.getPlayer2().getBakugan().isBlock()){
                 team_to_attack.getPlayer2().getBakugan().subtractHp(card.getValue());
+            }
+            else{
+                team_to_attack.getPlayer2().getBakugan().setBlock(false);
             }
         }
 
@@ -197,10 +210,16 @@ public class Player {
                 if(!team_to_attack.getPlayer1().getBakugan().isBlock()){
                     team_to_attack.getPlayer1().getBakugan().doubleHp_negative();
                 }
+                else{
+                    team_to_attack.getPlayer1().getBakugan().setBlock(false);
+                }
             }
             else{
                 if(!team_to_attack.getPlayer1().getBakugan().isBlock()){
                     team_to_attack.getPlayer1().getBakugan().subtractHp(card.getValue());
+                }
+                else{
+                    team_to_attack.getPlayer1().getBakugan().setBlock(false);
                 }
             }
         }
@@ -209,10 +228,16 @@ public class Player {
                 if(!team_to_attack.getPlayer2().getBakugan().isBlock()){
                     team_to_attack.getPlayer2().getBakugan().doubleHp_negative();
                 }
+                else{
+                    team_to_attack.getPlayer2().getBakugan().setBlock(false);
+                }
             }
             else{
                 if(!team_to_attack.getPlayer2().getBakugan().isBlock()){
                     team_to_attack.getPlayer2().getBakugan().subtractHp(card.getValue());
+                }
+                else{
+                    team_to_attack.getPlayer2().getBakugan().setBlock(false);
                 }
             }
         }
@@ -232,9 +257,19 @@ public class Player {
                 team_to_attack.getPlayer1().getBakugan().doubleHp_negative();
                 success_attack++;
             }
+            else{
+                //if(!team_to_attack.getPlayer1().isDead()){
+                    team_to_attack.getPlayer1().getBakugan().setBlock(false);
+                //}
+            }
             if(!team_to_attack.getPlayer2().getBakugan().isBlock()){
                 team_to_attack.getPlayer2().getBakugan().doubleHp_negative();
                 success_attack++;
+            }
+            else{
+               //if(!team_to_attack.getPlayer2().isDead()){
+                    team_to_attack.getPlayer2().getBakugan().setBlock(false);
+               // }
             }
             if(team_to_support.getPlayer1().getName().equals(my_name)){
                 if(success_attack == 2){
@@ -254,11 +289,20 @@ public class Player {
                 team_to_attack.getPlayer1().getBakugan().subtractHp(card.getValue());
                 success_attack++;
             }
+            else{
+                //if(!team_to_attack.getPlayer1().isDead()){
+                    team_to_attack.getPlayer1().getBakugan().setBlock(false);
+                //}
+            }
             if(!team_to_attack.getPlayer2().getBakugan().isBlock()){
                 team_to_attack.getPlayer2().getBakugan().subtractHp(card.getValue());
                 success_attack++;
             }
-
+            else{
+                //if(!team_to_attack.getPlayer2().isDead()){
+                    team_to_attack.getPlayer2().getBakugan().setBlock(false);
+                //}
+            }
             if(team_to_support.getPlayer1().getName().equals(my_name)){
                 if(success_attack == 2){
                     team_to_support.getPlayer1().getBakugan().addHp(card.getValue()*2);
@@ -288,6 +332,11 @@ public class Player {
                     team_to_attack.getPlayer1().getBakugan().doubleHp_negative();
                     success_attack++;
                 }
+                else{
+                    //if(!team_to_attack.getPlayer1().isDead()){
+                        team_to_attack.getPlayer1().getBakugan().setBlock(false);
+                    //}
+                }
                 if(team_to_support.getPlayer1().getName().equals(my_name)){
                     if(success_attack == 1){
                         team_to_support.getPlayer1().getBakugan().doubleHp_positive();
@@ -305,6 +354,11 @@ public class Player {
                 if(!team_to_attack.getPlayer1().getBakugan().isBlock()){
                     team_to_attack.getPlayer1().getBakugan().subtractHp(card.getValue());
                     success_attack++;
+                }
+                else{
+                   //if(!team_to_attack.getPlayer1().isDead()){
+                        team_to_attack.getPlayer1().getBakugan().setBlock(false);
+                    //}
                 }
                 if(team_to_support.getPlayer1().getName().equals(my_name)){
                     if(success_attack == 1){
@@ -326,6 +380,11 @@ public class Player {
                     team_to_attack.getPlayer2().getBakugan().doubleHp_negative();
                     success_attack++;
                 }
+                else{
+                    //if(!team_to_attack.getPlayer2().isDead()){
+                        team_to_attack.getPlayer2().getBakugan().setBlock(false);
+                    //}
+                }
                 if(team_to_support.getPlayer1().getName().equals(my_name)){
                     if(success_attack == 1){
                         team_to_support.getPlayer1().getBakugan().doubleHp_positive();
@@ -343,6 +402,11 @@ public class Player {
                 if(!team_to_attack.getPlayer2().getBakugan().isBlock()){
                     team_to_attack.getPlayer2().getBakugan().subtractHp(card.getValue());
                     success_attack++;
+                }
+                else{
+                    //if(!team_to_attack.getPlayer2().isDead()){
+                        team_to_attack.getPlayer2().getBakugan().setBlock(false);
+                    //}
                 }
                 if(team_to_support.getPlayer1().getName().equals(my_name)){
                     if(success_attack == 1){
