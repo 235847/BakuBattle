@@ -77,6 +77,14 @@ public class Deck {
         }
     };
 
+    public int size(){
+        return deck.size();
+    }
+
+    public Card drawCard(int i){
+        return deck.get(i);
+    }
+
     public void shuffleDeck() {
         Collections.shuffle(deck);
     }

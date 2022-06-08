@@ -64,7 +64,7 @@ public class Player {
     }
 
     public void initializeDeck(){
-        if(deck != null){
+        if(deck == null){
             deck = new Deck(this,domain.isActive(),forbidden_card.isActive(),open_card.isActive());
         }
     }
