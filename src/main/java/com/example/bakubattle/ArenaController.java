@@ -190,15 +190,18 @@ public class ArenaController implements Initializable {
                     displayCards(PassingClass.getInstance().getTeamA().getPlayer1());
                     PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().unloadXp();
                     dealRoundDmg();
+                    System.out.println("Moves Player1A-XPLOAD");
                 }
                 else{
                     if(!PassingClass.getInstance().getTeamB().getPlayer1().isDead()){
                         enter_label.setText("Let's move "+PassingClass.getInstance().getTeamB().getPlayer1().getName()+":");
                         displayCards(PassingClass.getInstance().getTeamB().getPlayer1());
+                        System.out.println("Moves Player1B-from Player1A");
                     }
                     else{
                         enter_label.setText("Let's move "+PassingClass.getInstance().getTeamB().getPlayer2().getName()+":");
                         displayCards(PassingClass.getInstance().getTeamB().getPlayer2());
+                        System.out.println("Moves Player2B-from Player1A");
                     }
                 }
             }
@@ -211,15 +214,18 @@ public class ArenaController implements Initializable {
                     displayCards(PassingClass.getInstance().getTeamB().getPlayer1());
                     PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().unloadXp();
                     dealRoundDmg();
+                    System.out.println("Moves Player1B-XPLOAD");
                 }
                 else{
                     if(!PassingClass.getInstance().getTeamA().getPlayer2().isDead()){
                         enter_label.setText("Let's move "+PassingClass.getInstance().getTeamA().getPlayer2().getName()+":");
                         displayCards(PassingClass.getInstance().getTeamA().getPlayer2());
+                        System.out.println("Moves Player2A-from Player1B");
                     }
                     else{
                         enter_label.setText("Let's move "+PassingClass.getInstance().getTeamA().getPlayer1().getName()+":");
                         displayCards(PassingClass.getInstance().getTeamA().getPlayer1());
+                        System.out.println("Moves Player1A-from Player1B");
                     }
                 }
             }
@@ -232,15 +238,18 @@ public class ArenaController implements Initializable {
                     displayCards(PassingClass.getInstance().getTeamA().getPlayer2());
                     PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().unloadXp();
                     dealRoundDmg();
+                    System.out.println("Moves Player2A-XPLOAD");
                 }
                 else{
                     if(!PassingClass.getInstance().getTeamB().getPlayer2().isDead()){
                         enter_label.setText("Let's move "+PassingClass.getInstance().getTeamB().getPlayer2().getName()+":");
                         displayCards(PassingClass.getInstance().getTeamB().getPlayer2());
+                        System.out.println("Moves Player2B-from Player2A");
                     }
                     else{
                         enter_label.setText("Let's move "+PassingClass.getInstance().getTeamB().getPlayer1().getName()+":");
                         displayCards(PassingClass.getInstance().getTeamB().getPlayer1());
+                        System.out.println("Moves Player1B-from Player2A");
                     }
                 }
             }
@@ -253,21 +262,24 @@ public class ArenaController implements Initializable {
                     displayCards(PassingClass.getInstance().getTeamB().getPlayer2());
                     PassingClass.getInstance().getTeamB().getPlayer2().getBakugan().unloadXp();
                     dealRoundDmg();
+                    System.out.println("Moves Player2B-XPLOAD");
                 }
                 else{
                     if(!PassingClass.getInstance().getTeamA().getPlayer1().isDead()){
                         enter_label.setText("Let's move "+PassingClass.getInstance().getTeamA().getPlayer1().getName()+":");
                         displayCards(PassingClass.getInstance().getTeamA().getPlayer1());
+                        System.out.println("Moves Player1A-from Player2B");
                     }
                     else{
                         enter_label.setText("Let's move "+PassingClass.getInstance().getTeamA().getPlayer2().getName()+":");
                         displayCards(PassingClass.getInstance().getTeamA().getPlayer2());
+                        System.out.println("Moves Player2A-from Player2B");
                     }
                 }
             }
         }catch (Exception e){
             e.printStackTrace();
-            System.out.println(Error.ACTIVATING_STRATEGY);
+            System.out.println(Error.ACTIVATING_STRATEGY+"\n"+Error.GAMEPLAY);
         }
     }
 
@@ -341,6 +353,7 @@ public class ArenaController implements Initializable {
         try{
             if(PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().isDead()){
                 PassingClass.getInstance().getTeamA().getPlayer1().kill();
+//                System.out.println("Player1A killed.");
                 player1A_imageview.setVisible(false);
                 player1A_hp_bar.setVisible(false);
                 player1A_xp_bar.setVisible(false);
@@ -350,6 +363,7 @@ public class ArenaController implements Initializable {
             }
             if(PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().isDead()){
                 PassingClass.getInstance().getTeamA().getPlayer2().kill();
+//                System.out.println("Player2A killed.");
                 player2A_imageview.setVisible(false);
                 player2A_hp_bar.setVisible(false);
                 player2A_xp_bar.setVisible(false);
@@ -359,6 +373,7 @@ public class ArenaController implements Initializable {
             }
             if(PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().isDead()){
                 PassingClass.getInstance().getTeamB().getPlayer1().kill();
+//                System.out.println("Player1B killed.");
                 player1B_imageview.setVisible(false);
                 player1B_hp_bar.setVisible(false);
                 player1B_xp_bar.setVisible(false);
@@ -368,6 +383,7 @@ public class ArenaController implements Initializable {
             }
             if(PassingClass.getInstance().getTeamB().getPlayer2().getBakugan().isDead()){
                 PassingClass.getInstance().getTeamB().getPlayer2().kill();
+//                System.out.println("Player2B killed.");
                 player2B_imageview.setVisible(false);
                 player2B_hp_bar.setVisible(false);
                 player2B_xp_bar.setVisible(false);

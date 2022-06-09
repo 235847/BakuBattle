@@ -14,4 +14,5 @@ public class Error {
     public static final String LOADING_CARDS = "Error: occurred while loading cards.";
     public static final String SETTING_DEATH = "Error: occurred while killing players.";
     public static final String ABILITY_USE = "Error: occurred while using one of the abilities.";
+    public static final String GAMEPLAY = "Error: occurred while playing.";
 }

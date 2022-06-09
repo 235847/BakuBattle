@@ -12,9 +12,11 @@ public class Player {
     private ForbiddenCard forbidden_card = new ForbiddenCard();
     private OpenCard open_card = new OpenCard();
     private boolean is_dead;
+    private boolean not_killed;
 
     public Player(String name) {
         is_dead = false;
+        not_killed = true;
         this.name = name;
     }
 
@@ -74,7 +76,8 @@ public class Player {
 
     public void kill() {
         is_dead = true;
-        //bakugan.setBlock(true);
+        bakugan.setBlock(true);
+        not_killed = false;
     }
 
     public boolean isDead(){
@@ -258,18 +261,18 @@ public class Player {
                 success_attack++;
             }
             else{
-                //if(!team_to_attack.getPlayer1().isDead()){
+                if(!team_to_attack.getPlayer1().isDead()){
                     team_to_attack.getPlayer1().getBakugan().setBlock(false);
-                //}
+                }
             }
             if(!team_to_attack.getPlayer2().getBakugan().isBlock()){
                 team_to_attack.getPlayer2().getBakugan().doubleHp_negative();
                 success_attack++;
             }
             else{
-               //if(!team_to_attack.getPlayer2().isDead()){
+               if(!team_to_attack.getPlayer2().isDead()){
                     team_to_attack.getPlayer2().getBakugan().setBlock(false);
-               // }
+               }
             }
             if(team_to_support.getPlayer1().getName().equals(my_name)){
                 if(success_attack == 2){
@@ -290,18 +293,18 @@ public class Player {
                 success_attack++;
             }
             else{
-                //if(!team_to_attack.getPlayer1().isDead()){
+                if(!team_to_attack.getPlayer1().isDead()){
                     team_to_attack.getPlayer1().getBakugan().setBlock(false);
-                //}
+                }
             }
             if(!team_to_attack.getPlayer2().getBakugan().isBlock()){
                 team_to_attack.getPlayer2().getBakugan().subtractHp(card.getValue());
                 success_attack++;
             }
             else{
-                //if(!team_to_attack.getPlayer2().isDead()){
+                if(!team_to_attack.getPlayer2().isDead()){
                     team_to_attack.getPlayer2().getBakugan().setBlock(false);
-                //}
+                }
             }
             if(team_to_support.getPlayer1().getName().equals(my_name)){
                 if(success_attack == 2){
@@ -333,9 +336,9 @@ public class Player {
                     success_attack++;
                 }
                 else{
-                    //if(!team_to_attack.getPlayer1().isDead()){
+                    if(!team_to_attack.getPlayer1().isDead()){
                         team_to_attack.getPlayer1().getBakugan().setBlock(false);
-                    //}
+                    }
                 }
                 if(team_to_support.getPlayer1().getName().equals(my_name)){
                     if(success_attack == 1){
@@ -356,9 +359,9 @@ public class Player {
                     success_attack++;
                 }
                 else{
-                   //if(!team_to_attack.getPlayer1().isDead()){
+                   if(!team_to_attack.getPlayer1().isDead()){
                         team_to_attack.getPlayer1().getBakugan().setBlock(false);
-                    //}
+                    }
                 }
                 if(team_to_support.getPlayer1().getName().equals(my_name)){
                     if(success_attack == 1){
@@ -381,9 +384,9 @@ public class Player {
                     success_attack++;
                 }
                 else{
-                    //if(!team_to_attack.getPlayer2().isDead()){
+                    if(!team_to_attack.getPlayer2().isDead()){
                         team_to_attack.getPlayer2().getBakugan().setBlock(false);
-                    //}
+                    }
                 }
                 if(team_to_support.getPlayer1().getName().equals(my_name)){
                     if(success_attack == 1){
@@ -404,9 +407,9 @@ public class Player {
                     success_attack++;
                 }
                 else{
-                    //if(!team_to_attack.getPlayer2().isDead()){
+                    if(!team_to_attack.getPlayer2().isDead()){
                         team_to_attack.getPlayer2().getBakugan().setBlock(false);
-                    //}
+                    }
                 }
                 if(team_to_support.getPlayer1().getName().equals(my_name)){
                     if(success_attack == 1){
@@ -422,5 +425,9 @@ public class Player {
                 }
             }
         }
+    }
+
+    public boolean killed() {
+        return !not_killed;
     }
 }

@@ -116,8 +116,8 @@ public class Deck {
     }
 
     private void subterraBuff(Bakugan bakugan){
-        bakugan.addHp(200);
-        bakugan.setXP_MULTIPLIER(0.38);
+        bakugan.setXP_MULTIPLIER(0.35);
+        bakugan.setBlock(true);
     }
 
     private void darkusBuff(Bakugan bakugan){
