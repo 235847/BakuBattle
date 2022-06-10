@@ -7,6 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.util.Objects;
@@ -25,6 +27,8 @@ public class BakuController {
     private Button serpenteze_button;
     @FXML
     private Button serpillious_button;
+
+
 
     public void setBakugan(ActionEvent actionEvent) throws Exception{
         int choice;

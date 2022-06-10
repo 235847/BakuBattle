@@ -27,11 +27,10 @@ public class SetDomainController {
     @FXML
     private Button subterra_button;
 
-    Parent root = null;
-
 
     /* Setting the domain for the players and going to the champ select*/
     public void setDomain(ActionEvent actionEvent){
+        Parent root = null;
         try{
             /* Choosing his domain and preparing to jump to the next scene*/
             int i;
@@ -44,7 +43,7 @@ public class SetDomainController {
                 i = 1;
             }
             else if(actionEvent.getSource() == aquos_button){
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Apophix.fxml")));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("aquos.fxml")));
                 i = 2;
             }
             else if(actionEvent.getSource() == darkus_button){
