@@ -12,10 +12,11 @@ public class Bakugan {
 
     private String name;
     private int hp;
-    private final static int HP_THRESHOLD = 4000;
+    private static final int HP_THRESHOLD = 4000;
     private double xp;
     private double XP_MULTIPLIER;
-    private final static double XP_THRESHOLD = 1;
+    private boolean xp_loaded = false;
+    private static final double XP_THRESHOLD = 1;
     private HashMap<String,Integer> skill_values;
     private ArrayList<String> skill_names;
     private boolean is_block = false;
@@ -139,5 +140,33 @@ public class Bakugan {
 
     public void subtractHp(int x){
         hp -= x;
+    }
+
+    public boolean isDead() {
+        return hp <= 0;
+    }
+
+    public void doubleHp_positive(){
+        hp *= 2;
+    }
+
+    public void doubleHp_negative(){
+        hp /= 2;
+    }
+
+    public boolean isXpLoaded() {
+        return xp_loaded;
+    }
+
+    public void addXp(double v) {
+        xp+=v;
+        if(xp > XP_THRESHOLD){
+            xp_loaded = true;
+            xp -= XP_THRESHOLD;
+        }
+    }
+
+    public void unloadXp() {
+        xp_loaded = false;
     }
 }

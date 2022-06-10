@@ -10,18 +10,37 @@ public class Card {
 
     public Card(String n, String t, int val, boolean block){
         name = n;
-        type = t;
         value = val;
         sets_block = block;
-        switch (type) {
-            case "transferSingle" -> description = "This ability transfers " + value + "g from your opponent to you.";
-            case "transferArea" -> description = "This ability transfers " + value + "g from your opponents to you.";
-            case "attackSingle" -> description = "This ability attacks your opponent and deals him " + value + "g.";
-            case "attackArea" -> description = "This ability attacks your opponents and deals them " + value + "g.";
-            case "hpBoostv1" -> description = "This ability gives you " + value + "g.";
-            case "hpBoostv2" -> description = "This ability gives you " + value + "g.";
-            case "blockHealFriend" -> description = "This ability gives your partner " + value + "g and sets block.";
-            case "blockHealTeam" -> description = "This ability gives you and your partner " + value + "g and sets block.";
+        switch (t) {
+            case "transferSingle" ->{
+                type = "transfer-single";
+                description = "This ability transfers " + value + "g from your opponent to you.";
+            }
+            case "transferArea" ->{
+                type = "transfer-area";
+                description = "This ability transfers " + value + "g from your opponents to you.";
+            }
+            case "attackSingle" ->{
+                type = "attack-single";
+                description = "This ability attacks your opponent and deals him " + value + "g.";
+            }
+            case "attackArea" ->{
+                type = "attack-area";
+                description = "This ability attacks your opponents and deals them " + value + "g.";
+            }
+            case "hpBoostv1", "hpBoostv2" ->{
+                type = "hp-boost";
+                description = "This ability gives you " + value + "g.";
+            }
+            case "blockHealFriend" ->{
+                type = "block-heal friend";
+                description = "This ability gives your partner " + value + "g and sets block.";
+            }
+            case "blockHealTeam" ->{
+                type = "block-heal team";
+                description = "This ability gives you and your partner " + value + "g and sets block.";
+            }
         }
     }
 

@@ -15,21 +15,27 @@ public class Deck {
         if(domain_activation){
             if(player.getDomain().getName().equals(Domain.NAMES[0])){
                 pyrusBuff(player.getBakugan());
+//                System.out.println("Player received pyrus boost");
             }
             else if(player.getDomain().getName().equals(Domain.NAMES[1])){
                 ventusBuff(player.getBakugan());
+//                System.out.println("Player received ventus boost");
             }
             else if(player.getDomain().getName().equals(Domain.NAMES[2])){
                 aquosBuff(player.getBakugan());
+//                System.out.println("Player received aquos boost");
             }
             else if(player.getDomain().getName().equals(Domain.NAMES[3])){
                 darkusBuff(player.getBakugan());
+//                System.out.println("Player received darkus boost");
             }
             else if(player.getDomain().getName().equals(Domain.NAMES[4])){
                 haosBuff(player.getBakugan());
+//                System.out.println("Player received haos boost");
             }
             else if(player.getDomain().getName().equals(Domain.NAMES[5])){
                 subterraBuff(player.getBakugan());
+//                System.out.println("Player received subterra boost");
             }
         }
 
@@ -37,30 +43,38 @@ public class Deck {
         if(open_card_activation){
             if(PassingClass.getInstance().getTeamA().getPlayer1().getDomain().getName().equals(player.getDomain().getName())){
                 PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().addHp(OpenCard.HP_BOOST);
+//                System.out.println("Player 1A received boost");
             }
             else{
                 PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().subtractHp(OpenCard.DMG_DEALT);
+//                System.out.println("Player 1A did not receive boost");
             }
 
             if(PassingClass.getInstance().getTeamA().getPlayer2().getDomain().getName().equals(player.getDomain().getName())){
                 PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().addHp(OpenCard.HP_BOOST);
+//                System.out.println("Player 2A received boost");
             }
             else{
                 PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().subtractHp(OpenCard.DMG_DEALT);
+//                System.out.println("Player 2A did not receive boost");
             }
 
             if(PassingClass.getInstance().getTeamB().getPlayer1().getDomain().getName().equals(player.getDomain().getName())){
                 PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().addHp(OpenCard.HP_BOOST);
+//                System.out.println("Player 1B received boost");
             }
             else{
                 PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().subtractHp(OpenCard.DMG_DEALT);
+//                System.out.println("Player 1B did not receive boost");
             }
 
             if(PassingClass.getInstance().getTeamB().getPlayer2().getDomain().getName().equals(player.getDomain().getName())){
                 PassingClass.getInstance().getTeamB().getPlayer2().getBakugan().addHp(OpenCard.HP_BOOST);
+//                System.out.println("Player 2B received boost");
             }
             else{
                 PassingClass.getInstance().getTeamB().getPlayer2().getBakugan().subtractHp(OpenCard.DMG_DEALT);
+//                System.out.println("Player 2B did not receive boost");
             }
         }
 
@@ -76,6 +90,14 @@ public class Deck {
             i++;
         }
     };
+
+    public int size(){
+        return deck.size();
+    }
+
+    public Card drawCard(int i){
+        return deck.get(i);
+    }
 
     public void shuffleDeck() {
         Collections.shuffle(deck);
@@ -94,8 +116,8 @@ public class Deck {
     }
 
     private void subterraBuff(Bakugan bakugan){
-        bakugan.addHp(200);
-        bakugan.setXP_MULTIPLIER(0.38);
+        bakugan.setXP_MULTIPLIER(0.35);
+        bakugan.setBlock(true);
     }
 
     private void darkusBuff(Bakugan bakugan){
