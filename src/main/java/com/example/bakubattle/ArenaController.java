@@ -289,7 +289,7 @@ public class ArenaController implements Initializable {
         }
         else if(event.getSource() == second_card_button){
             player.getOpen_card().activate();
-//            System.out.println("Activated-setting strategy.");
+            System.out.println("Activated-setting strategy.");
         }
         else{
             player.getDomain().activate();
