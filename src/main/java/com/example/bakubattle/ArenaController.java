@@ -155,43 +155,87 @@ public class ArenaController implements Initializable {
                         PassingClass.getInstance().setPlayer1AStrategy(true);
                         next_player = PassingClass.getInstance().getTeamA().getPlayer2().getName();
                     }
-                    else if(next_player.equals(PassingClass.getInstance().getTeamA().getPlayer2().getName()){
-//TODO
+                    else if(next_player.equals(PassingClass.getInstance().getTeamA().getPlayer2().getName())){
+                        now_player = next_player;
+                        enter_label.setText("Let's choose strategy for this game ("+now_player+"):");
+                        settingStrategy(event,PassingClass.getInstance().getTeamA().getPlayer2());
+                        PassingClass.getInstance().setPlayer2AStrategy(true);
+                        next_player = PassingClass.getInstance().getTeamB().getPlayer1().getName();
                     }
-                }
-                if(enter_label.getText().equals("Let's choose strategy for this game ("+PassingClass.getInstance().getTeamA().getPlayer1().getName()+"):")){    //player 1A sets his strategy.
-                    settingStrategy(event,PassingClass.getInstance().getTeamA().getPlayer1());
-                    enter_label.setText("Let's choose strategy for this game ("+PassingClass.getInstance().getTeamA().getPlayer2().getName()+"):");         //next player's inviting text
-                }
-                else if(enter_label.getText().equals("Let's choose strategy for this game ("+PassingClass.getInstance().getTeamA().getPlayer2().getName()+"):")){
-                    settingStrategy(event,PassingClass.getInstance().getTeamA().getPlayer2());
-                    enter_label.setText("Let's choose strategy for this game ("+PassingClass.getInstance().getTeamB().getPlayer1().getName()+"):");
-                }
-                else if(enter_label.getText().equals("Let's choose strategy for this game ("+PassingClass.getInstance().getTeamB().getPlayer1().getName()+"):")){
-                    settingStrategy(event,PassingClass.getInstance().getTeamB().getPlayer1());
-                    enter_label.setText("Let's choose strategy for this game ("+PassingClass.getInstance().getTeamB().getPlayer2().getName()+"):");
-                }
-                else if(enter_label.getText().equals("Let's choose strategy for this game ("+PassingClass.getInstance().getTeamB().getPlayer2().getName()+"):")) {
-                    settingStrategy(event, PassingClass.getInstance().getTeamB().getPlayer2());
-                    try {
-                        /* Initializing the deck of cards. */
-                        PassingClass.getInstance().getTeamA().getPlayer1().initializeDeck();
-                        PassingClass.getInstance().getTeamA().getPlayer2().initializeDeck();
-                        PassingClass.getInstance().getTeamB().getPlayer1().initializeDeck();
-                        PassingClass.getInstance().getTeamB().getPlayer2().initializeDeck();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        System.out.println(Error.INITIALIZE_DECK);
+                    else if(next_player.equals(PassingClass.getInstance().getTeamB().getPlayer1().getName())) {
+                        now_player = next_player;
+                        enter_label.setText("Let's choose strategy for this game (" + now_player + "):");
+                        settingStrategy(event, PassingClass.getInstance().getTeamB().getPlayer1());
+                        PassingClass.getInstance().setPlayer1BStrategy(true);
+                        next_player = PassingClass.getInstance().getTeamB().getPlayer2().getName();
                     }
-                    showStatus();               //actual situation after granting bonuses ending strategy part.
-
-                    next_player = PassingClass.getInstance().getTeamA().getPlayer1().getName();
-                    enter_label.setText("Let's move " + next_player + ":");
-                    displayCards(PassingClass.getInstance().getTeamA().getPlayer1());
+                    else if(next_player.equals(PassingClass.getInstance().getTeamB().getPlayer2().getName())){
+                        now_player = next_player;
+                        enter_label.setText("Let's choose strategy for this game (" + now_player + "):");
+                        settingStrategy(event, PassingClass.getInstance().getTeamB().getPlayer2());
+                        PassingClass.getInstance().setPlayer2BStrategy(true);
+                        try {
+                            /* Initializing the deck of cards. */
+                            PassingClass.getInstance().getTeamA().getPlayer1().initializeDeck();
+                            PassingClass.getInstance().getTeamA().getPlayer2().initializeDeck();
+                            PassingClass.getInstance().getTeamB().getPlayer1().initializeDeck();
+                            PassingClass.getInstance().getTeamB().getPlayer2().initializeDeck();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            System.out.println(Error.INITIALIZE_DECK);
+                        }
+                        showStatus();               //actual situation after granting bonuses ending strategy part.
+                        next_player = PassingClass.getInstance().getTeamA().getPlayer1().getName();
+                        enter_label.setText("Let's move " + next_player + ":");      //inviting text
+                        displayCards(PassingClass.getInstance().getTeamA().getPlayer1());   //show player's cards
+                    }
                 }
             }catch (Exception e){
                 e.printStackTrace();
                 System.out.println(Error.ACTIVATING_STRATEGY);
+            }
+
+            /* Proper Gameplay */
+            if(PassingClass.getInstance().isStrategySet()){
+                if(next_player.equals(PassingClass.getInstance().getTeamA().getPlayer1().getName())){           //if player 1A goes
+                    now_player = next_player;           //setting who is now
+                    useAbility(PassingClass.getInstance().getTeamB(),PassingClass.getInstance().getTeamA(),PassingClass.getInstance().getTeamA().getPlayer1(), event); //ability use
+                    controlDeath();             //check for possible deaths
+                    showStatus();               //show actual situation
+                    if(PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().isXpLoaded()){                                   //take xp into account
+                        enter_label.setText("Let's move "+next_player+":");
+                        displayCards(PassingClass.getInstance().getTeamA().getPlayer1());
+                        PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().unloadXp();                                 //void the bonus
+                        dealRoundDmg();                         //damage per round
+                    }
+                    else{
+                        if(previous_player.equals("")){             //default branch
+                            next_player = PassingClass.getInstance().getTeamB().getPlayer1().getName();
+                            displayCards(PassingClass.getInstance().getTeamB().getPlayer1());
+                        }
+                        else if(previous_player.equals(PassingClass.getInstance().getTeamB().getPlayer1().getName())){      // 2B died and maybe 2A
+                            next_player = PassingClass.getInstance().getTeamB().getPlayer1().getName();
+                            displayCards(PassingClass.getInstance().getTeamB().getPlayer1());
+                        }
+                        else if(previous_player.equals(PassingClass.getInstance().getTeamB().getPlayer2().getName())){  // No idea who died maybe 1B but not sure.
+                            if(!PassingClass.getInstance().getTeamA().getPlayer1().isDead()){           // classic 2 vs 2 tour
+                                next_player = PassingClass.getInstance().getTeamB().getPlayer1().getName();
+                                displayCards(PassingClass.getInstance().getTeamB().getPlayer1());
+                            }
+                            else{       //1B is dead, switch to 2B
+                                next_player = PassingClass.getInstance().getTeamB().getPlayer2().getName();
+                                displayCards(PassingClass.getInstance().getTeamB().getPlayer2());
+                            }
+                        }
+                        enter_label.setText("Let's move "+next_player+":");
+                        previous_player = now_player;
+                    }
+                }
+                else if(next_player.equals(PassingClass.getInstance().getTeamB().getPlayer1().getName())){          //if player 1B goes
+                    now_player = next_player;           //setting who is now
+                    enter_label.setText("Let's move " + now_player + ":");       //inviting text
+                    displayCards(PassingClass.getInstance().getTeamB().getPlayer1());      //show player's cards
+                }
             }
         }catch (Exception e){
             e.printStackTrace();
