@@ -113,6 +113,9 @@ public class ArenaController implements Initializable {
 
     private static final int DMG_PER_ROUND = 50;
     private static int round_counter = 0;
+    private static String previous_player = "";
+    private static String now_player = "";
+    private static String next_player = "";
 
     public void showStatus(){
         player1A_hp.setText(String.valueOf(PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().getHp()));
@@ -165,68 +168,107 @@ public class ArenaController implements Initializable {
                 settingStrategy(event,PassingClass.getInstance().getTeamB().getPlayer1());
                 enter_label.setText("Let's choose strategy for this game ("+PassingClass.getInstance().getTeamB().getPlayer2().getName()+"):");
             }
-            else if(enter_label.getText().equals("Let's choose strategy for this game ("+PassingClass.getInstance().getTeamB().getPlayer2().getName()+"):")){
-                settingStrategy(event,PassingClass.getInstance().getTeamB().getPlayer2());
-                enter_label.setText("Let's move "+PassingClass.getInstance().getTeamA().getPlayer1().getName()+":");            //inviting text
-                try{
+            else if(enter_label.getText().equals("Let's choose strategy for this game ("+PassingClass.getInstance().getTeamB().getPlayer2().getName()+"):")) {
+                settingStrategy(event, PassingClass.getInstance().getTeamB().getPlayer2());
+                try {
                     /* Initializing the deck of cards. */
                     PassingClass.getInstance().getTeamA().getPlayer1().initializeDeck();
                     PassingClass.getInstance().getTeamA().getPlayer2().initializeDeck();
                     PassingClass.getInstance().getTeamB().getPlayer1().initializeDeck();
                     PassingClass.getInstance().getTeamB().getPlayer2().initializeDeck();
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                     System.out.println(Error.INITIALIZE_DECK);
                 }
-                showStatus();               //actual situation after granting bonuses
+                showStatus();               //actual situation after granting bonuses ending strategy part.
+
+                next_player = PassingClass.getInstance().getTeamA().getPlayer1().getName();
+                enter_label.setText("Let's move " + next_player + ":");
                 displayCards(PassingClass.getInstance().getTeamA().getPlayer1());
             }
-            else if(enter_label.getText().equals("Let's move "+PassingClass.getInstance().getTeamA().getPlayer1().getName()+":")){
-                useAbility(PassingClass.getInstance().getTeamB(),PassingClass.getInstance().getTeamA(),PassingClass.getInstance().getTeamA().getPlayer1(), event);
-                controlDeath();
-                showStatus();
-                if(PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().isXpLoaded()){
-                    enter_label.setText("Let's move "+PassingClass.getInstance().getTeamA().getPlayer1().getName()+":");
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println(Error.ACTIVATING_STRATEGY);
+        }
+
+        try{
+            if(next_player.equals(PassingClass.getInstance().getTeamA().getPlayer1().getName())){
+                now_player = next_player;           //setting who is now
+                useAbility(PassingClass.getInstance().getTeamB(),PassingClass.getInstance().getTeamA(),PassingClass.getInstance().getTeamA().getPlayer1(), event); //ability use
+                controlDeath();             //check for possible deaths
+                showStatus();               //show actual situation
+
+                /* Deciding who will be next */
+                if(PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().isXpLoaded()){                                   //take xp into account
+                    next_player = now_player;
+                    enter_label.setText("Let's move "+next_player+":");
                     displayCards(PassingClass.getInstance().getTeamA().getPlayer1());
-                    PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().unloadXp();
-                    dealRoundDmg();
-                    System.out.println("Moves Player1A-XPLOAD");
+                    PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().unloadXp();                                 //void the bonus
+                    dealRoundDmg();                         //damage per round
                 }
                 else{
-                    if(!PassingClass.getInstance().getTeamB().getPlayer1().isDead()){
-                        enter_label.setText("Let's move "+PassingClass.getInstance().getTeamB().getPlayer1().getName()+":");
-                        displayCards(PassingClass.getInstance().getTeamB().getPlayer1());
-                        System.out.println("Moves Player1B-from Player1A");
+                    if(previous_player.equals("") || previous_player.equals(PassingClass.getInstance().getTeamB().getPlayer2().getName())){     //if this is the beginning case
+                        if(!PassingClass.getInstance().getTeamB().getPlayer1().isDead()){
+                            next_player = PassingClass.getInstance().getTeamB().getPlayer1().getName();
+                            displayCards(PassingClass.getInstance().getTeamB().getPlayer1());
+                        }
+                        else{
+                            next_player = PassingClass.getInstance().getTeamB().getPlayer2().getName();
+                            displayCards(PassingClass.getInstance().getTeamB().getPlayer2());
+                        }
                     }
-                    else{
-                        enter_label.setText("Let's move "+PassingClass.getInstance().getTeamB().getPlayer2().getName()+":");
-                        displayCards(PassingClass.getInstance().getTeamB().getPlayer2());
-                        System.out.println("Moves Player2B-from Player1A");
+                    else if(previous_player.equals(PassingClass.getInstance().getTeamB().getPlayer1().getName())){          //if its the 1B player and there is no 2A.
+                       if(!PassingClass.getInstance().getTeamB().getPlayer2().isDead()){                                    //checking if its 1 vs 2 game or 1 vs 1.
+                           next_player = PassingClass.getInstance().getTeamB().getPlayer2().getName();
+                           displayCards(PassingClass.getInstance().getTeamB().getPlayer2());
+                       }
+                       else{
+                           next_player = PassingClass.getInstance().getTeamB().getPlayer1().getName();
+                           displayCards(PassingClass.getInstance().getTeamB().getPlayer1());
+                       }
                     }
+                    enter_label.setText("Let's move "+next_player+":");
+                    previous_player = now_player;
                 }
             }
-            else if(enter_label.getText().equals("Let's move "+PassingClass.getInstance().getTeamB().getPlayer1().getName()+":")){
+            else if(next_player.equals(PassingClass.getInstance().getTeamB().getPlayer1().getName())){
+                now_player = next_player;           //setting who is now
                 useAbility(PassingClass.getInstance().getTeamA(),PassingClass.getInstance().getTeamB(),PassingClass.getInstance().getTeamB().getPlayer1(), event);
                 controlDeath();
                 showStatus();
+
+                /* Deciding who will be next */
                 if(PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().isXpLoaded()){
-                    enter_label.setText("Let's move "+PassingClass.getInstance().getTeamB().getPlayer1().getName()+":");
+                    next_player = now_player;
+                    enter_label.setText("Let's move "+next_player+":");
                     displayCards(PassingClass.getInstance().getTeamB().getPlayer1());
-                    PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().unloadXp();
-                    dealRoundDmg();
-                    System.out.println("Moves Player1B-XPLOAD");
+                    PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().unloadXp();                                 //void the bonus
+                    dealRoundDmg();                         //damage per round
                 }
                 else{
-                    if(!PassingClass.getInstance().getTeamA().getPlayer2().isDead()){
-                        enter_label.setText("Let's move "+PassingClass.getInstance().getTeamA().getPlayer2().getName()+":");
-                        displayCards(PassingClass.getInstance().getTeamA().getPlayer2());
-                        System.out.println("Moves Player2A-from Player1B");
+                    if(previous_player.equals("") || previous_player.equals(PassingClass.getInstance().getTeamA().getPlayer1().getName())){     //if this is the beginning case
+                        if(!PassingClass.getInstance().getTeamA().getPlayer2().isDead()){
+                            next_player = PassingClass.getInstance().getTeamA().getPlayer2().getName();
+                            displayCards(PassingClass.getInstance().getTeamA().getPlayer2());
+                        }
+                        else{
+                            next_player = PassingClass.getInstance().getTeamA().getPlayer1().getName();
+                            displayCards(PassingClass.getInstance().getTeamA().getPlayer1());
+                        }
                     }
-                    else{
-                        enter_label.setText("Let's move "+PassingClass.getInstance().getTeamA().getPlayer1().getName()+":");
-                        displayCards(PassingClass.getInstance().getTeamA().getPlayer1());
-                        System.out.println("Moves Player1A-from Player1B");
+                    else if(previous_player.equals(PassingClass.getInstance().getTeamA().getPlayer2().getName())){          //if its the 1B player and there is no 2A.
+                        //TODO
+                        if(!PassingClass.getInstance().getTeamB().getPlayer2().isDead()){                                    //checking if its 1 vs 2 game or 1 vs 1.
+                            next_player = PassingClass.getInstance().getTeamB().getPlayer2().getName();
+                            displayCards(PassingClass.getInstance().getTeamB().getPlayer2());
+                        }
+                        else{
+                            next_player = PassingClass.getInstance().getTeamB().getPlayer1().getName();
+                            displayCards(PassingClass.getInstance().getTeamB().getPlayer1());
+                        }
                     }
+                    enter_label.setText("Let's move "+next_player+":");
+                    previous_player = now_player;
                 }
             }
             else if(enter_label.getText().equals("Let's move "+PassingClass.getInstance().getTeamA().getPlayer2().getName()+":")){
@@ -279,7 +321,7 @@ public class ArenaController implements Initializable {
             }
         }catch (Exception e){
             e.printStackTrace();
-            System.out.println(Error.ACTIVATING_STRATEGY+"\n"+Error.GAMEPLAY);
+            System.out.println(Error.GAMEPLAY);
         }
     }
 
