@@ -40,11 +40,11 @@
          <font>
             <Font name="Papyrus" size="45.0" />
          </font></Label>
-      <Label fx:id="player1B" alignment="CENTER" layoutX="1350.0" layoutY="603.0" opacity="0.0" prefHeight="131.0" prefWidth="458.0" text="Label" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="player2B" alignment="CENTER" layoutX="1350.0" layoutY="603.0" opacity="0.0" prefHeight="131.0" prefWidth="458.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Papyrus" size="45.0" />
          </font></Label>
-      <Label fx:id="player2B" alignment="CENTER" layoutX="1350.0" layoutY="410.0" opacity="0.0" prefHeight="131.0" prefWidth="458.0" text="Label" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="player1B" alignment="CENTER" layoutX="1350.0" layoutY="410.0" opacity="0.0" prefHeight="131.0" prefWidth="458.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Papyrus" size="45.0" />
          </font></Label>
