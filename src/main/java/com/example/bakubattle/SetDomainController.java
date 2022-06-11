@@ -27,36 +27,35 @@ public class SetDomainController {
     @FXML
     private Button subterra_button;
 
-    Parent root = null;
-
 
     /* Setting the domain for the players and going to the champ select*/
     public void setDomain(ActionEvent actionEvent){
+        Parent root = null;
         try{
             /* Choosing his domain and preparing to jump to the next scene*/
             int i;
             if(actionEvent.getSource() == pyrus_button){
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Serpenteze.fxml")));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("pyrus.fxml")));
                 i = 0;
             }
             else if(actionEvent.getSource() == ventus_button){
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Serpillious.fxml")));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ventus.fxml")));
                 i = 1;
             }
             else if(actionEvent.getSource() == aquos_button){
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Apophix.fxml")));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("aquos.fxml")));
                 i = 2;
             }
             else if(actionEvent.getSource() == darkus_button){
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Nillious.fxml")));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("darkus.fxml")));
                 i = 3;
             }
             else if(actionEvent.getSource() == haos_button){
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Sairus.fxml")));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("haos.fxml")));
                 i = 4;
             }
             else{
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Auxillataur.fxml")));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("subterra.fxml")));
                 i = 5;
             }
 

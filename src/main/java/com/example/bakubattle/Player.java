@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Player {
 
-    private String name;
+    private final String name;
     private Domain domain;
     private Bakugan bakugan = null;
     private Deck deck = null;
@@ -22,10 +22,6 @@ public class Player {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Domain getDomain() {
