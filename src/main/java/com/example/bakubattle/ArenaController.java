@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -15,61 +16,74 @@ import java.util.ResourceBundle;
 
 public class ArenaController implements Initializable {
 
+    @FXML
+    private AnchorPane MainStage;
+
     /* Player 1A attributes */
     @FXML
     private ImageView player1A_imageview;
     @FXML
-    private  ProgressBar player1A_hp_bar;
+    private ImageView player1A_hp_bar_back;
+    @FXML
+    private ImageView player1A_hp_bar_front;
     @FXML
     private Label player1A_hp;
     @FXML
-    private ProgressBar player1A_xp_bar;
+    private ImageView player1A_xp_bar_back;
+    @FXML
+    private ImageView player1A_xp_bar_front;
     @FXML
     private  Label player1A_xp;
-    @FXML
-    private ImageView player1A_deck;
 
     /* Player 2A attributes */
     @FXML
     private ImageView player2A_imageview;
     @FXML
-    private  ProgressBar player2A_hp_bar;
+    private ImageView player2A_hp_bar_back;
+    @FXML
+    private ImageView player2A_hp_bar_front;
     @FXML
     private  Label player2A_hp;
     @FXML
-    private ProgressBar player2A_xp_bar;
+    private ImageView player2A_xp_bar_back;
+    @FXML
+    private ImageView player2A_xp_bar_front;
     @FXML
     private  Label player2A_xp;
-    @FXML
-    private ImageView player2A_deck;
+
 
     /* Player 1B attributes */
     @FXML
     private ImageView player1B_imageview;
     @FXML
-    private  ProgressBar player1B_hp_bar;
+    private ImageView player1B_hp_bar_back;
+    @FXML
+    private ImageView player1B_hp_bar_front;
     @FXML
     private  Label player1B_hp;
     @FXML
-    private ProgressBar player1B_xp_bar;
+    private ImageView player1B_xp_bar_back;
+    @FXML
+    private ImageView player1B_xp_bar_front;
     @FXML
     private  Label player1B_xp;
-    @FXML
-    private ImageView player1B_deck;
+
 
     /* Player 2B attributes */
     @FXML
     private ImageView player2B_imageview;
     @FXML
-    private  ProgressBar player2B_hp_bar;
+    private ImageView player2B_hp_bar_back;
+    @FXML
+    private ImageView player2B_hp_bar_front;
     @FXML
     private  Label player2B_hp;
     @FXML
-    private ProgressBar player2B_xp_bar;
+    private ImageView player2B_xp_bar_back;
+    @FXML
+    private ImageView player2B_xp_bar_front;
     @FXML
     private  Label player2B_xp;
-    @FXML
-    private ImageView player2B_deck;
 
     /* Stategy attributes */
     @FXML
@@ -130,7 +144,13 @@ public class ArenaController implements Initializable {
             /*Show health points*/
             showStatus();
 
+            //HpProgressBar bar = new HpProgressBar(MainStage,200,200,-1);
+            //HpProgressBar bar2 = new HpProgressBar(MainStage,200,200,1);
             /* Getting URL path to the images. */
+            System.out.println("arena/bakugan/"+PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamA().getPlayer1().getDomain().getName()+".png");
+            System.out.println("arena/bakugan/"+PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamA().getPlayer2().getDomain().getName()+".png");
+            System.out.println("arena/bakugan/"+PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamB().getPlayer1().getDomain().getName()+".png");
+            System.out.println("arena/bakugan/"+PassingClass.getInstance().getTeamB().getPlayer2().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamB().getPlayer2().getDomain().getName()+".png");
             URL player1A_setImage = getClass().getResource("arena/bakugan/"+PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamA().getPlayer1().getDomain().getName()+".png");
             URL player2A_setImage = getClass().getResource("arena/bakugan/"+PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamA().getPlayer2().getDomain().getName()+".png");
             URL player1B_setImage = getClass().getResource("arena/bakugan/"+PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamB().getPlayer1().getDomain().getName()+".png");
@@ -456,9 +476,10 @@ public class ArenaController implements Initializable {
                 PassingClass.getInstance().getTeamA().getPlayer1().kill();
 //                System.out.println("Player1A killed.");
                 player1A_imageview.setVisible(false);
-                player1A_hp_bar.setVisible(false);
-                player1A_xp_bar.setVisible(false);
-                player1A_deck.setVisible(false);
+                player1A_hp_bar_back.setVisible(false);
+                player1A_hp_bar_front.setVisible(false);
+                player1A_xp_bar_back.setVisible(false);
+                player1A_xp_bar_front.setVisible(false);
                 player1A_hp.setVisible(false);
                 player1A_xp.setVisible(false);
             }
@@ -466,9 +487,10 @@ public class ArenaController implements Initializable {
                 PassingClass.getInstance().getTeamA().getPlayer2().kill();
 //                System.out.println("Player2A killed.");
                 player2A_imageview.setVisible(false);
-                player2A_hp_bar.setVisible(false);
-                player2A_xp_bar.setVisible(false);
-                player2A_deck.setVisible(false);
+                player2A_hp_bar_back.setVisible(false);
+                player2A_hp_bar_front.setVisible(false);
+                player2A_xp_bar_back.setVisible(false);
+                player2A_xp_bar_front.setVisible(false);
                 player2A_hp.setVisible(false);
                 player2A_xp.setVisible(false);
             }
@@ -476,9 +498,10 @@ public class ArenaController implements Initializable {
                 PassingClass.getInstance().getTeamB().getPlayer1().kill();
 //                System.out.println("Player1B killed.");
                 player1B_imageview.setVisible(false);
-                player1B_hp_bar.setVisible(false);
-                player1B_xp_bar.setVisible(false);
-                player1B_deck.setVisible(false);
+                player1B_hp_bar_back.setVisible(false);
+                player1B_hp_bar_front.setVisible(false);
+                player1B_xp_bar_back.setVisible(false);
+                player1B_xp_bar_front.setVisible(false);
                 player1B_hp.setVisible(false);
                 player1B_xp.setVisible(false);
             }
@@ -486,9 +509,10 @@ public class ArenaController implements Initializable {
                 PassingClass.getInstance().getTeamB().getPlayer2().kill();
 //                System.out.println("Player2B killed.");
                 player2B_imageview.setVisible(false);
-                player2B_hp_bar.setVisible(false);
-                player2B_xp_bar.setVisible(false);
-                player2B_deck.setVisible(false);
+                player2B_hp_bar_back.setVisible(false);
+                player2B_hp_bar_front.setVisible(false);
+                player2B_xp_bar_back.setVisible(false);
+                player2B_xp_bar_front.setVisible(false);
                 player2B_hp.setVisible(false);
                 player2B_xp.setVisible(false);
             }
