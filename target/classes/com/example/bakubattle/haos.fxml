@@ -8,45 +8,45 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1080.0" maxWidth="1920.0" prefHeight="1080" prefWidth="1920" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.HaosBakuController">
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="1080.0" minWidth="1920.0" prefHeight="1080" prefWidth="1920" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.HaosBakuController">
     <children>
         <!--      TODO-->
-        <ImageView fx:id="haos_baku_view" fitWidth="2050.0" layoutX="-24.0" layoutY="-14.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="haos_baku_view" fitHeight="1101.0" fitWidth="1948.0" layoutX="-24.0" layoutY="-14.0" opacity="0.9" pickOnBounds="true">
             <image>
                 <Image url="@arena/bakugan/Hydranoid_Haos_Details.jpg" />
             </image>
         </ImageView>
-        <ImageView fitHeight="542.0" fitWidth="390.0" layoutX="-14.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="542.0" fitWidth="390.0" layoutX="-28.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@bakugan_select/SwitchLeft.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="542.0" fitWidth="390.0" layoutX="1606.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="542.0" fitWidth="390.0" layoutX="1572.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@bakugan_select/SwitchRight.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="400.0" fitWidth="900.0" layoutX="584.0" layoutY="902.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="400.0" fitWidth="900.0" layoutX="492.0" layoutY="772.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@bakugan_select/Haos_frame.png" />
             </image>
         </ImageView>
-        <Label fx:id="haos_name_label" alignment="CENTER" layoutX="732.0" layoutY="930.0" prefHeight="194.0" prefWidth="632.0" text="Hydranoid" textAlignment="CENTER" textFill="WHITE">
+        <Label fx:id="haos_name_label" alignment="CENTER" layoutX="640.0" layoutY="800.0" prefHeight="194.0" prefWidth="632.0" text="Hydranoid" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="Papyrus" size="120.0" />
             </font>
         </Label>
-        <Button fx:id="haos_left_switch_button" layoutX="114.0" layoutY="541.0" mnemonicParsing="false" onAction="#goLeft" opacity="0" prefHeight="171.0" prefWidth="130.0" text="Button">
+        <Button fx:id="haos_left_switch_button" layoutX="100.0" layoutY="502.0" mnemonicParsing="false" onAction="#goLeft" opacity="0" prefHeight="171.0" prefWidth="130.0" text="Button">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Button fx:id="haos_right_switch_button" layoutX="1735.0" layoutY="542.0" mnemonicParsing="false" onAction="#goRight" opacity="0" prefHeight="171.0" prefWidth="130.0" text="Button">
+        <Button fx:id="haos_right_switch_button" layoutX="1701.0" layoutY="508.0" mnemonicParsing="false" onAction="#goRight" opacity="0" prefHeight="171.0" prefWidth="130.0" text="Button">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Button fx:id="haos_choice_of_bakugan" layoutX="616.0" layoutY="938.0" mnemonicParsing="false" onAction="#selected" opacity="0" prefHeight="235.0" prefWidth="820.0" text="Button">
+        <Button fx:id="haos_choice_of_bakugan" layoutX="524.0" layoutY="808.0" mnemonicParsing="false" onAction="#selected" opacity="0" prefHeight="235.0" prefWidth="820.0" text="Button">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>

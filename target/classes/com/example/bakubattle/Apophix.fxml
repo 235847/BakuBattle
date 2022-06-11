@@ -5,12 +5,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="1080" prefWidth="1920" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.BakuController">
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="1080.0" minWidth="1920.0" prefHeight="1080" prefWidth="1920" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.BakuController">
    <children>
-       <ImageView fitHeight="1120.0" fitWidth="1968.0" layoutX="-6.0" layoutY="3.0" pickOnBounds="true"
-                  preserveRatio="true">
-           <Image url="@bakugan_select/Apophix.png"/>
+       <ImageView fitHeight="1091.0" fitWidth="1956.0" layoutX="-6.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+           <Image url="@bakugan_select/Apophix.png" />
        </ImageView>
       <Button fx:id="apophix_button" layoutX="723.0" layoutY="854.0" mnemonicParsing="false" onAction="#setBakugan" opacity="0.0" prefHeight="143.0" prefWidth="520.0" text="Button" />
    </children>
