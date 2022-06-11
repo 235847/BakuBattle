@@ -8,10 +8,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1080.0" maxWidth="1920.0" prefHeight="1080" prefWidth="1920" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.AquosBakuController">
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="1080.0" minWidth="1920.0" prefHeight="1080" prefWidth="1920" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.AquosBakuController">
    <children>
 <!--      TODO-->
-      <ImageView fx:id="aquos_baku_view" fitHeight="1306.0" fitWidth="2278.0" layoutX="-24.0" layoutY="-14.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="aquos_baku_view" fitHeight="1100.0" fitWidth="1956.0" layoutX="-24.0" layoutY="-14.0" opacity="0.9" pickOnBounds="true">
          <image>
             <Image url="@arena/bakugan/Apophix_Aquos_Details.jpg" />
          </image>
@@ -26,12 +26,12 @@
             <Image url="@bakugan_select/SwitchRight.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="400.0" fitWidth="900.0" layoutX="584.0" layoutY="902.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="400.0" fitWidth="900.0" layoutX="536.0" layoutY="758.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@bakugan_select/Aquos_frame.png" />
          </image>
       </ImageView>
-      <Label fx:id="aquos_name_label" alignment="CENTER" layoutX="732.0" layoutY="930.0" prefHeight="194.0" prefWidth="632.0" text="Apophix" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="aquos_name_label" alignment="CENTER" layoutX="684.0" layoutY="786.0" prefHeight="194.0" prefWidth="632.0" text="Apophix" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Papyrus" size="120.0" />
          </font>
@@ -46,7 +46,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="aquos_choice_of_bakugan" layoutX="616.0" layoutY="938.0" mnemonicParsing="false" onAction="#selected" opacity="0" prefHeight="235.0" prefWidth="820.0" text="Button">
+      <Button fx:id="aquos_choice_of_bakugan" layoutX="568.0" layoutY="794.0" mnemonicParsing="false" onAction="#selected" opacity="0" prefHeight="235.0" prefWidth="820.0" text="Button">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

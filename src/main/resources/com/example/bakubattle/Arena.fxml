@@ -157,5 +157,25 @@
             <Font size="26.0" />
          </font>
       </Label>
+      <ImageView fitHeight="108.0" fitWidth="102.0" layoutX="1817.0" layoutY="878.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@arena/emoji-white-flag-emoticon-surrender-emoji-eca872ed48ed6e9e7203ad0ac3b6767d.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="108.0" fitWidth="102.0" layoutX="13.0" layoutY="837.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@arena/emoji-white-flag-emoticon-surrender-emoji-eca872ed48ed6e9e7203ad0ac3b6767d.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="teamAsurrender" layoutX="19.0" layoutY="836.0" mnemonicParsing="false" onAction="#surrender" opacity="0.0" prefHeight="109.0" prefWidth="85.0" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="teamBsurrender" layoutX="1825.0" layoutY="863.0" mnemonicParsing="false" onAction="#surrender" opacity="0.0" prefHeight="109.0" prefWidth="85.0" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
     </children>
 </AnchorPane>

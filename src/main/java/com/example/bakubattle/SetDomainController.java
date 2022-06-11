@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Objects;
 
 public class SetDomainController {
@@ -27,6 +28,8 @@ public class SetDomainController {
     @FXML
     private Button subterra_button;
 
+    @FXML
+    private Button backButton;
 
     /* Setting the domain for the players and going to the champ select*/
     public void setDomain(ActionEvent actionEvent){
@@ -75,4 +78,13 @@ public class SetDomainController {
             System.out.println(Error.DOMAIN_SELECT + "\n"+ Error.LOADING_SCENE);
         }
     }
+
+    public void handleBackbutton(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("team_view.fxml")));
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.setFullScreen(true);
+        window.setScene(new Scene(root,1920, 1080));
+    }
+
 }
+
