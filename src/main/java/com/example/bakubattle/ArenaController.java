@@ -4,11 +4,11 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -111,11 +111,18 @@ public class ArenaController implements Initializable {
     @FXML
     private Label desc_card_third;
 
+    /*Surrender buttons*/
+    @FXML
+    private Button teamAsurrender;
+    @FXML
+    private Button teamBsurrender;
+
     private static final int DMG_PER_ROUND = 50;
     private static int round_counter = 0;
     private static String previous_player = "";
     private static String now_player = "";
     private static String next_player = "";
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -535,5 +542,16 @@ public class ArenaController implements Initializable {
             }
         }
         round_counter++;
+    }
+
+    public void surrender(ActionEvent event){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Surrender");
+        alert.setHeaderText("You are about to give up");
+        alert.setContentText("Are you sure you want to surrender and quit ?");
+        if(alert.showAndWait().get()== ButtonType.OK){
+            Stage stage = (Stage) teamAsurrender.getScene().getWindow();
+            stage.close();
+        }
     }
 }
