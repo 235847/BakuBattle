@@ -12,34 +12,60 @@ public class Card {
         name = n;
         value = val;
         sets_block = block;
-        switch (t) {
-            case "transferSingle" ->{
-                type = "transfer-single";
-                description = "This ability transfers " + value + "g from your opponent to you.";
+        if(value == -2){
+            switch (t) {
+                case "transferSingle" ->{
+                    type = "transfer-single";
+                    description = "This ability transfers half of opponent's hp to you.";
+                }
+                case "transferArea" ->{
+                    type = "transfer-area";
+                    description = "This ability transfers half of their hp to you.";
+                }
+                case "attackSingle" ->{
+                    type = "attack-single";
+                    description = "This ability attacks your opponent and deals him half of his hp.";
+                }
+                case "attackArea" ->{
+                    type = "attack-area";
+                    description = "This ability attacks your opponents and deals them half of their hp.";
+                }
+                case "hpBoostv1", "hpBoostv2" ->{
+                    type = "hp-boost";
+                    description = "This ability doubles your health.";
+                }
             }
-            case "transferArea" ->{
-                type = "transfer-area";
-                description = "This ability transfers " + value + "g from your opponents to you.";
-            }
-            case "attackSingle" ->{
-                type = "attack-single";
-                description = "This ability attacks your opponent and deals him " + value + "g.";
-            }
-            case "attackArea" ->{
-                type = "attack-area";
-                description = "This ability attacks your opponents and deals them " + value + "g.";
-            }
-            case "hpBoostv1", "hpBoostv2" ->{
-                type = "hp-boost";
-                description = "This ability gives you " + value + "g.";
-            }
-            case "blockHealFriend" ->{
-                type = "block-heal friend";
-                description = "This ability gives your partner " + value + "g and sets block.";
-            }
-            case "blockHealTeam" ->{
-                type = "block-heal team";
-                description = "This ability gives you and your partner " + value + "g and sets block.";
+        }
+        else{
+            switch (t) {
+                case "transferSingle" ->{
+                    type = "transfer-single";
+                    description = "This ability transfers " + value + "g from your opponent to you.";
+                }
+                case "transferArea" ->{
+                    type = "transfer-area";
+                    description = "This ability transfers " + value + "g from your opponents to you.";
+                }
+                case "attackSingle" ->{
+                    type = "attack-single";
+                    description = "This ability attacks your opponent and deals him " + value + "g.";
+                }
+                case "attackArea" ->{
+                    type = "attack-area";
+                    description = "This ability attacks your opponents and deals them " + value + "g.";
+                }
+                case "hpBoostv1", "hpBoostv2" ->{
+                    type = "hp-boost";
+                    description = "This ability gives you " + value + "g.";
+                }
+                case "blockHealFriend" ->{
+                    type = "block-heal friend";
+                    description = "This ability gives your partner " + value + "g and sets block.";
+                }
+                case "blockHealTeam" ->{
+                    type = "block-heal team";
+                    description = "This ability gives you and your partner " + value + "g and sets block.";
+                }
             }
         }
     }
