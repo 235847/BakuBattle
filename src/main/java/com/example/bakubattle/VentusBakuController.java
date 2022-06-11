@@ -1,44 +1,37 @@
 package com.example.bakubattle;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class AquosBakuController extends Baku implements Initializable {
+public class VentusBakuController extends Baku implements Initializable {
 
-    /* ---------- Aquos attributes----------*/
+    /* ---------- Ventus attributes----------*/
     @FXML
-    private ImageView aquos_baku_view;
+    private ImageView ventus_baku_view;
     @FXML
-    private Button aquos_left_switch_button;
+    private Button ventus_left_switch_button;
     @FXML
-    private Button aquos_right_switch_button;
+    private Button ventus_right_switch_button;
     @FXML
-    private Button aquos_choice_of_bakugan;
+    private Button ventus_choice_of_bakugan;
     @FXML
-    private Label aquos_name_label;
+    private Label ventus_name_label;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getNamesOfBakugans();
+        offset = 31;
         setBakuganSelect(names_of_bakugans.get(actual_bakugan));
     }
 
@@ -47,7 +40,7 @@ public class AquosBakuController extends Baku implements Initializable {
         try{
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bakugan","root","");        //connecting with local database
             Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT name FROM bakubattle WHERE bakubattle.bakuID < 7");     //passing our query through the statement
+            ResultSet rs = statement.executeQuery("SELECT name FROM bakubattle WHERE bakubattle.bakuID BETWEEN 31 AND 36");     //passing our query through the statement
             while (rs.next()){
 //                System.out.println(rs.getString("name"));
                 names_of_bakugans.add(rs.getString("name"));
@@ -62,8 +55,9 @@ public class AquosBakuController extends Baku implements Initializable {
 
     @Override
     public void setBakuganSelect(String name){
-        aquos_name_label.setText(name);
-        URL url = getClass().getResource("arena/bakugan/"+name+"_Aquos_Details.jpg");     //path
-        aquos_baku_view.setImage(new Image(String.valueOf(url)));
+        ventus_name_label.setText(name);
+        URL url = getClass().getResource("arena/bakugan/"+name+"_Ventus_Details.jpg");     //path
+        ventus_baku_view.setImage(new Image(String.valueOf(url)));
     }
+
 }

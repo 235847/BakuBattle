@@ -8,12 +8,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080" prefWidth="1920" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.AquosBakuController">
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" prefHeight="1080" prefWidth="1920" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.AquosBakuController">
    <children>
 <!--      TODO-->
       <ImageView fx:id="aquos_baku_view" fitHeight="1306.0" fitWidth="2278.0" layoutX="-24.0" layoutY="-14.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@arena/bakugan/Apophix_Aquos_Scene.png" />
+            <Image url="@arena/bakugan/Apophix_Aquos_Details.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="542.0" fitWidth="390.0" layoutX="-14.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
@@ -46,7 +46,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="aquos_choice_of_bakugan" layoutX="618.0" layoutY="912.0" mnemonicParsing="false" onAction="#selected" opacity="0" prefHeight="235.0" prefWidth="820.0" text="Button">
+      <Button fx:id="aquos_choice_of_bakugan" layoutX="616.0" layoutY="938.0" mnemonicParsing="false" onAction="#selected" opacity="0" prefHeight="235.0" prefWidth="820.0" text="Button">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

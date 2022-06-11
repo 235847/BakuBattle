@@ -22,23 +22,24 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class AquosBakuController extends Baku implements Initializable {
+public class DarkusBakuController extends Baku implements Initializable {
 
-    /* ---------- Aquos attributes----------*/
+    /* ---------- Darkus attributes----------*/
     @FXML
-    private ImageView aquos_baku_view;
+    private ImageView darkus_baku_view;
     @FXML
-    private Button aquos_left_switch_button;
+    private Button darkus_left_switch_button;
     @FXML
-    private Button aquos_right_switch_button;
+    private Button darkus_right_switch_button;
     @FXML
-    private Button aquos_choice_of_bakugan;
+    private Button darkus_choice_of_bakugan;
     @FXML
-    private Label aquos_name_label;
+    private Label darkus_name_label;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getNamesOfBakugans();
+        offset = 7;
         setBakuganSelect(names_of_bakugans.get(actual_bakugan));
     }
 
@@ -47,7 +48,7 @@ public class AquosBakuController extends Baku implements Initializable {
         try{
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bakugan","root","");        //connecting with local database
             Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT name FROM bakubattle WHERE bakubattle.bakuID < 7");     //passing our query through the statement
+            ResultSet rs = statement.executeQuery("SELECT name FROM bakubattle WHERE bakubattle.bakuID BETWEEN 7 AND 12");     //passing our query through the statement
             while (rs.next()){
 //                System.out.println(rs.getString("name"));
                 names_of_bakugans.add(rs.getString("name"));
@@ -62,8 +63,8 @@ public class AquosBakuController extends Baku implements Initializable {
 
     @Override
     public void setBakuganSelect(String name){
-        aquos_name_label.setText(name);
-        URL url = getClass().getResource("arena/bakugan/"+name+"_Aquos_Details.jpg");     //path
-        aquos_baku_view.setImage(new Image(String.valueOf(url)));
+        darkus_name_label.setText(name);
+        URL url = getClass().getResource("arena/bakugan/"+name+"_Darkus_Details.jpg");     //path
+        darkus_baku_view.setImage(new Image(String.valueOf(url)));
     }
 }

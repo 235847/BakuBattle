@@ -35,11 +35,11 @@ public class SetDomainController {
             /* Choosing his domain and preparing to jump to the next scene*/
             int i;
             if(actionEvent.getSource() == pyrus_button){
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Serpenteze.fxml")));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("pyrus.fxml")));
                 i = 0;
             }
             else if(actionEvent.getSource() == ventus_button){
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Serpillious.fxml")));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ventus.fxml")));
                 i = 1;
             }
             else if(actionEvent.getSource() == aquos_button){
@@ -47,15 +47,15 @@ public class SetDomainController {
                 i = 2;
             }
             else if(actionEvent.getSource() == darkus_button){
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Nillious.fxml")));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("darkus.fxml")));
                 i = 3;
             }
             else if(actionEvent.getSource() == haos_button){
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Sairus.fxml")));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("haos.fxml")));
                 i = 4;
             }
             else{
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Auxillataur.fxml")));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("subterra.fxml")));
                 i = 5;
             }
 
