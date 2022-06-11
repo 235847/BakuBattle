@@ -47,6 +47,12 @@ abstract class Baku {
             case "player1B" -> PassingClass.getInstance().getTeamB().getPlayer1().setBakugan(new Bakugan(actual_bakugan+offset));
             default -> PassingClass.getInstance().getTeamB().getPlayer2().setBakugan(new Bakugan(actual_bakugan+offset));
         }
+//        System.out.println("Actual:"+actual_bakugan);
+//        System.out.println("Offset:"+actual_bakugan);
+//        for(int i =0; i < 6;i++){
+//            System.out.println(names_of_bakugans.get(i)+"\n");
+//        }
+//        new Bakugan(actual_bakugan+offset).display();
         names_of_bakugans.removeAll(names_of_bakugans);
         actual_bakugan = 0;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("team_view.fxml")));

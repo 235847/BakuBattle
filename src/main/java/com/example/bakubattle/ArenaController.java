@@ -147,10 +147,10 @@ public class ArenaController implements Initializable {
             //HpProgressBar bar = new HpProgressBar(MainStage,200,200,-1);
             //HpProgressBar bar2 = new HpProgressBar(MainStage,200,200,1);
             /* Getting URL path to the images. */
-            System.out.println("arena/bakugan/"+PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamA().getPlayer1().getDomain().getName()+".png");
-            System.out.println("arena/bakugan/"+PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamA().getPlayer2().getDomain().getName()+".png");
-            System.out.println("arena/bakugan/"+PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamB().getPlayer1().getDomain().getName()+".png");
-            System.out.println("arena/bakugan/"+PassingClass.getInstance().getTeamB().getPlayer2().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamB().getPlayer2().getDomain().getName()+".png");
+//            System.out.println("arena/bakugan/"+PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamA().getPlayer1().getDomain().getName()+".png");
+//            System.out.println("arena/bakugan/"+PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamA().getPlayer2().getDomain().getName()+".png");
+//            System.out.println("arena/bakugan/"+PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamB().getPlayer1().getDomain().getName()+".png");
+//            System.out.println("arena/bakugan/"+PassingClass.getInstance().getTeamB().getPlayer2().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamB().getPlayer2().getDomain().getName()+".png");
             URL player1A_setImage = getClass().getResource("arena/bakugan/"+PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamA().getPlayer1().getDomain().getName()+".png");
             URL player2A_setImage = getClass().getResource("arena/bakugan/"+PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamA().getPlayer2().getDomain().getName()+".png");
             URL player1B_setImage = getClass().getResource("arena/bakugan/"+PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamB().getPlayer1().getDomain().getName()+".png");

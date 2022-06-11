@@ -39,6 +39,7 @@ public class AquosBakuController extends Baku implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getNamesOfBakugans();
+        offset = 1;
         setBakuganSelect(names_of_bakugans.get(actual_bakugan));
     }
 
