@@ -8,8 +8,11 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
 import javafx.stage.Stage;
-
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaView;
+import java.io.File;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -131,6 +134,8 @@ public class ArenaController implements Initializable {
     @FXML
     private Button teamBsurrender;
 
+    @FXML MediaView media;
+
     private static final int DMG_PER_ROUND = 50;
     private static int round_counter = 0;
     private static String previous_player = "";
@@ -143,7 +148,11 @@ public class ArenaController implements Initializable {
         try{
             /*Show health points*/
             showStatus();
-
+            Media med = new Media("arena/Arena_vid.mp4");
+            Mediaplayer mediaPlayer = new MediaPlayer(media);
+            media = new MediaView (mediaPlayer);
+            mediaPlayer.setAutoPlay(true);
+            
             //HpProgressBar bar = new HpProgressBar(MainStage,200,200,-1);
             //HpProgressBar bar2 = new HpProgressBar(MainStage,200,200,1);
             /* Getting URL path to the images. */
