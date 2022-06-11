@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
 
@@ -44,6 +45,24 @@ public class SetTeamsController {
     @FXML
     private TextField textfieldB;
 
+    /*Clearing nicknames attributes*/
+    @FXML
+    private ImageView TeamA_X1;
+    @FXML
+    private ImageView TeamA_X2;
+    @FXML
+    private ImageView TeamB_X1;
+    @FXML
+    private ImageView TeamB_X2;
+    @FXML
+    private Button X1_btn_TeamA;
+    @FXML
+    private Button X2_btn_TeamA;
+    @FXML
+    private Button X1_btn_TeamB;
+    @FXML
+    private Button X2_btn_TeamB;
+
     /* Initializing the teams. */
     private final Team teamA = new Team();
     private final Team teamB = new Team();
@@ -58,11 +77,13 @@ public class SetTeamsController {
                 if(player1A.getOpacity() == 0){                                 //checking the status of the Labels
                     player1A.setOpacity(1);
                     player1A.setText(text);
+                    TeamA_X1.setOpacity(1);
                     teamA.setPlayer1(new Player(text));                          //adding players
                 }
                 else{
                     player2A.setOpacity(1);
                     player2A.setText(text);
+                    TeamA_X2.setOpacity(1);
                     teamA.setPlayer2(new Player(text));
                     send_teamA_button.setDisable(true);
                     if(send_teamB_button.isDisable()){                          //checking if its the last missing player
@@ -80,11 +101,13 @@ public class SetTeamsController {
                 if(player1B.getOpacity() == 0){
                     player1B.setOpacity(1);
                     player1B.setText(text);
+                    TeamB_X1.setOpacity(1);
                     teamB.setPlayer1(new Player(text));
                 }
                 else {
                     player2B.setOpacity(1);
                     player2B.setText(text);
+                    TeamB_X2.setOpacity(1);
                     teamB.setPlayer2(new Player(text));
                     send_teamB_button.setDisable(true);
                     if (send_teamA_button.isDisable()) {
@@ -100,6 +123,41 @@ public class SetTeamsController {
         }catch(Exception e){
             e.printStackTrace();
             System.out.println(Error.ADDING_PLAYERS);
+        }
+    }
+
+    public void deleteNickname(ActionEvent event){
+        if(event.getSource()==X1_btn_TeamA){
+            player1A.setOpacity(0);
+            TeamA_X1.setOpacity(0);
+            waiting.setOpacity(1);
+            ready.setOpacity(0);
+            send_teamA_button.setDisable(false);
+            start_game_button.setDisable(true);
+        }
+        else if(event.getSource()==X2_btn_TeamA){
+            player2A.setOpacity(0);
+            TeamA_X2.setOpacity(0);
+            waiting.setOpacity(1);
+            ready.setOpacity(0);
+            send_teamA_button.setDisable(false);
+            start_game_button.setDisable(true);
+        }
+        else if(event.getSource()==X1_btn_TeamB){
+            player1B.setOpacity(0);
+            TeamB_X1.setOpacity(0);
+            waiting.setOpacity(1);
+            ready.setOpacity(0);
+            send_teamB_button.setDisable(false);
+            start_game_button.setDisable(true);
+        }
+        else if(event.getSource()==X2_btn_TeamB){
+            player2B.setOpacity(0);
+            TeamB_X2.setOpacity(0);
+            waiting.setOpacity(1);
+            ready.setOpacity(0);
+            send_teamB_button.setDisable(false);
+            start_game_button.setDisable(true);
         }
     }
 
