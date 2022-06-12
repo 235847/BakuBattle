@@ -64,7 +64,8 @@ public class ViewTeamsController implements Initializable {
     private Button player2B_select_button;
     @FXML
     private Label player2B_selected;
-
+    @FXML
+    private ImageView playBTN;
 
     /* Updating the scene by the data from previous Controller */
     @Override
@@ -100,7 +101,7 @@ public class ViewTeamsController implements Initializable {
 
             /* If everyone has chosen his bakugan, there will be allowed to enter the arena. */
             if(player1A_selected.getOpacity() == 1 && player2A_selected.getOpacity() == 1 && player1B_selected.getOpacity() == 1 && player2B_selected.getOpacity() == 1){
-                arena_start.setOpacity(1);
+                playBTN.setOpacity(1);
             }
         }catch (Exception e){
             e.printStackTrace();

@@ -88,6 +88,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <ImageView fx:id="playBTN" fitHeight="150.0" fitWidth="200.0" layoutX="71.0" layoutY="492.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@player_select/playBTN.png" />
+         </image>
+      </ImageView>
       <Button fx:id="arena_start" layoutX="130.0" layoutY="531.0" mnemonicParsing="false" onAction="#switchScene" opacity="0" prefHeight="87.0" prefWidth="194.0" text="Button">
          <cursor>
             <Cursor fx:constant="HAND" />

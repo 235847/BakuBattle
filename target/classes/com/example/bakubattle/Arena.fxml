@@ -297,12 +297,12 @@
             <Font name="Papyrus" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="player1B" alignment="CENTER" layoutX="1590.0" layoutY="275.0" prefHeight="60.0" prefWidth="270.0" text="Player1B" textFill="#36008d">
+      <Label fx:id="player1B" alignment="CENTER" layoutX="1590.0" layoutY="275.0" prefHeight="60.0" prefWidth="270.0" text="Player1B" textFill="WHITE">
          <font>
             <Font name="Papyrus" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="player2B" alignment="CENTER" layoutX="1590.0" layoutY="906.0" prefHeight="60.0" prefWidth="270.0" text="Player2B" textFill="#36008d">
+      <Label fx:id="player2B" alignment="CENTER" layoutX="1590.0" layoutY="906.0" prefHeight="60.0" prefWidth="270.0" text="Player2B" textFill="WHITE">
          <font>
             <Font name="Papyrus" size="40.0" />
          </font>
