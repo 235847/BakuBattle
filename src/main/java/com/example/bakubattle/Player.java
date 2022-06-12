@@ -91,7 +91,97 @@ public class Player {
             case "hp-boost" -> handleHpBoost(team_to_support, card, my_name);
             case "block-heal friend" -> handleBlockHealFriend(team_to_support, card, my_name);
             case "block-heal team" -> handleBlockHealTeam(team_to_support, card, my_name);
+            case "cursed-ventus" -> forbiddenVentus(team_to_attack, team_to_support, card, my_name);
+            case "cursed-haos" -> forbiddenHaos(team_to_attack,team_to_support,card,my_name);
+            case "cursed-subterra" -> forbiddenSubterra(team_to_attack,team_to_support,card,my_name);
+            case "cursed-pyrus" -> forbiddenPyrus(team_to_attack,team_to_support,card,my_name);
+            case "cursed-aquos" -> forbiddenAquos(team_to_attack,team_to_support,card,my_name);
+            case "cursed-darkus" -> forbiddenDarkus(team_to_attack,team_to_support,card,my_name);
         }
+    }
+
+    private void forbiddenDarkus(Team team_to_attack, Team team_to_support, Card card, String my_name) {
+        if(team_to_support.getPlayer1().getName().equals(my_name)){
+            team_to_support.getPlayer1().getBakugan().addHp(card.getValue());
+        }
+        else{
+            team_to_support.getPlayer2().getBakugan().addHp(card.getValue());
+        }
+        PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().setXp(0);
+        PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().setXp(0);
+        PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().setXp(0);
+        PassingClass.getInstance().getTeamB().getPlayer2().getBakugan().setXp(0);
+        deck.clearCard(card);
+    }
+
+    private void forbiddenAquos(Team team_to_attack, Team team_to_support, Card card, String my_name) {
+        if(team_to_support.getPlayer1().getName().equals(my_name)){
+            team_to_support.getPlayer1().getBakugan().addHp(card.getValue()*3);
+            team_to_support.getPlayer2().getBakugan().subtractHp(card.getValue());
+        }
+        else{
+            team_to_support.getPlayer2().getBakugan().addHp(card.getValue()*3);
+            team_to_support.getPlayer1().getBakugan().subtractHp(card.getValue());
+        }
+        team_to_attack.getPlayer1().getBakugan().subtractHp(card.getValue());
+        team_to_attack.getPlayer2().getBakugan().subtractHp(card.getValue());
+        deck.clearCard(card);
+    }
+
+    private void forbiddenPyrus(Team team_to_attack, Team team_to_support, Card card, String my_name) {
+        if(team_to_support.getPlayer1().getName().equals(my_name)){
+            team_to_support.getPlayer1().getBakugan().doubleHp_positive();
+            team_to_support.getPlayer2().getBakugan().doubleHp_negative();
+        }
+        else{
+            team_to_support.getPlayer2().getBakugan().doubleHp_positive();
+            team_to_support.getPlayer1().getBakugan().doubleHp_negative();
+        }
+        team_to_attack.getPlayer1().getBakugan().doubleHp_negative();
+        team_to_attack.getPlayer2().getBakugan().doubleHp_negative();
+        deck.clearCard(card);
+    }
+
+    private void forbiddenHaos(Team team_to_attack, Team team_to_support, Card card, String my_name) {
+        if(team_to_support.getPlayer1().getName().equals(my_name)){
+            team_to_support.getPlayer1().getBakugan().doubleHp_positive();
+            team_to_support.getPlayer1().getBakugan().setXP_MULTIPLIER(0.5);
+            team_to_support.getPlayer2().getBakugan().doubleHp_negative();
+        }
+        else{
+            team_to_support.getPlayer2().getBakugan().doubleHp_positive();
+            team_to_support.getPlayer2().getBakugan().setXP_MULTIPLIER(0.5);
+            team_to_support.getPlayer1().getBakugan().doubleHp_negative();
+        }
+        deck.clearCard(card);
+    }
+
+    private void forbiddenSubterra(Team team_to_attack, Team team_to_support, Card card, String my_name) {
+        team_to_support.getPlayer1().getBakugan().doubleHp_positive();
+        team_to_support.getPlayer2().getBakugan().doubleHp_positive();
+        if(team_to_support.getPlayer1().getName().equals(my_name)){
+            team_to_support.getPlayer1().getBakugan().setBlock(true);
+        }
+        else{
+            team_to_support.getPlayer2().getBakugan().setBlock(true);
+        }
+        team_to_attack.getPlayer1().getBakugan().setXp(1);
+        team_to_attack.getPlayer2().getBakugan().setXp(1);
+        deck.clearCard(card);
+    }
+
+    private void forbiddenVentus(Team team_to_attack, Team team_to_support, Card card, String my_name) {
+        if(team_to_support.getPlayer1().getName().equals(my_name)){
+            team_to_support.getPlayer1().getBakugan().setBlock(true);
+            team_to_support.getPlayer1().getBakugan().setXP_MULTIPLIER(0.5);
+            team_to_support.getPlayer2().getBakugan().doubleHp_negative();
+        }
+        else{
+            team_to_support.getPlayer2().getBakugan().setBlock(true);
+            team_to_support.getPlayer2().getBakugan().setXP_MULTIPLIER(0.5);
+            team_to_support.getPlayer1().getBakugan().doubleHp_negative();
+        }
+        deck.clearCard(card);
     }
 
     private void handleBlockHealTeam(Team team_to_support, Card card, String my_name) {

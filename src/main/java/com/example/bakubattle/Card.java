@@ -12,6 +12,7 @@ public class Card {
         name = n;
         value = val;
         sets_block = block;
+
         if(value == -2){
             switch (t) {
                 case "transferSingle" ->{
@@ -33,6 +34,22 @@ public class Card {
                 case "hpBoostv1", "hpBoostv2" ->{
                     type = "hp-boost";
                     description = "This ability doubles your health.";
+                }
+                case "forbiddenPyrus" ->{
+                    type = "cursed-pyrus";
+                    description = "This ability doubles your health and reduce everyone's health by half.";
+                }
+                case "forbiddenVentus" ->{
+                    type = "cursed-ventus";
+                    description = "This ability gives you block and xp multiplier 0.5 but reduces your friends hp by half.";
+                }
+                case "forbiddenHaos" ->{
+                    type = "cursed-haos";
+                    description = "This ability doubles your hp and xp multiplier 0.5 but reduces your friends hp by half.";
+                }
+                case "forbiddenSubterra" ->{
+                    type = "cursed-subterra";
+                    description = "This ability doubles your teams hp, gives you block, and sets xp level of your opponents to 1.";
                 }
             }
         }
@@ -65,6 +82,14 @@ public class Card {
                 case "blockHealTeam" ->{
                     type = "block-heal team";
                     description = "This ability gives you and your partner " + value + "g and sets block.";
+                }
+                case "forbiddenAquos" ->{
+                    type = "cursed-aquos";
+                    description = "This ability transfers " + value + "g from your opponents and your teammate to you.";
+                }
+                case "forbiddenDarkus" ->{
+                    type = "cursed-darkus";
+                    description = "This ability gives you " + value + "g and reduce everyone's xp level to 0.";
                 }
             }
         }

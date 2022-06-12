@@ -78,6 +78,11 @@ public class Deck {
             }
         }
 
+        /* Forbidden_card_activation */
+        if(forbidden_card_activation){
+            deck.add(ForbiddenCard.forgeForbiddenAsset(player));
+        }
+
         /* Creating deck of cards. */
         int i = 0;
         for(Map.Entry<String, Integer> entry: player.getBakugan().getSkill_values().entrySet()){
@@ -97,6 +102,15 @@ public class Deck {
 
     public Card drawCard(int i){
         return deck.get(i);
+    }
+
+    public void clearCard(Card card){
+        for(int i = 0; i < deck.size();i++){
+            if(deck.get(i).getType().equals(card.getType())){
+                deck.remove(deck.get(i));
+                return;
+            }
+        }
     }
 
     public void shuffleDeck() {

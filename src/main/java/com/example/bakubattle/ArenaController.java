@@ -21,6 +21,8 @@ public class ArenaController implements Initializable {
 
     /* Player 1A attributes */
     @FXML
+    private Label player1A;
+    @FXML
     private ImageView player1A_imageview;
     @FXML
     private ImageView player1A_hp_bar_back;
@@ -36,6 +38,8 @@ public class ArenaController implements Initializable {
     private  Label player1A_xp;
 
     /* Player 2A attributes */
+    @FXML
+    private Label player2A;
     @FXML
     private ImageView player2A_imageview;
     @FXML
@@ -54,6 +58,8 @@ public class ArenaController implements Initializable {
 
     /* Player 1B attributes */
     @FXML
+    private Label player1B;
+    @FXML
     private ImageView player1B_imageview;
     @FXML
     private ImageView player1B_hp_bar_back;
@@ -70,6 +76,8 @@ public class ArenaController implements Initializable {
 
 
     /* Player 2B attributes */
+    @FXML
+    private Label player2B;
     @FXML
     private ImageView player2B_imageview;
     @FXML
@@ -141,8 +149,14 @@ public class ArenaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try{
-            /*Show health points*/
+            /* Show health points */
             showStatus();
+
+            /* Show names */
+            player1A.setText(PassingClass.getInstance().getTeamA().getPlayer1().getName());
+            player2A.setText(PassingClass.getInstance().getTeamA().getPlayer2().getName());
+            player1B.setText(PassingClass.getInstance().getTeamB().getPlayer1().getName());
+            player2B.setText(PassingClass.getInstance().getTeamB().getPlayer2().getName());
 
             //HpProgressBar bar = new HpProgressBar(MainStage,200,200,-1);
             //HpProgressBar bar2 = new HpProgressBar(MainStage,200,200,1);
@@ -386,6 +400,20 @@ public class ArenaController implements Initializable {
 
     /* ---------------------------- Updating hp and xp  ---------------------------- */
     private void showStatus(){
+        /*Checking for overhealth*/
+        if(PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().getHp() >= Bakugan.HP_THRESHOLD){
+            PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().doubleHp_negative();
+        }
+        if(PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().getHp() >= Bakugan.HP_THRESHOLD){
+            PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().doubleHp_negative();
+        }
+        if(PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().getHp() >= Bakugan.HP_THRESHOLD){
+            PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().doubleHp_negative();
+        }
+        if(PassingClass.getInstance().getTeamB().getPlayer2().getBakugan().getHp() >= Bakugan.HP_THRESHOLD){
+            PassingClass.getInstance().getTeamB().getPlayer2().getBakugan().doubleHp_negative();
+        }
+
         /* HP */
         player1A_hp.setText(String.valueOf(PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().getHp()));
         player2A_hp.setText(String.valueOf(PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().getHp()));
@@ -475,6 +503,7 @@ public class ArenaController implements Initializable {
             if(PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().isDead()){
                 PassingClass.getInstance().getTeamA().getPlayer1().kill();
 //                System.out.println("Player1A killed.");
+                player1A.setVisible(false);
                 player1A_imageview.setVisible(false);
                 player1A_hp_bar_back.setVisible(false);
                 player1A_hp_bar_front.setVisible(false);
@@ -486,6 +515,7 @@ public class ArenaController implements Initializable {
             if(PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().isDead()){
                 PassingClass.getInstance().getTeamA().getPlayer2().kill();
 //                System.out.println("Player2A killed.");
+                player2A.setVisible(false);
                 player2A_imageview.setVisible(false);
                 player2A_hp_bar_back.setVisible(false);
                 player2A_hp_bar_front.setVisible(false);
@@ -497,6 +527,7 @@ public class ArenaController implements Initializable {
             if(PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().isDead()){
                 PassingClass.getInstance().getTeamB().getPlayer1().kill();
 //                System.out.println("Player1B killed.");
+                player1B.setVisible(false);
                 player1B_imageview.setVisible(false);
                 player1B_hp_bar_back.setVisible(false);
                 player1B_hp_bar_front.setVisible(false);
@@ -508,6 +539,7 @@ public class ArenaController implements Initializable {
             if(PassingClass.getInstance().getTeamB().getPlayer2().getBakugan().isDead()){
                 PassingClass.getInstance().getTeamB().getPlayer2().kill();
 //                System.out.println("Player2B killed.");
+                player2B.setVisible(false);
                 player2B_imageview.setVisible(false);
                 player2B_hp_bar_back.setVisible(false);
                 player2B_hp_bar_front.setVisible(false);

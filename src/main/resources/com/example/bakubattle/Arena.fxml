@@ -6,6 +6,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="MainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="gamescenebg" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.ArenaController">
@@ -102,78 +105,126 @@
         <ImageView fx:id="player2B_imageview" fitHeight="398.0" fitWidth="370.0" layoutX="1536.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true">
             <Image fx:id="player2B_image" url="@gamescene/darkDragonoid.png" />
         </ImageView>
-        <ImageView fx:id="first_card_imageview" fitHeight="500.0" fitWidth="400.0" layoutX="500.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@strategy/for_card.png" />
+        <ImageView fx:id="first_card_imageview" fitHeight="700.0" fitWidth="586.0" layoutX="333.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@strategy/strategy_card.png" />
         </ImageView>
-        <ImageView fx:id="second_card_imageview" fitHeight="500.0" fitWidth="400.0" layoutX="800.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@strategy/op_card.png" />
+        <ImageView fx:id="second_card_imageview" fitHeight="700.0" fitWidth="586.0" layoutX="675.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@strategy/strategy_card.png" />
         </ImageView>
-        <ImageView fx:id="third_card_imageview" fitHeight="500.0" fitWidth="400.0" layoutX="1100.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@strategy/dom_card.png" />
+        <ImageView fx:id="third_card_imageview" fitHeight="700.0" fitWidth="586.0" layoutX="1025.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@strategy/strategy_card.png" />
         </ImageView>
-      <Button fx:id="first_card_button" layoutX="616.0" layoutY="296.0" mnemonicParsing="false" onAction="#selectAbility" opacity="0" prefHeight="263.0" prefWidth="170.0" text="Button">
+      <Button fx:id="first_card_button" layoutX="493.0" layoutY="275.0" mnemonicParsing="false" onAction="#selectAbility" opacity="0.0" prefHeight="173.0" prefWidth="260.0" text="Button">
           <cursor>
               <Cursor fx:constant="HAND" />
           </cursor>
       </Button>
-      <Button fx:id="second_card_button" layoutX="913.0" layoutY="295.0" mnemonicParsing="false" onAction="#selectAbility" opacity="0.0" prefHeight="263.0" prefWidth="170.0" text="Button">
+      <Button fx:id="second_card_button" layoutX="845.0" layoutY="269.0" mnemonicParsing="false" onAction="#selectAbility" opacity="0.0" prefHeight="179.0" prefWidth="246.0" text="Button">
           <cursor>
               <Cursor fx:constant="HAND" />
           </cursor>
       </Button>
-      <Button fx:id="third_card_button" layoutX="1215.0" layoutY="287.0" mnemonicParsing="false" onAction="#selectAbility" opacity="0.0" prefHeight="263.0" prefWidth="170.0" text="Button">
+      <Button fx:id="third_card_button" layoutX="1193.0" layoutY="271.0" mnemonicParsing="false" onAction="#selectAbility" opacity="0.0" prefHeight="177.0" prefWidth="248.0" text="Button">
           <cursor>
               <Cursor fx:constant="HAND" />
           </cursor>
       </Button>
-      <Label fx:id="enter_label" alignment="CENTER" layoutX="570.0" layoutY="162.0" prefHeight="67.0" prefWidth="803.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label fx:id="enter_label" alignment="CENTER" layoutX="570.0" layoutY="162.0" prefHeight="67.0" prefWidth="803.0" text="There will be text." textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label fx:id="name_card_first" alignment="CENTER" layoutX="616.0" layoutY="422.0" opacity="0.0" prefHeight="42.0" prefWidth="175.0" text="Label" textAlignment="CENTER" textFill="#4032da" wrapText="true">
+      <Label fx:id="name_card_first" alignment="CENTER" layoutX="449.0" layoutY="430.0" prefHeight="72.0" prefWidth="351.0" text="Forbidden Card" textAlignment="CENTER" wrapText="true">
          <font>
-            <Font name="Papyrus" size="18.0" />
+            <Font name="Papyrus" size="30.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.8151658767772513" endY="0.2796208530805687" startX="0.8293838862559243" startY="0.6066350710900474">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.3255714178085327" green="0.8600000143051147" blue="0.11180000007152557" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.8980392217636108" green="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label fx:id="type_card_first" alignment="CENTER" layoutX="475.0" layoutY="510.0" prefHeight="38.0" prefWidth="291.0" text="Strategy" textAlignment="CENTER" textFill="#fbff00" wrapText="true">
+         <font>
+            <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="type_card_first" alignment="CENTER" layoutX="612.0" layoutY="478.0" opacity="0.0" prefHeight="27.0" prefWidth="177.0" text="Type" textAlignment="CENTER" textFill="#fbff00" wrapText="true">
+      <Label fx:id="desc_card_first" alignment="CENTER" layoutX="499.0" layoutY="550.0" prefHeight="97.0" prefWidth="251.0" text="Gives you unique card that you can use only once." textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
-            <Font size="16.0" />
+            <Font name="System Italic" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="desc_card_first" alignment="CENTER" layoutX="614.0" layoutY="506.0" opacity="0.0" prefHeight="51.0" prefWidth="175.0" text="description" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label fx:id="name_card_second" alignment="CENTER" layoutX="793.0" layoutY="430.0" prefHeight="72.0" prefWidth="351.0" text="Opening Card" textAlignment="CENTER" wrapText="true">
          <font>
-            <Font size="10.0" />
+            <Font name="Papyrus" size="30.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.8151658767772513" endY="0.2796208530805687" startX="0.8293838862559243" startY="0.6066350710900474">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.3255714178085327" green="0.8600000143051147" blue="0.11180000007152557" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.8980392217636108" green="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label fx:id="type_card_second" alignment="CENTER" layoutX="814.0" layoutY="510.0" prefHeight="38.0" prefWidth="297.0" text="Strategy" textAlignment="CENTER" textFill="#fbff00" wrapText="true">
+         <font>
+            <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="name_card_second" alignment="CENTER" layoutX="912.0" layoutY="422.0" opacity="0.0" prefHeight="42.0" prefWidth="175.0" text="Label" textAlignment="CENTER" textFill="#4032da" wrapText="true">
+      <Label fx:id="desc_card_second" alignment="CENTER" layoutX="842.0" layoutY="550.0" prefHeight="97.0" prefWidth="251.0" text="Gives bakugans of your domain 200g and takes 400g from others." textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
-            <Font name="Papyrus" size="18.0" />
+            <Font name="System Italic" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="type_card_second" alignment="CENTER" layoutX="912.0" layoutY="478.0" opacity="0.0" prefHeight="27.0" prefWidth="177.0" text="Type" textAlignment="CENTER" textFill="#fbff00" wrapText="true">
+      <Label fx:id="name_card_third" alignment="CENTER" layoutX="1141.0" layoutY="430.0" prefHeight="72.0" prefWidth="351.0" text="Domain Ability" textAlignment="CENTER" wrapText="true">
          <font>
-            <Font size="16.0" />
+            <Font name="Papyrus" size="30.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.8151658767772513" endY="0.2796208530805687" startX="0.8293838862559243" startY="0.6066350710900474">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.3255714178085327" green="0.8600000143051147" blue="0.11180000007152557" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.8980392217636108" green="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label fx:id="type_card_third" alignment="CENTER" layoutX="1165.0" layoutY="510.0" prefHeight="38.0" prefWidth="297.0" text="Strategy" textAlignment="CENTER" textFill="#fbff00" wrapText="true">
+         <font>
+            <Font name="System Italic" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="desc_card_second" alignment="CENTER" layoutX="912.0" layoutY="506.0" opacity="0.0" prefHeight="51.0" prefWidth="175.0" text="description" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label fx:id="desc_card_third" alignment="CENTER" layoutX="1190.0" layoutY="550.0" prefHeight="97.0" prefWidth="251.0" text="Gives you 300g and xp multiplier around 0.35." textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
-            <Font size="10.0" />
-         </font>
-      </Label>
-      <Label fx:id="name_card_third" alignment="CENTER" layoutX="1212.0" layoutY="422.0" opacity="0.0" prefHeight="42.0" prefWidth="175.0" text="Label" textAlignment="CENTER" textFill="#4032da" wrapText="true">
-         <font>
-            <Font name="Papyrus" size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="type_card_third" alignment="CENTER" layoutX="1212.0" layoutY="478.0" opacity="0.0" prefHeight="27.0" prefWidth="177.0" text="Type" textAlignment="CENTER" textFill="#fbff00" wrapText="true">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label fx:id="desc_card_third" alignment="CENTER" layoutX="1212.0" layoutY="506.0" opacity="0.0" prefHeight="51.0" prefWidth="175.0" text="description" textAlignment="CENTER" textFill="WHITE" wrapText="true">
-         <font>
-            <Font size="10.0" />
+            <Font size="18.0" />
          </font>
       </Label>
       <Label fx:id="player1A_hp" layoutX="431.0" layoutY="90.0" prefHeight="73.0" prefWidth="132.0" text="HP" textFill="RED" wrapText="true">
@@ -236,5 +287,25 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Label fx:id="player1A" alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="275.0" prefHeight="60.0" prefWidth="270.0" text="Player1A" textFill="#e5bf00">
+         <font>
+            <Font name="Papyrus" size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="player2A" alignment="CENTER" layoutX="65.0" layoutY="906.0" prefHeight="60.0" prefWidth="270.0" text="Player2A" textFill="#e5bf00">
+         <font>
+            <Font name="Papyrus" size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="player1B" alignment="CENTER" layoutX="1590.0" layoutY="275.0" prefHeight="60.0" prefWidth="270.0" text="Player1B" textFill="#36008d">
+         <font>
+            <Font name="Papyrus" size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="player2B" alignment="CENTER" layoutX="1590.0" layoutY="906.0" prefHeight="60.0" prefWidth="270.0" text="Player2B" textFill="#36008d">
+         <font>
+            <Font name="Papyrus" size="40.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
