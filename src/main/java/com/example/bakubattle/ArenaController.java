@@ -145,21 +145,40 @@ public class ArenaController implements Initializable {
     private static String now_player = "";
     private static String next_player = "";
 
+    private HpProgressBar bar_1A_hp;
+    private HpProgressBar bar_1B_hp;
+    private HpProgressBar bar_2A_hp;
+    private HpProgressBar bar_2B_hp;
+    private XpProgressBar bar_1A_xp;
+    private XpProgressBar bar_1B_xp;
+    private XpProgressBar bar_2A_xp;
+    private XpProgressBar bar_2B_xp;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try{
-            /* Show health points */
-            showStatus();
-
             /* Show names */
             player1A.setText(PassingClass.getInstance().getTeamA().getPlayer1().getName());
             player2A.setText(PassingClass.getInstance().getTeamA().getPlayer2().getName());
             player1B.setText(PassingClass.getInstance().getTeamB().getPlayer1().getName());
             player2B.setText(PassingClass.getInstance().getTeamB().getPlayer2().getName());
 
-            //HpProgressBar bar = new HpProgressBar(MainStage,200,200,-1);
-            //HpProgressBar bar2 = new HpProgressBar(MainStage,200,200,1);
+            bar_1A_hp = new HpProgressBar(MainStage,300,100,-1);
+            bar_1B_hp = new HpProgressBar(MainStage,300,100,1);
+            bar_2A_hp = new HpProgressBar(MainStage,300,730,-1);
+            bar_2B_hp = new HpProgressBar(MainStage,300,730,1);
+
+            bar_1A_xp = new XpProgressBar(MainStage,200,100,-1);
+            bar_1B_xp = new XpProgressBar(MainStage,200,100,1);
+            bar_2A_xp = new XpProgressBar(MainStage,200,730,-1);
+            bar_2B_xp = new XpProgressBar(MainStage,200,730,1);
+
+            /* Show health points */
+            showStatus();
+
+
+            MainStage.toBack();
             /* Getting URL path to the images. */
 //            System.out.println("arena/bakugan/"+PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamA().getPlayer1().getDomain().getName()+".png");
 //            System.out.println("arena/bakugan/"+PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().getName()+"_"+PassingClass.getInstance().getTeamA().getPlayer2().getDomain().getName()+".png");
@@ -425,6 +444,18 @@ public class ArenaController implements Initializable {
         player2A_xp.setText(String.valueOf(PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().getXp()));
         player1B_xp.setText(String.valueOf(PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().getXp()));
         player2B_xp.setText(String.valueOf(PassingClass.getInstance().getTeamB().getPlayer2().getBakugan().getXp()));
+
+        //update hp and xp bar
+        bar_1A_hp.setValue(4000,PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().getHp());
+        bar_2A_hp.setValue(4000,PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().getHp());
+        bar_1B_hp.setValue(4000,PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().getHp());
+        bar_2B_hp.setValue(4000,PassingClass.getInstance().getTeamB().getPlayer2().getBakugan().getHp());
+
+        bar_1A_xp.setValue(1,PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().getXp());
+        bar_2A_xp.setValue(1,PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().getXp());
+        bar_1B_xp.setValue(1,PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().getXp());
+        bar_2B_xp.setValue(1,PassingClass.getInstance().getTeamB().getPlayer2().getBakugan().getXp());
+
     }
 
     /* ---------------------------- Setting Strategy ---------------------------- */
