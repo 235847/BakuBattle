@@ -100,6 +100,10 @@ public class Bakugan {
 
     public void setXp(double xp) {
         this.xp = xp;
+        if(this.xp > XP_THRESHOLD){
+            xp_loaded = true;
+            this.xp -= XP_THRESHOLD;
+        }
     }
 
     public double getXP_MULTIPLIER() {
