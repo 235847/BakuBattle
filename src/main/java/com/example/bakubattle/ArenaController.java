@@ -539,6 +539,8 @@ public class ArenaController implements Initializable {
                 PassingClass.getInstance().getTeamA().getPlayer1().kill();
 //                System.out.println("Player1A killed.");
                 player1A.setVisible(false);
+                bar_1A_hp.hide();
+                bar_1A_xp.hide();
                 player1A_imageview.setVisible(false);
                 player1A_hp.setVisible(false);
                 player1A_xp.setVisible(false);
@@ -547,6 +549,8 @@ public class ArenaController implements Initializable {
                 PassingClass.getInstance().getTeamA().getPlayer2().kill();
 //                System.out.println("Player2A killed.");
                 player2A.setVisible(false);
+                bar_2A_hp.hide();
+                bar_2A_xp.hide();
                 player2A_imageview.setVisible(false);
                 player2A_hp.setVisible(false);
                 player2A_xp.setVisible(false);
@@ -555,6 +559,8 @@ public class ArenaController implements Initializable {
                 PassingClass.getInstance().getTeamB().getPlayer1().kill();
 //                System.out.println("Player1B killed.");
                 player1B.setVisible(false);
+                bar_1B_hp.hide();
+                bar_1B_xp.hide();
                 player1B_imageview.setVisible(false);
                 player1B_hp.setVisible(false);
                 player1B_xp.setVisible(false);
@@ -563,6 +569,8 @@ public class ArenaController implements Initializable {
                 PassingClass.getInstance().getTeamB().getPlayer2().kill();
 //                System.out.println("Player2B killed.");
                 player2B.setVisible(false);
+                bar_2B_hp.hide();
+                bar_2B_xp.hide();
                 player2B_imageview.setVisible(false);
                 player2B_hp.setVisible(false);
                 player2B_xp.setVisible(false);

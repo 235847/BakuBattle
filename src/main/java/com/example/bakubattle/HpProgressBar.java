@@ -11,6 +11,7 @@ public class HpProgressBar {
 
     private AnchorPane MainStage;
     private ImageView hpbar;
+    private ImageView hpbar_back;
     private int team;
     public HpProgressBar(AnchorPane pane, int positionX, int positionY, int side)
     {
@@ -25,10 +26,10 @@ public class HpProgressBar {
         //wartoscia dodawana przy rotacji (ctrl + f: rotacja)
         team = side;
         MainStage = pane;
-        ImageView imageView1 = new ImageView();
+        hpbar_back = new ImageView();
         URL urll1 = this.getClass().getResource("arena/HP_BACK.png");
         Image im1 = new Image(String.valueOf(urll1));
-        imageView1.setImage(im1);
+        hpbar_back.setImage(im1);
         int offsetX;
         int offsetY;
         if(side == 1)
@@ -41,10 +42,10 @@ public class HpProgressBar {
         }
         offsetY = positionY;
 
-        imageView1.setX(offsetX);
-        imageView1.setY(offsetY);
+        hpbar_back.setX(offsetX);
+        hpbar_back.setY(offsetY);
 
-        MainStage.getChildren().add(imageView1);
+        MainStage.getChildren().add(hpbar_back);
 
         hpbar = new ImageView();
         URL urll = this.getClass().getResource("arena/HP_FRONT.png");
@@ -57,15 +58,15 @@ public class HpProgressBar {
 
         hpbar.setFitWidth(249);
         hpbar.setFitHeight(44);
-        imageView1.setFitWidth(258);
-        imageView1.setFitHeight(53);
+        hpbar_back.setFitWidth(258);
+        hpbar_back.setFitHeight(53);
         if(side == 1)
         {
             hpbar.getTransforms().add(new Rotate(180,offsetX,offsetY + hpbar.getFitHeight()/2 + 4)); //rotacja
-            imageView1.getTransforms().add(new Rotate(180,offsetX,offsetY + imageView1.getFitHeight()/2 )); //rotacja wartosci (default 30) muszą byc rowne sobie, zwiekszenie obnizy pasek, zmiejszenie podwyzszy
+            hpbar_back.getTransforms().add(new Rotate(180,offsetX,offsetY + hpbar_back.getFitHeight()/2 )); //rotacja wartosci (default 30) muszą byc rowne sobie, zwiekszenie obnizy pasek, zmiejszenie podwyzszy
         }
         hpbar.toBack();
-        imageView1.toBack();
+        hpbar_back.toBack();
     }
 
     private double calculate_width(Number max, Number current)
@@ -89,4 +90,8 @@ public class HpProgressBar {
         hpbar.setFitWidth(calculate_width(bakuganMaxHp, bakuganCurrentHp));
     }
 
+    public void hide(){
+        hpbar.setVisible(false);
+        hpbar_back.setVisible(false);
+    }
 }

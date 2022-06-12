@@ -12,6 +12,7 @@ public class XpProgressBar {
 
     private AnchorPane MainStage;
     private ImageView hpbar;
+    private ImageView hpbar_back;
     private int team;
     public XpProgressBar(AnchorPane pane, int positionX, int positionY, int side)
     {
@@ -26,10 +27,10 @@ public class XpProgressBar {
         //wartoscia dodawana przy rotacji (ctrl + f: rotacja)
         team = side;
         MainStage = pane;
-        ImageView imageView1 = new ImageView();
+        hpbar_back = new ImageView();
         URL urll1 = this.getClass().getResource("arena/XP_BACK.png");
         Image im1 = new Image(String.valueOf(urll1));
-        imageView1.setImage(im1);
+        hpbar_back.setImage(im1);
         int offsetX;
         int offsetY;
         if(side == 1)
@@ -42,10 +43,10 @@ public class XpProgressBar {
         }
         offsetY = positionY+50;
 
-        imageView1.setX(offsetX);
-        imageView1.setY(offsetY);
+        hpbar_back.setX(offsetX);
+        hpbar_back.setY(offsetY);
 
-        MainStage.getChildren().add(imageView1);
+        MainStage.getChildren().add(hpbar_back);
 
         hpbar = new ImageView();
         URL urll = this.getClass().getResource("arena/XP_FRONT.png");
@@ -57,18 +58,18 @@ public class XpProgressBar {
         hpbar.setFitHeight(28);
         hpbar.setFitWidth(192);
 
-        imageView1.setFitHeight(30);
-        imageView1.setFitWidth(197);
+        hpbar_back.setFitHeight(30);
+        hpbar_back.setFitWidth(197);
 
         MainStage.getChildren().add(hpbar);
         if(side == 1)
         {
             hpbar.getTransforms().add(new Translate((hpbar.getFitWidth()/2 +4)* -1,0,0));
             hpbar.getTransforms().add(new Rotate(180,offsetX,offsetY + hpbar.getFitHeight()/2));
-            imageView1.getTransforms().add(new Translate(imageView1.getFitWidth()*1.5 * -1 -4,0,0));
+            hpbar_back.getTransforms().add(new Translate(hpbar_back.getFitWidth()*1.5 * -1 -4,0,0));
         }
         hpbar.toBack();
-        imageView1.toBack();
+        hpbar_back.toBack();
     }
 
     private double calculate_width(Number max, Number current)
@@ -92,4 +93,9 @@ public class XpProgressBar {
         hpbar.setFitWidth(calculate_width(bakuganMaxHp, bakuganCurrentHp));
     }
 
+
+    public void hide(){
+        hpbar.setVisible(false);
+        hpbar_back.setVisible(false);
+    }
 }
