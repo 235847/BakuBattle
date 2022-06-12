@@ -3,6 +3,7 @@ module com.example.bacard {
     requires javafx.fxml;
     requires java.sql;
     requires org.jetbrains.annotations;
+    requires javafx.media;
 
 
     opens com.example.bakubattle to javafx.fxml;

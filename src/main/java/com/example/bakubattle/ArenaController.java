@@ -4,17 +4,19 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.stage.Stage;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaView;
-import java.io.File;
+import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
+
 import java.net.URL;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 public class ArenaController implements Initializable {
@@ -148,8 +150,9 @@ public class ArenaController implements Initializable {
         try{
             /*Show health points*/
             showStatus();
-            Media med = new Media("arena/Arena_vid.mp4");
-            Mediaplayer mediaPlayer = new MediaPlayer(media);
+            //TODO Odnajdz sciezke i powinno być git!
+            Media med = new Media("arena\\Arena_vid.mp4");
+            MediaPlayer mediaPlayer = new MediaPlayer(med);
             media = new MediaView (mediaPlayer);
             mediaPlayer.setAutoPlay(true);
             
