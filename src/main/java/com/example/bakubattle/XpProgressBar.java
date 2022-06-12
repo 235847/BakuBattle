@@ -4,15 +4,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.transform.Rotate;
+import javafx.scene.transform.Translate;
 
 import java.net.URL;
 
-public class HpProgressBar {
+public class XpProgressBar {
 
     private AnchorPane MainStage;
     private ImageView hpbar;
     private int team;
-    public HpProgressBar(AnchorPane pane, int positionX, int positionY, int side)
+    public XpProgressBar(AnchorPane pane, int positionX, int positionY, int side)
     {
         // ----- README -----
         //side moze miec wartosc 0 albo 1 (drużyna A i drużyna B)
@@ -26,7 +27,7 @@ public class HpProgressBar {
         team = side;
         MainStage = pane;
         ImageView imageView1 = new ImageView();
-        URL urll1 = this.getClass().getResource("arena/HP_BACK.png");
+        URL urll1 = this.getClass().getResource("arena/XP_BACK.png");
         Image im1 = new Image(String.valueOf(urll1));
         imageView1.setImage(im1);
         int offsetX;
@@ -37,9 +38,9 @@ public class HpProgressBar {
         }
         else
         {
-            offsetX = (positionX);
+            offsetX = (positionX+100);
         }
-        offsetY = positionY;
+        offsetY = positionY+50;
 
         imageView1.setX(offsetX);
         imageView1.setY(offsetY);
@@ -47,22 +48,24 @@ public class HpProgressBar {
         MainStage.getChildren().add(imageView1);
 
         hpbar = new ImageView();
-        URL urll = this.getClass().getResource("arena/HP_FRONT.png");
+        URL urll = this.getClass().getResource("arena/XP_FRONT.png");
         Image im = new Image(String.valueOf(urll));
         hpbar.setImage(im);
         hpbar.setX(offsetX + 4);
-        hpbar.setY(offsetY + 4);
+        hpbar.setY(offsetY);
+
+        hpbar.setFitHeight(28);
+        hpbar.setFitWidth(192);
+
+        imageView1.setFitHeight(30);
+        imageView1.setFitWidth(197);
 
         MainStage.getChildren().add(hpbar);
-
-        hpbar.setFitWidth(249);
-        hpbar.setFitHeight(44);
-        imageView1.setFitWidth(258);
-        imageView1.setFitHeight(53);
         if(side == 1)
         {
-            hpbar.getTransforms().add(new Rotate(180,offsetX,offsetY + hpbar.getFitHeight()/2 + 4)); //rotacja
-            imageView1.getTransforms().add(new Rotate(180,offsetX,offsetY + imageView1.getFitHeight()/2 )); //rotacja wartosci (default 30) muszą byc rowne sobie, zwiekszenie obnizy pasek, zmiejszenie podwyzszy
+            hpbar.getTransforms().add(new Translate((hpbar.getFitWidth()/2 +4)* -1,0,0));
+            hpbar.getTransforms().add(new Rotate(180,offsetX,offsetY + hpbar.getFitHeight()/2));
+            imageView1.getTransforms().add(new Translate(imageView1.getFitWidth()*1.5 * -1 -4,0,0));
         }
         hpbar.toBack();
         imageView1.toBack();
@@ -76,11 +79,11 @@ public class HpProgressBar {
         }
         else if(current.doubleValue() > max.doubleValue())
         {
-            return 249;
+            return 192;
         }
         else
         {
-            return 249 * (current.doubleValue()/max.doubleValue());
+            return 192 * (current.doubleValue()/max.doubleValue());
         }
     }
 

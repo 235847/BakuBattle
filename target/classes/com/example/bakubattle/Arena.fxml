@@ -13,86 +13,86 @@
 
 <AnchorPane fx:id="MainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="gamescenebg" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakubattle.ArenaController">
     <children>
-      <ImageView fx:id="player1B_xp_bar_back" fitHeight="460.0" fitWidth="350.0" layoutX="1290.0" layoutY="-101.0" opacity="0.75" pickOnBounds="true">
-         <image>
-            <Image url="@arena/XP_BACK.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="player2B_xp_bar_back" fitHeight="460.0" fitWidth="350.0" layoutX="1290.0" layoutY="521.0" opacity="0.75" pickOnBounds="true">
-         <image>
-            <Image url="@arena/XP_BACK.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="player2A_xp_bar_back" fitHeight="460.0" fitWidth="350.0" layoutX="196.0" layoutY="521.0" opacity="0.75" pickOnBounds="true">
-         <image>
-            <Image url="@arena/XP_BACK.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="player1A_xp_bar_back" fitHeight="460.0" fitWidth="350.0" layoutX="196.0" layoutY="-101.0" opacity="0.75" pickOnBounds="true">
-         <image>
-            <Image url="@arena/XP_BACK.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="player1A_xp_bar_front" fitHeight="410.0" fitWidth="330.0" layoutX="212.0" layoutY="-70.0" pickOnBounds="true">
-         <image>
-            <Image url="@arena/XP_FRONT.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="player2A_xp_bar_front" fitHeight="410.0" fitWidth="330.0" layoutX="212.0" layoutY="552.0" pickOnBounds="true">
-         <image>
-            <Image url="@arena/XP_FRONT.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="player2B_xp_bar_front" fitHeight="410.0" fitWidth="330.0" layoutX="1300.0" layoutY="552.0" pickOnBounds="true">
-         <image>
-            <Image url="@arena/XP_FRONT.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="player1B_xp_bar_front" fitHeight="410.0" fitWidth="330.0" layoutX="1300.0" layoutY="-70.0" pickOnBounds="true">
-         <image>
-            <Image url="@arena/XP_FRONT.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="player2B_hp_bar_back" fitHeight="60.0" fitWidth="400.0" layoutX="1230.0" layoutY="720.0" opacity="0.75" pickOnBounds="true">
-         <image>
-            <Image url="@arena/HP_BACK.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="player2B_hp_bar_front" fitHeight="51.0" fitWidth="386.0" layoutX="1236.0" layoutY="725.0" pickOnBounds="true">
-         <image>
-            <Image url="@arena/HP_FRONT.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="player1B_hp_bar_back" fitHeight="60.0" fitWidth="400.0" layoutX="1225.0" layoutY="98.0" opacity="0.75" pickOnBounds="true">
-         <image>
-            <Image url="@arena/HP_BACK.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="player1B_hp_bar_front" fitHeight="51.0" fitWidth="392.0" layoutX="1230.0" layoutY="103.0" pickOnBounds="true">
-         <image>
-            <Image url="@arena/HP_FRONT.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="player1A_hp_bar_back" fitHeight="60.0" fitWidth="400.0" layoutX="300.0" layoutY="98.0" opacity="0.75" pickOnBounds="true">
-         <image>
-            <Image url="@arena/HP_BACK.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="player1A_hp_bar_front" fitHeight="51.0" fitWidth="392.0" layoutX="300.0" layoutY="103.0" pickOnBounds="true">
-         <image>
-            <Image url="@arena/HP_FRONT.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="player2A_hp_bar_back" fitHeight="60.0" fitWidth="400.0" layoutX="300.0" layoutY="720.0" opacity="0.75" pickOnBounds="true">
-         <image>
-            <Image url="@arena/HP_BACK.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="player2A_hp_bar_front" fitHeight="51.0" fitWidth="394.0" layoutX="300.0" layoutY="725.0" pickOnBounds="true">
-         <image>
-            <Image url="@arena/HP_FRONT.png" />
-         </image>
-      </ImageView>
+<!--      <ImageView fx:id="player1B_xp_bar_back" fitHeight="460.0" fitWidth="350.0" layoutX="1290.0" layoutY="-101.0" opacity="0.75" pickOnBounds="true">-->
+<!--         <image>-->
+<!--            <Image url="@arena/XP_BACK.png" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+<!--      <ImageView fx:id="player2B_xp_bar_back" fitHeight="460.0" fitWidth="350.0" layoutX="1290.0" layoutY="521.0" opacity="0.75" pickOnBounds="true">-->
+<!--         <image>-->
+<!--            <Image url="@arena/XP_BACK.png" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+<!--      <ImageView fx:id="player2A_xp_bar_back" fitHeight="460.0" fitWidth="350.0" layoutX="196.0" layoutY="521.0" opacity="0.75" pickOnBounds="true">-->
+<!--         <image>-->
+<!--            <Image url="@arena/XP_BACK.png" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+<!--      <ImageView fx:id="player1A_xp_bar_back" fitHeight="460.0" fitWidth="350.0" layoutX="196.0" layoutY="-101.0" opacity="0.75" pickOnBounds="true">-->
+<!--         <image>-->
+<!--            <Image url="@arena/XP_BACK.png" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+<!--      <ImageView fx:id="player1A_xp_bar_front" fitHeight="410.0" fitWidth="330.0" layoutX="212.0" layoutY="-70.0" pickOnBounds="true">-->
+<!--         <image>-->
+<!--            <Image url="@arena/XP_FRONT.png" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+<!--      <ImageView fx:id="player2A_xp_bar_front" fitHeight="410.0" fitWidth="330.0" layoutX="212.0" layoutY="552.0" pickOnBounds="true">-->
+<!--         <image>-->
+<!--            <Image url="@arena/XP_FRONT.png" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+<!--      <ImageView fx:id="player2B_xp_bar_front" fitHeight="410.0" fitWidth="330.0" layoutX="1300.0" layoutY="552.0" pickOnBounds="true">-->
+<!--         <image>-->
+<!--            <Image url="@arena/XP_FRONT.png" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+<!--      <ImageView fx:id="player1B_xp_bar_front" fitHeight="410.0" fitWidth="330.0" layoutX="1300.0" layoutY="-70.0" pickOnBounds="true">-->
+<!--         <image>-->
+<!--            <Image url="@arena/XP_FRONT.png" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+<!--      <ImageView fx:id="player2B_hp_bar_back" fitHeight="60.0" fitWidth="400.0" layoutX="1230.0" layoutY="720.0" opacity="0.75" pickOnBounds="true">-->
+<!--         <image>-->
+<!--            <Image url="@arena/HP_BACK.png" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+<!--      <ImageView fx:id="player2B_hp_bar_front" fitHeight="51.0" fitWidth="386.0" layoutX="1236.0" layoutY="725.0" pickOnBounds="true">-->
+<!--         <image>-->
+<!--            <Image url="@arena/HP_FRONT.png" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+<!--      <ImageView fx:id="player1B_hp_bar_back" fitHeight="60.0" fitWidth="400.0" layoutX="1225.0" layoutY="98.0" opacity="0.75" pickOnBounds="true">-->
+<!--         <image>-->
+<!--            <Image url="@arena/HP_BACK.png" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+<!--      <ImageView fx:id="player1B_hp_bar_front" fitHeight="51.0" fitWidth="392.0" layoutX="1230.0" layoutY="103.0" pickOnBounds="true">-->
+<!--         <image>-->
+<!--            <Image url="@arena/HP_FRONT.png" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+<!--      <ImageView fx:id="player1A_hp_bar_back" fitHeight="60.0" fitWidth="400.0" layoutX="300.0" layoutY="98.0" opacity="0.75" pickOnBounds="true">-->
+<!--         <image>-->
+<!--            <Image url="@arena/HP_BACK.png" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+<!--      <ImageView fx:id="player1A_hp_bar_front" fitHeight="51.0" fitWidth="392.0" layoutX="300.0" layoutY="103.0" pickOnBounds="true">-->
+<!--         <image>-->
+<!--            <Image url="@arena/HP_FRONT.png" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+<!--      <ImageView fx:id="player2A_hp_bar_back" fitHeight="60.0" fitWidth="400.0" layoutX="300.0" layoutY="720.0" opacity="0.75" pickOnBounds="true">-->
+<!--         <image>-->
+<!--            <Image url="@arena/HP_BACK.png" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+<!--      <ImageView fx:id="player2A_hp_bar_front" fitHeight="51.0" fitWidth="394.0" layoutX="300.0" layoutY="725.0" pickOnBounds="true">-->
+<!--         <image>-->
+<!--            <Image url="@arena/HP_FRONT.png" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
         <ImageView fx:id="player1A_imageview" fitHeight="370.0" fitWidth="370.0" layoutX="14.0" layoutY="-30.0" pickOnBounds="true" preserveRatio="true">
             <Image fx:id="player1A_image" url="@gamescene/pyrusHydranoid.png" />
         </ImageView>
