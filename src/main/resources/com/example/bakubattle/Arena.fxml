@@ -227,42 +227,42 @@
             <Font name="System Italic" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="player1A_hp" alignment="CENTER" layoutX="350.0" layoutY="82.0" prefHeight="73.0" prefWidth="132.0" text="HP" textFill="RED" wrapText="true">
+      <Label fx:id="player1A_hp" alignment="CENTER" layoutX="350.0" layoutY="82.0" prefHeight="73.0" prefWidth="132.0" text="HP" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Papyrus" size="32.0" />
          </font>
       </Label>
-      <Label fx:id="player2A_hp" alignment="CENTER" layoutX="350.0" layoutY="715.0" prefHeight="73.0" prefWidth="134.0" text="HP" textFill="RED" wrapText="true">
+      <Label fx:id="player2A_hp" alignment="CENTER" layoutX="350.0" layoutY="715.0" prefHeight="73.0" prefWidth="134.0" text="HP" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Papyrus" size="32.0" />
          </font>
       </Label>
-      <Label fx:id="player1B_hp" alignment="CENTER" layoutX="1410.0" layoutY="85.0" prefHeight="73.0" prefWidth="162.0" text="HP" textFill="RED" wrapText="true">
+      <Label fx:id="player1B_hp" alignment="CENTER" layoutX="1410.0" layoutY="85.0" prefHeight="73.0" prefWidth="162.0" text="HP" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Papyrus" size="34.0" />
          </font>
       </Label>
-      <Label fx:id="player2B_hp" alignment="CENTER" layoutX="1410.0" layoutY="722.0" prefHeight="73.0" prefWidth="144.0" text="HP" textFill="RED" wrapText="true">
+      <Label fx:id="player2B_hp" alignment="CENTER" layoutX="1410.0" layoutY="722.0" prefHeight="73.0" prefWidth="144.0" text="HP" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Papyrus" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="player2A_xp" alignment="CENTER" layoutX="370.0" layoutY="770.0" prefHeight="38.0" prefWidth="81.0" text="Xp" textAlignment="CENTER" textFill="#ff000f">
+      <Label fx:id="player2A_xp" alignment="CENTER" layoutX="370.0" layoutY="770.0" prefHeight="38.0" prefWidth="81.0" text="Xp" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Papyrus" size="26.0" />
          </font>
       </Label>
-      <Label fx:id="player2B_xp" alignment="CENTER" layoutX="1460.0" layoutY="772.0" prefHeight="38.0" prefWidth="88.0" text="Xp" textAlignment="CENTER" textFill="#ff000f">
+      <Label fx:id="player2B_xp" alignment="CENTER" layoutX="1460.0" layoutY="772.0" prefHeight="38.0" prefWidth="88.0" text="Xp" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Papyrus" size="26.0" />
          </font>
       </Label>
-      <Label fx:id="player1A_xp" alignment="CENTER" layoutX="370.0" layoutY="130.0" prefHeight="38.0" prefWidth="85.0" text="Xp" textAlignment="CENTER" textFill="#ff000f">
+      <Label fx:id="player1A_xp" alignment="CENTER" layoutX="370.0" layoutY="130.0" prefHeight="38.0" prefWidth="85.0" text="Xp" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Papyrus" size="26.0" />
          </font>
       </Label>
-      <Label fx:id="player1B_xp" alignment="CENTER" layoutX="1445.0" layoutY="137.0" prefHeight="38.0" prefWidth="96.0" text="Xp" textAlignment="CENTER" textFill="#ff000f">
+      <Label fx:id="player1B_xp" alignment="CENTER" layoutX="1445.0" layoutY="137.0" prefHeight="38.0" prefWidth="96.0" text="Xp" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Papyrus" size="26.0" />
          </font>
@@ -287,12 +287,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label fx:id="player1A" alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="275.0" prefHeight="60.0" prefWidth="270.0" text="Player1A" textFill="#e5bf00">
+      <Label fx:id="player1A" alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="275.0" prefHeight="60.0" prefWidth="270.0" text="Player1A" textFill="WHITE">
          <font>
             <Font name="Papyrus" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="player2A" alignment="CENTER" layoutX="65.0" layoutY="906.0" prefHeight="60.0" prefWidth="270.0" text="Player2A" textFill="#e5bf00">
+      <Label fx:id="player2A" alignment="CENTER" layoutX="65.0" layoutY="906.0" prefHeight="60.0" prefWidth="270.0" text="Player2A" textFill="WHITE">
          <font>
             <Font name="Papyrus" size="40.0" />
          </font>
