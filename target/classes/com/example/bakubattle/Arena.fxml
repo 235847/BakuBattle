@@ -224,47 +224,47 @@
       </Label>
       <Label fx:id="desc_card_third" alignment="CENTER" layoutX="1190.0" layoutY="550.0" prefHeight="97.0" prefWidth="251.0" text="Gives you 300g and xp multiplier around 0.35." textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
-            <Font size="18.0" />
+            <Font name="System Italic" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="player1A_hp" layoutX="431.0" layoutY="90.0" prefHeight="73.0" prefWidth="132.0" text="HP" textFill="RED" wrapText="true">
+      <Label fx:id="player1A_hp" alignment="CENTER" layoutX="350.0" layoutY="82.0" prefHeight="73.0" prefWidth="132.0" text="HP" textFill="RED" wrapText="true">
+         <font>
+            <Font name="Papyrus" size="32.0" />
+         </font>
+      </Label>
+      <Label fx:id="player2A_hp" alignment="CENTER" layoutX="350.0" layoutY="715.0" prefHeight="73.0" prefWidth="134.0" text="HP" textFill="RED" wrapText="true">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label fx:id="player1B_hp" alignment="CENTER" layoutX="1410.0" layoutY="85.0" prefHeight="73.0" prefWidth="162.0" text="HP" textFill="RED" wrapText="true">
+         <font>
+            <Font name="Papyrus" size="34.0" />
+         </font>
+      </Label>
+      <Label fx:id="player2B_hp" alignment="CENTER" layoutX="1410.0" layoutY="722.0" prefHeight="73.0" prefWidth="144.0" text="HP" textFill="RED" wrapText="true">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Label fx:id="player2A_hp" layoutX="431.0" layoutY="715.0" prefHeight="73.0" prefWidth="134.0" text="HP" textFill="RED" wrapText="true">
+      <Label fx:id="player2A_xp" alignment="CENTER" layoutX="370.0" layoutY="770.0" prefHeight="38.0" prefWidth="81.0" text="Xp" textAlignment="CENTER" textFill="#ff000f">
          <font>
-            <Font size="36.0" />
+            <Font name="Papyrus" size="26.0" />
          </font>
       </Label>
-      <Label fx:id="player1B_hp" layoutX="1410.0" layoutY="90.0" prefHeight="73.0" prefWidth="162.0" text="HP" textFill="RED" wrapText="true">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-      <Label fx:id="player2B_hp" layoutX="1410.0" layoutY="715.0" prefHeight="73.0" prefWidth="144.0" text="HP" textFill="RED" wrapText="true">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-      <Label fx:id="player2A_xp" alignment="CENTER" layoutX="370.0" layoutY="781.0" prefHeight="38.0" prefWidth="81.0" text="Xp" textAlignment="CENTER" textFill="#ff000f">
+      <Label fx:id="player2B_xp" alignment="CENTER" layoutX="1460.0" layoutY="772.0" prefHeight="38.0" prefWidth="88.0" text="Xp" textAlignment="CENTER" textFill="#ff000f">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label fx:id="player2B_xp" alignment="CENTER" layoutX="1460.0" layoutY="781.0" prefHeight="38.0" prefWidth="88.0" text="Xp" textAlignment="CENTER" textFill="#ff000f">
+      <Label fx:id="player1A_xp" alignment="CENTER" layoutX="370.0" layoutY="130.0" prefHeight="38.0" prefWidth="85.0" text="Xp" textAlignment="CENTER" textFill="#ff000f">
          <font>
-            <Font size="26.0" />
+            <Font name="Papyrus" size="26.0" />
          </font>
       </Label>
-      <Label fx:id="player1A_xp" alignment="CENTER" layoutX="370.0" layoutY="158.0" prefHeight="38.0" prefWidth="85.0" text="Xp" textAlignment="CENTER" textFill="#ff000f">
+      <Label fx:id="player1B_xp" alignment="CENTER" layoutX="1445.0" layoutY="137.0" prefHeight="38.0" prefWidth="96.0" text="Xp" textAlignment="CENTER" textFill="#ff000f">
          <font>
-            <Font size="26.0" />
-         </font>
-      </Label>
-      <Label fx:id="player1B_xp" alignment="CENTER" layoutX="1460.0" layoutY="157.0" prefHeight="38.0" prefWidth="96.0" text="Xp" textAlignment="CENTER" textFill="#ff000f">
-         <font>
-            <Font size="26.0" />
+            <Font name="Papyrus" size="26.0" />
          </font>
       </Label>
       <ImageView fitHeight="108.0" fitWidth="102.0" layoutX="1817.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">

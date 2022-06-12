@@ -4,10 +4,14 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -446,10 +450,10 @@ public class ArenaController implements Initializable {
         player2B_xp.setText(String.valueOf(PassingClass.getInstance().getTeamB().getPlayer2().getBakugan().getXp()));
 
         //update hp and xp bar
-        bar_1A_hp.setValue(4000,PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().getHp());
-        bar_2A_hp.setValue(4000,PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().getHp());
-        bar_1B_hp.setValue(4000,PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().getHp());
-        bar_2B_hp.setValue(4000,PassingClass.getInstance().getTeamB().getPlayer2().getBakugan().getHp());
+        bar_1A_hp.setValue(Bakugan.HP_THRESHOLD,PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().getHp());
+        bar_2A_hp.setValue(Bakugan.HP_THRESHOLD,PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().getHp());
+        bar_1B_hp.setValue(Bakugan.HP_THRESHOLD,PassingClass.getInstance().getTeamB().getPlayer1().getBakugan().getHp());
+        bar_2B_hp.setValue(Bakugan.HP_THRESHOLD,PassingClass.getInstance().getTeamB().getPlayer2().getBakugan().getHp());
 
         bar_1A_xp.setValue(1,PassingClass.getInstance().getTeamA().getPlayer1().getBakugan().getXp());
         bar_2A_xp.setValue(1,PassingClass.getInstance().getTeamA().getPlayer2().getBakugan().getXp());
@@ -536,10 +540,6 @@ public class ArenaController implements Initializable {
 //                System.out.println("Player1A killed.");
                 player1A.setVisible(false);
                 player1A_imageview.setVisible(false);
-                player1A_hp_bar_back.setVisible(false);
-                player1A_hp_bar_front.setVisible(false);
-                player1A_xp_bar_back.setVisible(false);
-                player1A_xp_bar_front.setVisible(false);
                 player1A_hp.setVisible(false);
                 player1A_xp.setVisible(false);
             }
@@ -548,10 +548,6 @@ public class ArenaController implements Initializable {
 //                System.out.println("Player2A killed.");
                 player2A.setVisible(false);
                 player2A_imageview.setVisible(false);
-                player2A_hp_bar_back.setVisible(false);
-                player2A_hp_bar_front.setVisible(false);
-                player2A_xp_bar_back.setVisible(false);
-                player2A_xp_bar_front.setVisible(false);
                 player2A_hp.setVisible(false);
                 player2A_xp.setVisible(false);
             }
@@ -560,10 +556,6 @@ public class ArenaController implements Initializable {
 //                System.out.println("Player1B killed.");
                 player1B.setVisible(false);
                 player1B_imageview.setVisible(false);
-                player1B_hp_bar_back.setVisible(false);
-                player1B_hp_bar_front.setVisible(false);
-                player1B_xp_bar_back.setVisible(false);
-                player1B_xp_bar_front.setVisible(false);
                 player1B_hp.setVisible(false);
                 player1B_xp.setVisible(false);
             }
@@ -572,18 +564,14 @@ public class ArenaController implements Initializable {
 //                System.out.println("Player2B killed.");
                 player2B.setVisible(false);
                 player2B_imageview.setVisible(false);
-                player2B_hp_bar_back.setVisible(false);
-                player2B_hp_bar_front.setVisible(false);
-                player2B_xp_bar_back.setVisible(false);
-                player2B_xp_bar_front.setVisible(false);
                 player2B_hp.setVisible(false);
                 player2B_xp.setVisible(false);
             }
             if(PassingClass.getInstance().getTeamA().getPlayer1().isDead() && PassingClass.getInstance().getTeamA().getPlayer2().isDead()){
-                Platform.exit();
+                endgame();
             }
             else if(PassingClass.getInstance().getTeamB().getPlayer1().isDead() && PassingClass.getInstance().getTeamB().getPlayer2().isDead()){
-                Platform.exit();
+                endgame();
             }
 
         }catch (Exception e){
@@ -639,6 +627,32 @@ public class ArenaController implements Initializable {
         if(alert.showAndWait().get()== ButtonType.OK){
             Stage stage = (Stage) teamAsurrender.getScene().getWindow();
             stage.close();
+        }
+    }
+
+    public static void display(String title, String message) {
+        Stage window = new Stage();
+        window.initModality(Modality.APPLICATION_MODAL);
+        window.setTitle(title);
+        window.setMinWidth(250);
+        Label label = new Label();
+        label.setText(message);
+        Button close = new Button("Close the window");
+        close.setOnAction(actionEvent -> window.close());
+        VBox layout = new VBox(10);
+        layout.getChildren().addAll(label,close);
+        layout.setAlignment(Pos.CENTER);
+        Scene scene = new Scene(layout,200,150);
+        window.setScene(scene);
+        window.showAndWait();
+        Platform.exit();
+    }
+    private void endgame(){
+        if(PassingClass.getInstance().getTeamA().getPlayer1().isDead() && PassingClass.getInstance().getTeamA().getPlayer2().isDead()){
+            display("TEAM B WON","NICE, TEAM B WON");
+        }
+        else{
+            display("TEAM A WON","NICE, TEAM A WON");
         }
     }
 }

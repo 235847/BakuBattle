@@ -12,7 +12,7 @@ public class Bakugan {
 
     private String name;
     private int hp;
-    public static final int HP_THRESHOLD = 4000;
+    public static final int HP_THRESHOLD = 5000;
     private double xp;
     private double XP_MULTIPLIER;
     private boolean xp_loaded = false;
